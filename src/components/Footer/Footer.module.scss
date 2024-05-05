@@ -1,0 +1,132 @@
+@import '../../styles/mixins.scss';
+@import '../../styles/variables.scss';
+
+// .footerContainer {
+//     padding: 0 162px;
+// }
+
+.topContainer {
+    display: flex;
+    padding: 100px 162px;
+}
+
+.subContainer {
+    display: flex;
+    flex-direction: column;
+    margin-right: 195px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.logoTitle {
+    color: #FFFFFF;
+    padding-left: 10px;
+    font-size: 24px;
+    font-weight: 500;
+}
+
+.inputField {
+    display: flex;
+    align-items: center;
+    padding: 18px 24px;
+    border-radius: 12px;
+    border-style: solid;
+    border-color: $border-color;
+    border-width: 1px;
+}
+
+.icon1 {
+    display: flex;
+    align-items: center;
+    height: 24px;
+}
+
+.inputText {
+    display: flex;
+    align-items: center;
+    width: 301px;
+    height: 24px;
+    font-size: 18px;
+    line-height: 24px;
+    font-weight: 500;
+    color: $gray-text-color;
+    letter-spacing: -0.6%;
+    padding: 0 10px;
+}
+
+.icon2 {
+    display: flex;
+    align-items: center;
+}
+
+.footerNavigation {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr) 1.5fr 1fr;
+    grid-template-rows: 1fr;
+    grid-column-gap: 100px;
+    grid-row-gap: 0px;
+}
+
+.topTitle {
+    color: $gray-text-color;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 24px;
+    margin-bottom: 30px;
+}
+
+.otherItem {
+    color: $absolute-white-color;
+    font-size: 18px;
+    line-height: 24px;
+    margin-bottom: 20px;
+}
+
+.bottomItem {
+    color: $absolute-white-color;
+    font-size: 18px;
+    line-height: 24px;
+}
+
+.bottomContainer {
+    display: flex;
+    justify-content: space-between;
+    padding: 40px 162px;
+    background-color: #1A1A1A;
+}
+
+.privacyContainer {
+    display: flex;
+    align-items: center;
+    color: $absolute-white-color;
+    font-size: 18px;
+    line-height: 24px;
+    letter-spacing: -0.6%;
+    font-weight: 500;
+}
+
+.privacyText1 {
+    margin-right: 38px;
+}
+
+.socialContainer {
+    height: 72px;
+    width: 238px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.btnIcon {
+    border-radius: 58px;
+    background-color: #141414;
+    width: 52px;
+    height: 52px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
