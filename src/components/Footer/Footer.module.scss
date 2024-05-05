@@ -5,9 +5,13 @@
 //     padding: 0 162px;
 // }
 
-.topContainer {
+.footerContainer {
+    background-color: $background-color;
+}
+
+.container {
     display: flex;
-    padding: 100px 162px;
+    padding: 20px 120px;
 }
 
 .subContainer {
@@ -18,49 +22,16 @@
 
 .logo {
     display: flex;
-    align-items: center;
+    align-items: left;
     margin-bottom: 30px;
 }
 
 .logoTitle {
     color: #FFFFFF;
+    padding-top: 11px;
     padding-left: 10px;
     font-size: 24px;
     font-weight: 500;
-}
-
-.inputField {
-    display: flex;
-    align-items: center;
-    padding: 18px 24px;
-    border-radius: 12px;
-    border-style: solid;
-    border-color: $border-color;
-    border-width: 1px;
-}
-
-.icon1 {
-    display: flex;
-    align-items: center;
-    height: 24px;
-}
-
-.inputText {
-    display: flex;
-    align-items: center;
-    width: 301px;
-    height: 24px;
-    font-size: 18px;
-    line-height: 24px;
-    font-weight: 500;
-    color: $gray-text-color;
-    letter-spacing: -0.6%;
-    padding: 0 10px;
-}
-
-.icon2 {
-    display: flex;
-    align-items: center;
 }
 
 .footerNavigation {
@@ -71,32 +42,11 @@
     grid-row-gap: 0px;
 }
 
-.topTitle {
-    color: $gray-text-color;
-    font-size: 20px;
-    font-weight: 500;
-    line-height: 24px;
-    margin-bottom: 30px;
-}
-
-.otherItem {
+.listItem {
     color: $absolute-white-color;
     font-size: 18px;
     line-height: 24px;
-    margin-bottom: 20px;
-}
-
-.bottomItem {
-    color: $absolute-white-color;
-    font-size: 18px;
-    line-height: 24px;
-}
-
-.bottomContainer {
-    display: flex;
-    justify-content: space-between;
-    padding: 40px 162px;
-    background-color: #1A1A1A;
+    margin-bottom: 10px;
 }
 
 .privacyContainer {
@@ -107,6 +57,7 @@
     line-height: 24px;
     letter-spacing: -0.6%;
     font-weight: 500;
+    padding-right: 500;
 }
 
 .privacyText1 {
@@ -118,7 +69,7 @@
     width: 238px;
     display: flex;
     justify-content: space-around;
-    align-items: center;
+    align-items: left;
 }
 
 .btnIcon {
