@@ -7,78 +7,74 @@ function Footer() {
 
         <footer className={styles.footerContainer}>
 
-            <section className={styles.container}>
+            <div className={styles.subContainer}>
 
-                <div className={styles.subContainer}>
+                <div className={styles.logo}>
 
-                    <div className={styles.logo}>
+                    <Image 
+                    src="img/Logo.svg"
+                    width={48}
+                    height={48}
+                    alt="Logo"
+                    />
 
+                    <h3 className={styles.logoTitle}>
+                    Wishlistik
+                    </h3>
+
+                </div>
+
+                <div className={styles.socialContainer}>
+
+                    <div className={styles.btnIcon}>
                         <Image 
-                        src="img/Logo.svg"
-                        width={48}
-                        height={48}
-                        alt="Logo"
+                            src="icons/VK.svg"
+                            width={24}
+                            height={24}
+                            alt="Logo"
                         />
-
-                        <h3 className={styles.logoTitle}>
-                        Wishlistik
-                        </h3>
-
                     </div>
 
-                    <div className={styles.socialContainer}>
+                    <div className={styles.btnIcon}>
+                        <Image 
+                            src="icons/Telegram.svg"
+                            width={24}
+                            height={24}
+                            alt="Logo"
+                        />
+                    </div>
 
-                        <div className={styles.btnIcon}>
-                            <Image 
-                                src="icons/VK.svg"
-                                width={24}
-                                height={24}
-                                alt="Logo"
-                            />
-                        </div>
-
-                        <div className={styles.btnIcon}>
-                            <Image 
-                                src="icons/Telegram.svg"
-                                width={24}
-                                height={24}
-                                alt="Logo"
-                            />
-                        </div>
-
-                        <div className={styles.btnIcon}>
-                            <Image 
-                                src="icons/Whatsapp.svg"
-                                width={24}
-                                height={24}
-                                alt="Logo"
-                            />
-                        </div>
-
+                    <div className={styles.btnIcon}>
+                        <Image 
+                            src="icons/Whatsapp.svg"
+                            width={24}
+                            height={24}
+                            alt="Logo"
+                        />
                     </div>
 
                 </div>
 
-                <div className={styles.footerNavigation}>
+            </div>
 
-                    <ul className={styles.homeList}>
-                        <li className={styles.listItem}>Кто мы?</li>
-                        <li className={styles.listItem}>Подборки</li>
-                        <li className={styles.listItem}>Продавцам</li>
-                        <li className={styles.listItem}>Условия использования</li>
-                    </ul>
+            <div className={styles.footerNavigation}>
 
-                    <div className={styles.privacyContainer}>
+                <ul className={styles.homeList}>
+                    <li className={styles.listItem}>Кто мы?</li>
+                    <li className={styles.listItem}>Подборки</li>
+                    <li className={styles.listItem}>Продавцам</li>
+                    <li className={styles.listItem}>Условия использования</li>
+                </ul>
 
-                        <span className={styles.privacyText1}>
-                            @2024 Wislistik. Никакие права не защищены.
-                        </span>
+                <div className={styles.privacyContainer}>
 
-                    </div>
-                    
+                    <span className={styles.privacyText1}>
+                        @2024 Wishlistik. Никакие права не защищены.
+                    </span>
+
                 </div>
-
-            </section>
+                
+            </div>
 
         </footer>
 
