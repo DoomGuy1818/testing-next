@@ -1,0 +1,60 @@
+@import 'variables';
+
+@mixin h1-title {
+  color: $black;
+  font-family: $first-montserrat;
+  font-size: 48px;
+  font-style: normal;
+  font-weight: bold;
+}
+
+@mixin back-button{
+  color: $black;
+  font-family: $first-montserrat;
+  font-size: 34px;
+  font-style: normal;
+  font-weight: bold;
+}
+
+@mixin span-text{
+  color : $black;
+  font-family: $first-montserrat;
+  font-style: normal;
+  font-weight: lighter;
+  font-size: 24px;
+}
+
+@mixin placeholder-text{
+  color: $font-softGray;
+  font-family: $first-montserrat;
+  font-style: normal;
+  font-weight: 200;
+  font-size: 24px;
+}
+
+@mixin input-box{
+  border: $black;
+  border-radius: 20px;
+  box-shadow: $shadow-box;
+
+}
+
+@mixin create-button{
+  background-color: #BC13CB;
+}
+
+@mixin button-text {
+  color: $white;
+  font-family: $first-montserrat;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: normal;
+}
+
+@mixin wishlist-h2 {
+  color: $black;
+  font-family: $first-montserrat;
+  font-size: 50px;
+  font-style: normal;
+  font-weight: 600;
+}

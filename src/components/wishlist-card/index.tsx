@@ -1,21 +1,14 @@
-import styles from "./wishlist-card.module.sass"
+import styles from "./wishlist-card.module.scss"
 
-export default function index(){
+export default function wishlistCard(){
     return(
-        <a href="#" className = {styles.card}>
+        <div className={styles.card}></div>
+        // <a href="#" className = {styles.card}>
+        //
+        //     <a href="#" className = {styles.editbutton}></a>
+        //     <span>Название</span>
+        //     <span>Описание</span>
 
-            <a href="#" className = {styles.editbutton}>
-                <div className={styles.editbutton}>
-                <Image                             /*TODO: сделать картинку, чтобы крутая была, разобраться с ошибкой, которая тут возникает*/
-                    fill
-                    src="/assets/images/pizzas/01.png"
-                    alt="pizza"
-                />
-                </div>
-            </a>
-            <span>Название</span>
-            <span>Описание</span>
-
-        </a>
+        // </a>
     )
 }

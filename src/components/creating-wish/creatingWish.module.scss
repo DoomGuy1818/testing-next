@@ -1,0 +1,141 @@
+@import "../styles/mixins";
+
+$first-font: Montserrat, 48px, bold;
+$second-font: Montserrat, 36px, bold;
+$font-first-color: #000000;
+$font-second-color: #606060;
+$shadow-box: 0 2px 4px 0 rgba(0, 0, 0, 0.25);
+.container{
+  max-width: 1500px;
+  margin: auto;
+  display: block;
+  justify-content: space-around;
+}
+.blocklink {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 50px;
+}
+
+.link{
+  position: relative;
+  top: 20px;
+  height: 40px;
+  box-shadow: $shadow-box;
+}
+
+.title{
+  margin-top: 30px;
+  height: 56px;
+  width: 700px;
+  box-shadow: $shadow-box;
+}
+//.price
+//  height: 56px
+//  width: 700px
+//  box-shadow: $shadow-box
+
+.comment{
+  height: 149px;
+  width: 700px;
+  box-shadow: $shadow-box;
+}
+.addGift{
+  position: relative;
+  margin-top: 158px;
+
+  a{
+    position: relative;
+  }
+}
+
+.addGiftText{
+  position: relative;
+  left: 50px;
+  top: 20px;
+  display: flex;
+}
+
+.sector{
+   display: flex;
+   flex-direction: row;
+   justify-content: space-between;
+   margin-top: 54px;
+}
+
+.title{
+  margin-bottom: 47px;
+}
+
+
+.import{
+  display: flex;
+  flex-direction: column;
+  margin-right: 100px;
+  span{
+    margin-bottom: 18px;
+  }
+}
+
+.img{
+  height: 330px;
+  width: 340px;
+}
+
+.bigblock{
+  display: flex;
+}
+
+.block1{
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 40px;
+  span {
+    margin-bottom: 18px;
+  }
+}
+
+.block2{
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 40px;
+  input{
+    width: 100px;
+    margin-right: 30px;
+  }
+  span{
+    margin-bottom: 18px;
+  }
+}
+
+.rectangle{
+  position: relative;
+  right: 130px;
+  padding: 5px;
+  border: 2px solid white;
+  width: fit-content;
+}
+
+.price{
+  display: flex;
+  justify-content: space-between;
+  input{
+    width: 500px;
+  }
+}
+
+.block3{
+  display: flex;
+  flex-direction: column;
+  span{
+    margin-bottom: 18px;
+  }
+  input{
+    height: 150px;
+  }
+}
+
+.createButton{
+  height: 142px;
+  width: 548px;
+}

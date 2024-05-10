@@ -1,0 +1,19 @@
+$font-stack:      Montserrat, sans-serif;
+$primary-color:   #000000;
+$button-color1:    #000000;
+$shadow-box: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+
+card{
+  font: 100% $font-stack;
+  color: $primary-color;
+}
+
+
+editbutton {
+  font: 100% $font-stack;
+  color: $primary-color;
+  border-radius: 20px;
+  width: 451px;
+  height: 97px;
+  box-shadow: $shadow-box;
+}
