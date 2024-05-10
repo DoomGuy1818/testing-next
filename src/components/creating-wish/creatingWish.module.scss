@@ -1,12 +1,8 @@
-@import "../styles/mixins";
+@import '../styles/variables';
+@import '../styles/mixins';
 
-$first-font: Montserrat, 48px, bold;
-$second-font: Montserrat, 36px, bold;
-$font-first-color: #000000;
-$font-second-color: #606060;
-$shadow-box: 0 2px 4px 0 rgba(0, 0, 0, 0.25);
 .container{
-  max-width: 1500px;
+  background-color: $background-white;
   margin: auto;
   display: block;
   justify-content: space-around;
@@ -21,35 +17,34 @@ $shadow-box: 0 2px 4px 0 rgba(0, 0, 0, 0.25);
   position: relative;
   top: 20px;
   height: 40px;
-  box-shadow: $shadow-box;
+  @include input-box;
 }
 
-.title{
+.name{
   margin-top: 30px;
-  height: 56px;
+  height: 40px;
   width: 700px;
-  box-shadow: $shadow-box;
+  @include input-box
 }
-//.price
-//  height: 56px
-//  width: 700px
-//  box-shadow: $shadow-box
 
 .comment{
   height: 149px;
   width: 700px;
-  box-shadow: $shadow-box;
+  @include input-box;
 }
 .addGift{
   position: relative;
   margin-top: 158px;
+  margin-right: 250px;
 
   a{
+    @include back-button;
     position: relative;
   }
 }
 
 .addGiftText{
+  @include h1-title;
   position: relative;
   left: 50px;
   top: 20px;
@@ -64,6 +59,7 @@ $shadow-box: 0 2px 4px 0 rgba(0, 0, 0, 0.25);
 }
 
 .title{
+  @include h1-title;
   margin-bottom: 47px;
 }
 
@@ -80,6 +76,7 @@ $shadow-box: 0 2px 4px 0 rgba(0, 0, 0, 0.25);
 .img{
   height: 330px;
   width: 340px;
+  @include input-box;
 }
 
 .bigblock{
@@ -121,6 +118,7 @@ $shadow-box: 0 2px 4px 0 rgba(0, 0, 0, 0.25);
   justify-content: space-between;
   input{
     width: 500px;
+    @include input-box;
   }
 }
 
@@ -131,11 +129,27 @@ $shadow-box: 0 2px 4px 0 rgba(0, 0, 0, 0.25);
     margin-bottom: 18px;
   }
   input{
+    @include input-box;
+    width: 700px;
     height: 150px;
+
   }
+}
+.buttonBox{
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  margin-left: 200px;
+  margin-top: 86px;
 }
 
 .createButton{
-  height: 142px;
-  width: 548px;
+  @include create-button;
+  @include button-text;
+  height: 100px;
+  width: 300px;
+}
+
+.text{
+  @include span-text;
 }

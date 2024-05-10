@@ -27,7 +27,7 @@ export default function creatingWish() {
                         <div>
                             <div className={styles.block1}>
                                 <span className={styles.text}>Название</span>
-                                <input className={styles.title}></input>
+                                <input className={styles.name}></input>
                             </div>
 
                             <div className={styles.block2}>
@@ -42,13 +42,15 @@ export default function creatingWish() {
 
                             <div className={styles.block3}>
                                 <span className={styles.text}>Комментарий</span>
-                                <input className={styles.Comments}></input>
+                                <input></input>
+                            </div>
+
+                            <div className={styles.buttonBox}>
+                                <button className={styles.createButton}>
+                                    Создать!
+                                </button>
                             </div>
                         </div>
-
-                        <button className={styles.createButton}>
-                            Создать!
-                        </button>
 
                     </div>
 

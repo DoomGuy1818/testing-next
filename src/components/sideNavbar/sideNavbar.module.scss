@@ -1,8 +1,16 @@
+@import "../styles/mixins";
+@import "../styles/variables";
+
 .list{
   position: relative;
   margin-top: 254px;
   margin-left: 100px;
   list-style-type: none;
+
+  a{
+    text-decoration: none;
+    @include back-button;
+  }
 }
 
 .friend{
@@ -19,6 +27,10 @@
   margin-top: 56px;
 }
 
-//.сontainer{
-//  height: 1280px;
-//}
+.page{
+  a{
+    color: $accent-blue
+  }
+}
+
+

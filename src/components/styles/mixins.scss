@@ -9,19 +9,20 @@
 }
 
 @mixin back-button{
-  color: $black;
+  color: $font-deepGray;
   font-family: $first-montserrat;
   font-size: 34px;
   font-style: normal;
   font-weight: bold;
+  text-decoration: none;
 }
 
 @mixin span-text{
   color : $black;
   font-family: $first-montserrat;
   font-style: normal;
-  font-weight: lighter;
-  font-size: 24px;
+  font-weight: 100;
+  font-size: 18px;
 }
 
 @mixin placeholder-text{
@@ -35,12 +36,14 @@
 @mixin input-box{
   border: $black;
   border-radius: 20px;
-  box-shadow: $shadow-box;
+  box-shadow: $shadow;
 
 }
 
 @mixin create-button{
   background-color: #BC13CB;
+  border: #BC13CB;
+  border-radius: 20px;
 }
 
 @mixin button-text {
