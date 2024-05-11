@@ -1,20 +1,29 @@
 import styles from "./createWishlist.module.scss"
-
+import sidebar from "../sideNavbar"
+import SideNavbar from "../sideNavbar";
 export default function createWishlist() {
     return(
         <div className={styles.container}>
-            <div className={styles.createWishlistCard}>
-                <a href="#">
-                    <img src="#" alt="image)"/>
-                    назад
-                </a>
-                <span>Создать Вишлист</span>
-                <span className={styles.Naming}>Название</span>
-                <input className={styles.title}></input>
-                <span className={styles.createComment}>Комментарий</span>
-                <input className={styles.Comment}></input>
-                <button className={styles.CreateButton}>Сохранить</button>
+            <div className={styles.flexbox}>
+                <div className={styles.sidebarDiv}>
+                    <SideNavbar/>
+                </div>
+                <div className={styles.createWishlist}>
+                    <div className={styles.content}>
+                        <a href="#">Назад</a>
+                        <h1>Создать Вишлист</h1>
+                        <div className={styles.titleBox}>
+                            <span>Название</span>
+                            <input></input>
+                        </div>
+                        <div className={styles.commentBox}>
+                            <span>Комментарий</span>
+                            <input></input>
+                        </div>
+                    </div>
+                </div>
             </div>
+
         </div>
     )
 }

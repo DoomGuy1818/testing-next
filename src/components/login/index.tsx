@@ -1,17 +1,26 @@
 import styles from "./loginCard.module.scss"
 
-export default function index(){
+export default function login(){
     return(
-        // <header/>
+        <div className={styles.container}>
+            <div className={styles.loginBox}>
+                <a href="#" className={styles.backButton}>Назад</a>
+                <h1>Вход</h1>
+                <div className={styles.loginInput}>
+                    <span>логин</span>
+                    <input></input>
 
-        <div className={styles.loginCard}>
-            <span className={styles.text}>Логин</span>
-            <input className={styles.loginUsername}></input>
-            <span className={styles.text}>Пароль</span>
-            <input className={styles.loginPassword}></input>
-            <a href="#">забыли пароль?</a>
-            <a href="#">Зарегистрироваться</a>
+                </div>
+                <div className={styles.passwordInput}>
+                    <span>пароль</span>
+                    <input></input>
+                </div>
+                <button>Войти</button>
+                <div className={styles.support}>
+                    <a href="#" className={styles.forgotPass}>Забыли пароль?</a>
+                    <a href="#" className={styles.register}>Зарегистрироваться</a>
+                </div>
+            </div>
         </div>
-        // <footer/>
     )
 }
