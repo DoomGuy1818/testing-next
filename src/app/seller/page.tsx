@@ -1,11 +1,11 @@
-import Footer from "@/components/Footer";
+import Button from "@/components/GenericButton";
 
 export default function SellerLanding() {
   return (
     <div>
       SellerLanding
       <footer>
-        <Footer />
+        <Button />
       </footer>
     </div>
   );
