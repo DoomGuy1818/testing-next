@@ -1,0 +1,94 @@
+@import '../styles/variables';
+@import '../styles/mixins';
+
+@import '../styles/variables';
+@import '../styles/mixins';
+
+.container {
+  background-color: $background-white;
+  height: 1080px;
+
+}
+.regContent {
+  padding-top: 25px;
+}
+
+.regBox {
+  border-radius: 30px;
+  margin-top: 150px;
+  @include register-card;
+  margin-left: 450px;
+  box-shadow: $shadow;
+  button {
+    @include register-button;
+  }
+
+  h1 {
+    margin-left: 62px;
+    margin-top: 12px;
+    @include h1-title;
+  }
+}
+
+.backButton {
+  @include back-button;
+  margin-left: 62px;
+  margin-top: 15px;
+}
+
+.nameInput {
+  display: flex;
+  flex-direction: column;
+  span {
+    margin-left: 62px;
+    @include span-text;
+  }
+
+  input {
+    @include input-box;
+    width: 490px;
+    height: 50px;
+    margin-left: 62px;
+    margin-bottom: 11px;
+    margin-top: 11px;
+  }
+}
+
+.emailInput {
+  display: flex;
+  flex-direction: column;
+  span {
+    margin-top: 48px;
+    margin-left: 62px;
+    @include span-text;
+  }
+
+  input {
+    @include input-box;
+    width: 490px;
+    height: 50px;
+    margin-left: 62px;
+    margin-bottom: 11px;
+    margin-top: 11px;
+  }
+}
+
+.passwordInput {
+  display: flex;
+  flex-direction: column;
+
+  span {
+    margin-left: 62px;
+    margin-top: 48px;
+    @include span-text;
+  }
+
+  input {
+    width: 490px;
+    height: 50px;
+    margin-left: 62px;
+    margin-bottom: 11px;
+    margin-top: 11px;
+    @include input-box;
+  }
+}

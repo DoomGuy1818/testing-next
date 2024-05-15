@@ -1,16 +1,30 @@
 import styles from "./regCard.module.scss"
 
-export default function regCard(){
-    return(
+export default function register(){
+    return (
         // <header/>
-        <div className={styles.regCard}>
-            <span className={styles.text}>Имя</span>
-            <input className={styles.Name}></input>
-            <span className={styles.text}>Email</span>
-            <input className={styles.email}></input>
-            <span className={styles.text}></span>
-            <input className={styles.Password}></input>
-            <a href="#">Зарегистрироваться</a>
+        <div className={styles.container}>
+            <div className={styles.regBox}>
+                <div className={styles.regContent}>
+                    <a href="#" className={styles.backButton}>Назад</a>
+                    <h1>Регистрация</h1>
+                    <div className={styles.nameInput}>
+                        <span>Имя</span>
+                        <input></input>
+                    </div>
+
+                    <div className={styles.emailInput}>
+                        <span>почта</span>
+                        <input></input>
+                    </div>
+
+                    <div className={styles.passwordInput}>
+                        <span>пароль</span>
+                        <input></input>
+                    </div>
+                    <button>Зарегистрироваться</button>
+                </div>
+            </div>
         </div>
         // <footer/>
     )

@@ -24,6 +24,10 @@
   }
 }
 
+.loginContent {
+  padding-top: 25px;
+}
+
 .backButton {
   @include back-button;
   margin-left: 62px;

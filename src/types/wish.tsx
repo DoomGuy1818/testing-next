@@ -1,4 +1,4 @@
-export type Wish = {
+export interface Wish {
     ID: string;
     Name: string;
     Price: string;
@@ -6,4 +6,8 @@ export type Wish = {
     Description: string;
     Link: string;
     Category: string;
+}
+
+interface WishData {
+    wishes: Wish[];
 }
