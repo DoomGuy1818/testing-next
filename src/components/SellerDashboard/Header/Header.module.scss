@@ -1,0 +1,21 @@
+@import '@/styles/mixins.scss';
+@import '@/styles/variables.scss';
+
+.header {
+	overflow: hidden;	
+	display: inline;
+	position: fixed;
+	top: 45px;
+	left: 45px;
+	width: 100%;
+	align-self: center;
+	color: $dark-grey;
+	text-align: left;
+	padding: 14px 16px;
+	margin-top: 30px;
+	font-family: $main-font;
+	font-size: 32px;
+	font-weight: 700;
+	justify-content: center;
+	line-height: 20px;
+}

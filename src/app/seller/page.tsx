@@ -1,12 +1,12 @@
 import Button from "@/components/GenericButton";
+import Header from "@/components/SellerDashboard/Header";
 
 export default function SellerLanding() {
   return (
     <div>
       SellerLanding
-      <footer>
-        <Button />
-      </footer>
+      <Button />
+      <Header/>
     </div>
   );
 }

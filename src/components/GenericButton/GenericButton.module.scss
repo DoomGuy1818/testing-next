@@ -3,14 +3,14 @@
 
 .button {
   align-items: center;
-  background-color: #BC13CB;
+  background-color: $accent-violet;
   border: 0;
   border-radius: 100px;
   box-sizing: border-box;
-  color: #ffffff;
+  color: $white;
   cursor: pointer;
   display: inline-flex;
-  font-family: "Montserrat", sans-serif;
+  font-family: $main-font;
   font-size: 16px;
   font-weight: 500;
   justify-content: center;
@@ -33,11 +33,11 @@
 .button:hover,
 .button:focus { 
   background-color: #D03EDB;
-  color: #ffffff;
+  color: $white;
 }
 
 .button:active {
-  background: #BC13CB;
+  background: $accent-violet;
   color: rgb(255, 255, 255, .7);
 }
 
