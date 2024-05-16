@@ -1,7 +1,9 @@
-@import '../../styles/mixins.scss';
-@import '../../styles/variables.scss';
+@import '@/styles/mixins.scss';
+@import '@/styles/variables.scss';
 
-.image {
+.logo {
+	display: inline-flex;
+	justify-content: center;
 }
 
 .text {
