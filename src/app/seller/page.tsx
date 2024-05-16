@@ -8,19 +8,18 @@ export default function SellerLanding() {
   return (
     <>
       <div className={styles.greetings}>
-        <h1 className={styles.heading}>Помогайте дарить и радовать</h1>
-        <p className={styles.subheading}>Зарегистрируйтесь как продавец и продвигайте свои услуги</p>
+        <div className={styles.text}>
+          <h1 className={styles.heading}>Помогайте дарить и радовать</h1>
+          <p className={styles.subheading}>Зарегистрируйтесь как продавец и продвигайте свои услуги</p>
+        </div>
         <Button text={ "Стать продавцом!" } />
       </div>
       <Image
+        className={styles.background}
         src={landingBackground}
         alt="Seller Landing Background"
         priority
         quality={100}
-        fill
-        style={{
-          objectFit: 'cover',
-        }}
       />
     </>
   );

@@ -1,31 +1,45 @@
 @import '@/styles/mixins.scss';
 @import '@/styles/variables.scss';
 
+.background {
+  z-index: -1;
+  max-width: 100%;
+  height: auto;
+}
+
 .greetings {
-  align-self: center;
   display: inline-flex;
   flex-direction: column;
   justify-content: center;
-  padding: 20% 10%;
+  padding: 2em 1em;
+  z-index: 10;
+  max-width: fit-content;
+  margin: auto;
+  overflow: auto;
+}
+
+.text {
+  padding: 2em;
 }
 
 .heading {
   align-self: center;
-  color: $dark-grey;
+  color: $white;
   text-align: center;
-  padding: 14px 16px;
+  padding: 1em 2em;
   font-family: $main-font;
-  font-size: 48px;
+  font-size: 84px;
   font-weight: 700;
-  line-height: 56px;
+  text-shadow: 3px 2px 0 #242424F0;
 }
 
 .subheading {
-  padding: 25% 10%;
+  padding: 5% 10%;
   display: flex;
+  text-shadow: 2px 1px 0 #24242470;
   justify-content: center;
   font-family: $main-font;
-  font-size: 20px;
-  font-weight: 500;
-  line-height: 24px;
+  font-size: 32px;
+  font-weight: 400;
+  text-align: center;
 }
