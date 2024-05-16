@@ -1,0 +1,49 @@
+.shops-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 120px;
+}
+.offline-shops {
+  font-size: 35px;
+  color: #fff;
+  font-weight: 500;
+  padding: 15px 12px;
+  border-radius: 20px;
+  background-color: #b8c7fb;
+}
+
+.slider-buttons {
+  display: flex;
+  gap: 25px;
+}
+
+.slider-button {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-radius: 50%;
+  border: none;
+  background-color: #b8c7fb;
+  cursor: pointer;
+}
+@media (min-width: 426px) and (max-width: 650px) {
+  .offline-shops {
+    font-size: 25px;
+    padding: 12px 15px;
+    border-radius: 15px;
+  }
+}
+
+@media (max-width: 425px) {
+  .offline-shops {
+    width: 100%;
+    text-align: center;
+    font-size: 25px;
+  }
+  .slider-buttons {
+    display: none;
+  }
+}

@@ -1,0 +1,16 @@
+.cards-shops__list {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, 184px);
+  grid-gap: 22px;
+}
+.cards-shops__item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #e8edff;
+  border-radius: 20px;
+}
+.cards-shops__image {
+  object-fit: contain;
+}
