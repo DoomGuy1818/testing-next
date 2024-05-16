@@ -1,7 +1,0 @@
-@import '/../styles/mixins.scss';
-@import '/../styles/variables.scss';
-
-.landing {
-  display: flex;
-  justify-content: center;
-}

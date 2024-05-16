@@ -1,0 +1,31 @@
+@import '@/styles/mixins.scss';
+@import '@/styles/variables.scss';
+
+.greetings {
+  align-self: center;
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 20% 10%;
+}
+
+.heading {
+  align-self: center;
+  color: $dark-grey;
+  text-align: center;
+  padding: 14px 16px;
+  font-family: $main-font;
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 56px;
+}
+
+.subheading {
+  padding: 25% 10%;
+  display: flex;
+  justify-content: center;
+  font-family: $main-font;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 24px;
+}
