@@ -17,13 +17,14 @@
   position: relative;
   top: 20px;
   height: 40px;
+  width: 1050px;
   @include input-box;
 }
 
 .name{
   margin-top: 30px;
   height: 40px;
-  width: 700px;
+  width: 600px;
   @include input-box
 }
 
@@ -35,7 +36,7 @@
 .addGift{
   position: relative;
   margin-top: 158px;
-  margin-right: 250px;
+  margin-right: 50px;
 
   a{
     @include back-button;
@@ -130,7 +131,7 @@
   }
   input{
     @include input-box;
-    width: 700px;
+    width: 600px;
     height: 150px;
 
   }
