@@ -1,0 +1,49 @@
+.gift_box {
+    background-color: #E8EAFF; 
+  display: flex; 
+  align-items: flex-start; 
+  padding: 30px;
+  border-radius: 100px;
+  height: 32vw;
+  margin: 5.5vw;
+  }
+  .content{
+    padding: 3vw 5vw 5vw 5vw;
+    
+  }
+  
+
+  
+  .title {
+    color: #000000;
+    font-size: 2vw;
+    margin-bottom: 15px;
+    max-width: 33vw;
+  }
+  
+  .description {
+    margin-top: 3vw ;
+    color: #000000;
+    font-size: 1.2vw;
+    line-height: 1.5;
+    max-width: 37vw; 
+    
+    
+  }
+  
+  .createButton {
+    margin-top: 4vw;
+    font-size: 1vw; 
+    padding: 1.3vw 1.3vw; 
+    border-radius: 15vw; 
+    background-color: #FBBC5E; 
+    color: #000000; 
+    border: none; 
+    cursor: pointer; 
+    transition: background-color 0.3s ease; 
+  }
+
+  .createButton:hover {
+    background-color: #fad295; 
+    
+  }

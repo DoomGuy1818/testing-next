@@ -1,0 +1,70 @@
+.container {
+    width: 90%;
+    width: 1720px;
+    margin: 0px auto;
+   }
+   
+   .catalog {
+    margin-bottom: 10vw;
+    margin-top: 2vw;
+   
+    &Inner {
+     display: grid;
+     grid-template-columns: repeat(4, 1fr);
+     gap: 30px;
+    }
+   
+    &Card {
+     width: 100%;
+     padding: 30px;
+     background-color: #e8eaff;
+     border-radius: 50px;
+   
+     img {
+      border-radius: 35px;
+      margin-bottom: 35px;
+     }
+    }
+   
+    &Title {
+     font-size: 24px;
+     margin-bottom: 60px;
+    }
+   
+    &Price {
+     font-size: 36px;
+     color: #bc13cb;
+     font-weight: 500;
+     margin-bottom: 35px;
+    }
+   
+    &Btn {
+        display: flex;
+        align-items: center;
+        color: #9f9f9f;
+        margin-bottom: 35px;
+        border: none;
+        background-color: #e8eaff ;
+   
+     img {
+      margin: auto;
+      margin-right: 8px;
+     }
+    }
+   
+    &Link {
+     font-size: 24px;
+     box-sizing: border-box;
+     padding: 8px 54px;
+     text-align: center;
+     // color: rgba(0, 0, 0, 1);
+     cursor: pointer;
+     background: transparent;
+     border: 2px solid rgba(188, 19, 203, 1);
+     border-radius: 100px;
+    }
+   }
+   
+    
+   
+     
