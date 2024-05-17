@@ -14,10 +14,14 @@ export async function fetchWishes(): Promise<Wish[]> {
 }
 
 export async function fetchWishlists(): Promise<Wishlist[]> {
-    const res = await fetch(`${BASE}/wishlists`, {})
+    const res = await fetch(`${BASE}/wishlists/`, {})
 
     if (!res.ok) throw new Error("Ошибка в загрузке вишлиста")
     return res.json()
 }
+
+
+
+
 
 
