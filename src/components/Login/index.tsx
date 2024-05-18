@@ -19,8 +19,8 @@ export default function Login(){
                     </div>
                     <Button text={ "Войти" } />
                     <div className={styles.support}>
-                        <a href="#" className={styles.forgotPass}>Забыли пароль?</a>
-                        <a href="#" className={styles.register}>Зарегистрироваться</a>
+                        <a href="/seller/login/forgot-password" className={styles.forgotPass}>Забыли пароль?</a>
+                        <a href="/seller/registration" className={styles.register}>Зарегистрироваться</a>
                     </div>
                 </div>
 
