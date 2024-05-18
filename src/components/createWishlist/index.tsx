@@ -42,7 +42,7 @@ export default function createWishlist() {
                         <h1>Создать Вишлист</h1>
                         <div className={styles.titleBox}>
                             <span>Название</span>
-                            <input type='text' name="Name" value={formData.Name}></input>
+                            <input type='text' name="Name" value={formData.Name} onChange={handleInputChange}/>
                         </div>
                         <div className={styles.commentBox}>
                             <span>Комментарий</span>

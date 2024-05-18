@@ -51,16 +51,21 @@ export async function RegisterUser(newUser: User): Promise<User> {
         throw new Error("Ошибка в создании пользователя");
     }
     const session = await res.json()
-    localStorage.setItem("user", JSON.stringify(session.id))
+    const sessionId : string = session.id.replace(/"/g, '');
+    localStorage.setItem("user", sessionId)
     return await res.json();
 }
 
 export async function CreateWishlist(newWishlist: Wishlist): Promise<Wishlist> {
-    const res = await fetch(`${BASE}/wishlist`, {
+    let authToken = localStorage.getItem("user");
+    if (authToken && authToken.startsWith('"') && authToken.endsWith('"')) {
+        authToken = authToken.slice(1, -1); // Удаление первого и последнего символов (кавычек)
+    }
+    const res = await fetch(`${BASE}/wishlists`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
-            'Authorization': 'bearer ' + localStorage.getItem('user'),
+            'Authorization': authToken ? authToken : ''
         },
         body: JSON.stringify({
             Name: newWishlist.Name,
