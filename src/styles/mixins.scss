@@ -109,3 +109,43 @@
   user-select: none;
   vertical-align: middle;
 }
+
+@mixin sideNavBar {
+  list-style-type: none;
+  margin: 0px;
+  padding: 0px;
+  width: 25%;
+  background-color: $pastel-indigo;
+  height: 100%;
+  position: fixed;
+  overflow: auto;
+  .parent {
+          display: inline-flex;
+          flex-direction: column;
+          justify-content: space-between;
+          flex-wrap: nowrap;
+          background-color: $pastel-indigo;
+          padding: 35px 0;
+  }
+
+  .child {
+          display: inline-flex;
+          flex-direction: column;
+          justify-content: flex-start;
+          flex-wrap: nowrap;
+  }
+
+  .section {
+          background-color: $pastel-indigo;
+          padding: 25px 20px;
+          color: $dark-grey;
+          font-family: $first-montserrat;
+          font-size: 20pt;
+          font-weight: 600;
+  }
+
+  .section:hover, 
+  .section:active {
+          background-color: $white;
+  }
+}

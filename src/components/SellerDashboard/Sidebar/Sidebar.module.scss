@@ -1,12 +1,21 @@
 @import '@/styles/mixins.scss';
 @import '@/styles/variables.scss';
 
+.sidebarContainer {
+	height: 100vh;
+	padding-top: 1rem;
+	padding-bottom: 2rem;
+	display: inline-flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	background-color: $pastel-indigo;
+}
+
 .parent {
 	display: inline-flex;
 	flex-direction: column;
 	justify-content: space-between;
 	flex-wrap: nowrap;
-	background-color: $pastel-indigo;
 	padding: 35px 0;
 }
 

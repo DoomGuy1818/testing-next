@@ -8,9 +8,8 @@ export default function Logo() {
           // className={styles.logo}
           src="/wish.svg"
           alt="Wishlist Logo"
-          width={180}
-          height={37}
-          priority
+          width={40}
+          height={40}
         />
 	<p className={styles.text}>Wishlistik</p>
     </div>

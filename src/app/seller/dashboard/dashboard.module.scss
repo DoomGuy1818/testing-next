@@ -1,0 +1,11 @@
+@import '@/styles/mixins.scss';
+@import '@/styles/variables.scss';
+
+.dashboardContainer {
+  display: inline-flex;
+  flex-direction: row;
+}
+
+.navBar {
+  @include sideNavBar;
+}
