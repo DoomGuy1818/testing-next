@@ -11,6 +11,7 @@
 }
 .loginBox {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-content: center;
   border-radius: 2rem;
@@ -23,11 +24,11 @@
     @include register-button;
     width: clamp(40vw, 60vw, 80vw);
     margin-top: 2rem;
-    margin-left: 3rem;
+    margin-left: 2rem;
   }
 
   h1 {
-    margin-left: 3rem;
+    margin-left: 2rem;
     margin-top: 2vh;
     margin-bottom: 1vh;
     @include h1-title;
@@ -40,7 +41,7 @@
 
 .backButton {
   @include back-button;
-  margin-left: 3rem;
+  margin-left: 2rem;
   margin-top: 2rem;
 }
 
@@ -48,7 +49,7 @@
   display: flex;
   flex-direction: column;
   span {
-    margin-left: 3rem;
+    margin-left: 2rem;
     margin-top: 1rem;
     @include span-text;
   }
@@ -57,7 +58,7 @@
     @include input-box;
     width: clamp(40vw, 60vw, 80vw);
     height: 3rem;
-    margin-left: 3rem;
+    margin-left: 2rem;
     margin-bottom: 1rem;
     margin-top: 1rem;
   }
@@ -68,7 +69,7 @@
   flex-direction: column;
 
   span {
-    margin-left: 3rem;
+    margin-left: 2rem;
     margin-top: 0.5rem;
     @include span-text;
   }
@@ -76,7 +77,7 @@
   input {
     width: clamp(40vw, 60vw, 80vw);
     height: 3rem;
-    margin-left: 3rem;
+    margin-left: 2rem;
     margin-bottom: 1rem;
     margin-top: 1rem;
     @include input-box;
@@ -97,13 +98,13 @@
   @include span-text;
   text-decoration: none;
   margin-top: 1rem;
-  margin-left: 3rem;
+  margin-left: 2rem;
 }
 
 .register {
   @include span-text;
   text-decoration: none;
   margin-top: 1rem;
-  margin-left: 3rem;
-  margin-right: 3rem;
+  margin-left: 2rem;
+  margin-right: 2rem;
 }
