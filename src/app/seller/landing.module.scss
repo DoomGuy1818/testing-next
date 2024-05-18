@@ -27,18 +27,18 @@
   color: $white;
   text-align: center;
   padding: 1em 2em;
-  font-family: $main-font;
+  font-family: $first-montserrat;
   font-size: 84px;
   font-weight: 700;
-  text-shadow: 3px 2px 0 #242424F0;
+  text-shadow: 3px 2px 0 $shadow;
 }
 
 .subheading {
   padding: 5% 10%;
   display: flex;
-  text-shadow: 2px 1px 0 #24242470;
+  text-shadow: 2px 1px 0 $shadow;
   justify-content: center;
-  font-family: $main-font;
+  font-family: $first-montserrat;
   font-size: 32px;
   font-weight: 400;
   text-align: center;

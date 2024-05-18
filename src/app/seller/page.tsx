@@ -1,4 +1,4 @@
-import styles from "./page.module.scss";
+import styles from "./landing.module.scss";
 import Image from "next/image";
 import landingBackground from "/public/seller_landing_background.jpg";
 
