@@ -18,7 +18,7 @@ export default function Main() {
                      <Image src="Images/arrow.svg" width={25} height={15} alt="Icon" />
                     </div>
                 </div>
-                <div>
+                <div className={styles.selection}>
                 <Selection/>
                 </div>
             </div>

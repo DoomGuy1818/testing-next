@@ -1,13 +1,13 @@
 'use client';
 
+import styles from './Header.module.scss'
 import Image from "next/image";
-import styles from "./Header.module.scss"; 
-import Link from "next/link";
 import { useState, useEffect } from "react";
 
+const BurgerMenu = () => {
 
-export default function Header() {
   const [windowWidth, setWindowWidth] = useState<number>(0);
+  
 
   useEffect(() => {
     const handleResize = () => {
@@ -21,33 +21,33 @@ export default function Header() {
       window.removeEventListener("resize", handleResize);
     };
   }, []);
-
   
   const logoWidth = windowWidth * 0.16; 
   const logoHeight = logoWidth * 0.4; 
- 
-    return(
-        <nav className={styles.headerNav}>
-          <div className={styles.header__top__nav}>
-            <ul className={styles.header__list}>
-              <li className={styles.header__logo}>
-                <Image src="Images/logo.svg" width={logoWidth} height={logoHeight} alt="Not found" />
-              </li>
-              <li className={styles.header__item}>Подборки</li>
-              <li className={styles.header__item}>Подарки</li>
-              <li className={`${styles.header__item} ${styles.header__lastItem}`}>Мои вишлисты </li>
-              <li className={styles.header__item_img}>
-                <Image src="Images/peop.svg" width={windowWidth * 0.03} height={windowWidth * 0.035} alt="Not found" />
-              </li>
-              <li className={styles.header__item__img}>
-                <Image src="Images/heart.svg" width={windowWidth * 0.03} height={windowWidth * 0.035} alt="Not found" />
-              </li>
-              <li className={styles.burger}>
-                <span></span>
-              </li>
-            </ul>
+
+  return (
+    <div className={styles.all}>
+      <div className={styles.biggift}>
+              <Image src="Images/giftbig.svg" width={windowWidth * 0.33} height={windowWidth * 0.335} alt="Not found" />
           </div>
-          <ul className={styles.header__list__main}>
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <section className={styles.topNav}>
+        <div className={styles.logo}>
+        <Image src="Images/logo.svg" width={logoWidth} height={logoHeight} alt="Not found" />
+        </div>
+        <input id="menu-toggle" type="checkbox" className={styles.menuToggle} />
+        <label className={styles.menuButtonContainer} htmlFor="menu-toggle">
+          <div className={styles.menuButton}></div>
+        </label>
+        <ul className={styles.menu}>
+          <li>Подборки</li>
+          <li>Подарки</li>
+          <li>Мои вишлисты</li>
+          <li>Подарки друзьям</li>
+          <li>Мой профиль</li>
+        </ul>
+      </section>
+      <ul className={styles.header__list__main}>
             <li className={styles.header__item__main}>
             Привет, это wishlistik — сервис для создания вишлистов
             </li>
@@ -59,9 +59,9 @@ export default function Header() {
           <button className={styles.createButton}>
             Создать вишлист
           </button>
-          <div className={styles.biggift}>
-              <Image src="Images/giftbig.svg" width={windowWidth * 0.33} height={windowWidth * 0.335} alt="Not found" />
-          </div>
-      </nav>
-     );
-    }
+          
+    </div>
+  );
+};
+
+export default BurgerMenu;

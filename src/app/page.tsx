@@ -3,12 +3,15 @@ import Header from "../components/Header/Header";
 import Main from "../components/Main/index"
 import Cube from "../components/fioletcube/index"
 import styles from "./page.module.css";
+import HeaderGift from "../components/HeaderSelection/HeaderSelection"
+
 
 export default function Home() {
   return (
     <div className={styles.cub}>
       <div>
         <Header/>
+        
       </div>
       <div>
         <Main/>
