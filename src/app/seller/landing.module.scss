@@ -1,45 +1,47 @@
 @import '@/styles/mixins.scss';
 @import '@/styles/variables.scss';
 
-.background {
-  z-index: -1;
-  max-width: 100%;
-  height: auto;
+.landingContainer {
+  height: 100vh;
+  padding: 1rem 0.5rem;
+  background-image: url("/background.png");
 }
 
-.greetings {
+.foreground {
   display: inline-flex;
   flex-direction: column;
+  align-content: center;
   justify-content: center;
-  padding: 2em 1em;
-  z-index: 10;
-  max-width: fit-content;
-  margin: auto;
-  overflow: auto;
+  margin-top: 10vh;
+  margin-bottom: 10vh;
 }
 
-.text {
-  padding: 2em;
+.textContainer {
+  z-index: 10;
+  margin: 1.5rem;
 }
 
 .heading {
-  align-self: center;
   color: $white;
   text-align: center;
-  padding: 1em 2em;
   font-family: $first-montserrat;
-  font-size: 84px;
+  font-size: 4rem;
   font-weight: 700;
-  text-shadow: 3px 2px 0 $shadow;
+  text-shadow: $shadow;
 }
 
 .subheading {
   padding: 5% 10%;
   display: flex;
-  text-shadow: 2px 1px 0 $shadow;
+  text-shadow: $shadow;
   justify-content: center;
   font-family: $first-montserrat;
-  font-size: 32px;
+  font-size: 1.5rem;
   font-weight: 400;
   text-align: center;
+  margin-top: 1rem;
+}
+
+.landingButton {
+  @include sellerButton
 }

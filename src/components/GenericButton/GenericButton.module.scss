@@ -4,6 +4,7 @@
 .sellerButton {
   align-items: center;
   background-color: $accent-violet;
+  // margin-left: 7.2rem;
   border: 0;
   border-radius: 45px;
   box-sizing: border-box;
@@ -21,16 +22,13 @@
   overflow: hidden;
   padding: 1em 2em;
   text-align: center;
-  touch-action: manipulation;
-  transition: background-color 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s, box-shadow 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s, color 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s;
   user-select: none;
-  -webkit-user-select: none;
   vertical-align: middle;
 }
 
 .sellerButton:hover,
 .sellerButton:focus { 
-  background-color: #D03EDB;
+  background-color: $button-focus;
   color: $white;
 }
 
@@ -41,6 +39,6 @@
 
 .sellerButton:disabled { 
   cursor: not-allowed;
-  background: rgba(100, 0, 100, .08);
+  background: $button-inactive;
   color: rgba(255, 255, 255, .3);
 }

@@ -85,3 +85,27 @@
   font-size: 20px;
 }
 
+@mixin sellerButton {
+  align-items: center;
+  background-color: $accent-violet;
+  margin-left: 7.2rem;
+  border: 0;
+  border-radius: 45px;
+  box-sizing: border-box;
+  color: $white;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: $first-montserrat;
+  font-size: 24px;
+  font-weight: 500;
+  justify-content: center;
+  line-height: 30px;
+  max-width: 80vw;
+  min-height: 5vh;
+  min-width: 1vw;
+  overflow: hidden;
+  padding: 1em 2em;
+  text-align: center;
+  user-select: none;
+  vertical-align: middle;
+}
