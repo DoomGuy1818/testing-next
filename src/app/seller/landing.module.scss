@@ -1,10 +1,19 @@
 @import '@/styles/mixins.scss';
 @import '@/styles/variables.scss';
 
-.landingContainer {
+.landing {
   height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.landingContainer {
   padding: 1rem 0.5rem;
+  flex-grow: 1;
   background-image: url("/background.png");
+  max-width: 100%;
+  height: auto;
 }
 
 .foreground {
@@ -31,6 +40,7 @@
 }
 
 .subheading {
+  color: $white;
   padding: 5% 10%;
   display: flex;
   text-shadow: $shadow;
@@ -40,6 +50,10 @@
   font-weight: 400;
   text-align: center;
   margin-top: 1rem;
+}
+
+.fuckingButton {
+  align-self: center;
 }
 
 .landingButton {

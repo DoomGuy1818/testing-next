@@ -1,7 +1,7 @@
 'use client';
 
 import Image from "next/image";
-import styles from "./HeaderSelection.module.scss"; 
+import styles from "./HeaderSeller.module.scss"; 
 import Link from "next/link";
 import { useState, useEffect } from "react";
 
@@ -30,7 +30,7 @@ export default function Header() {
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       <section className={styles.topNav}>
         <div className={styles.logo}>
-        <Image src="/images/logo_white.svg" width={logoWidth} height={logoHeight} alt="Not found" />
+        <Image src="/images/logo.svg" width={logoWidth} height={logoHeight} alt="Not found" />
         </div>
         <input id="menu-toggle" type="checkbox" className={styles.menuToggle} />
         <label className={styles.menuButtonContainer} htmlFor="menu-toggle">
@@ -49,5 +49,3 @@ export default function Header() {
   );
 };
      
-
-    
