@@ -1,5 +1,6 @@
 import styles from "./landing.module.scss";
 import Link from "next/link";
+import BackButton from "@/components/ui/BackButton/Back";
 
 export default function SellerLanding() {
   return (
@@ -10,9 +11,7 @@ export default function SellerLanding() {
             <h1 className={styles.heading}>Помогайте дарить и радовать</h1>
             <p className={styles.subheading}>Зарегистрируйтесь как продавец и продвигайте свои услуги</p>
           </div>
-          <Link href="/seller/login" className={styles.fuckingButton}>
-            <button className={styles.landingButton}>Стать продавцом!</button>
-          </Link>
+          <BackButton link={"/seller/login"} />
         </div>
       </div>
     </>
