@@ -1,37 +1,25 @@
 import styles from "./dashboard.module.scss"
 import Sidebar from "@/components/SellerDashboard/Sidebar"
 import Header from "@/components/SellerDashboard/Header"
-import Summary from "@/components/SellerDashboard/Summary"
-import SellerCard from "@/components/SellerDashboard/SellerCard"
 
-export default function SellerDashboard() {
+export default function CreateService() {
   return (
     <>
       <Sidebar/>
       <div className={styles.dashboardContainer}>
         <div className={styles.workSpace}>
-          <div className={styles.itemContainer}>
-            <Header text={ "Услуги" }/>
-            <div className={styles.itemGrid}>
-              <div className={styles.grid}>
-                <div className={styles.itemWrap}>
-                  <SellerCard title={ "Добавить Услугу!" } image={ "/add.svg" } />
-                </div>
-                <div className={styles.itemWrap}>
-                  <SellerCard title={ "Упаковка подарков" } image={ "/packaging.png" } />
-                </div>
-                <div className={styles.itemWrap}>
-                  <SellerCard title={ "Доставка на дом" } image={ "/delivery.png" } />
-                </div>
-                <div className={styles.itemWrap}>
-                  <SellerCard title={ "Особая доставка" } image={ "/surprise.png" } />
-                </div>
+          <Header text={ "Создать услугу" }/>
+          <div className={styles.createForm}>
+            <div className={styles.textRow}>
+              <div className={styles.textInputs}>
+                <input className={styles.input} value={ "Название" }></input>
+                <input className={styles.input} value={ "Адрес (опционально)" }></input>
+                <input className={styles.input} value={ "Цена (в рублях)" }></input>
               </div>
+              <button className={styles.createButton}>Создать услугу!</button>
             </div>
-          </div>
-          <div className={styles.summary}>
-            <Header text={ "Сводка" } />
-            <Summary revenue={ 3510 } reviewCount={ 15 } />
+            <div className={styles.photoBox}>Добавьте красивое фото!
+            </div>
           </div>
         </div>
       </div>
