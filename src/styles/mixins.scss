@@ -1,5 +1,67 @@
 @import './variables.scss';
 
+@mixin title60 {
+    font-size: 60px;
+    font-weight: 600;
+    color: $absolute-white-color;
+    line-height: 120%;
+}
+
+@mixin blackBtn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #FFFFFF;
+    background-color: #141414;
+    border-radius: 10px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #262626;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+@mixin grayBtn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #FFFFFF;
+    background-color: $gray-btn-color;
+    border-radius: 10px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #262626;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+@mixin purpleBtn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #FFFFFF;
+    background-color: $purple-btn-color;
+    border-radius: 10px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #262626;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 150%;
+}
+@mixin purpleBtn2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #FFFFFF;
+    background-color: $purple-btn-color;
+    border-radius: 10px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #262626;
+    font-size: 14px;
+    font-weight: 500;
+
 @mixin h1-title {
   color: $dark-grey;
   font-family: $first-montserrat;
