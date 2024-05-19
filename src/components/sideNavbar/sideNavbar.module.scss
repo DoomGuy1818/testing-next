@@ -1,10 +1,12 @@
 @import "../styles/mixins";
 @import "../styles/variables";
 
+
+
 .list {
   position: relative;
-  margin-top: 13.23vw; // 254px -> 13.23vw
-  margin-left: 5.21vw; // 100px -> 5.21vw
+  margin-top: 3.23vw; 
+  margin-left: 5.21vw; 
   list-style-type: none;
 
   a {
@@ -15,22 +17,38 @@
 
 .friend {
   position: relative;
-  margin-top: 2.92vw; // 56px -> 2.92vw
+  margin-top: 1.3vw; 
+  @media (max-width: 425px){
+    margin-top: 0.5vw; 
+  }
 }
 
 .gifts {
   position: relative;
-  margin-top: 2.92vw; // 56px -> 2.92vw
+  margin-top: 1.3vw; 
+  @media (max-width: 425px){
+    margin-top: 0.5vw; 
+  }
 }
 
 .settings {
   position: relative;
-  margin-top: 2.92vw; // 56px -> 2.92vw
+  margin-top: 1.3vw; 
+  @media (max-width: 425px){
+    margin-top: 0.5vw; 
+  }
 }
 
-.page {
-  a {
-    color: $accent-blue;
+// .page {
+//   a {
+//     color: $accent-blue;
+//   }
+// }
+
+
+@media (max-width: 425px){
+  .Text{
+    font-size: 2vw;
   }
 }
 
