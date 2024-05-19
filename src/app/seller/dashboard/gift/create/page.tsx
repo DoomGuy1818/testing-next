@@ -4,26 +4,22 @@ import Header from "@/components/SellerDashboard/Header"
 import Summary from "@/components/SellerDashboard/Summary"
 import SellerCard from "@/components/SellerDashboard/SellerCard"
 
-export default function SellerDashboard() {
+export default function CreateGift() {
   return (
     <>
       <Sidebar/>
       <div className={styles.dashboardContainer}>
         <div className={styles.workSpace}>
           <div className={styles.itemContainer}>
-            <Header text={ "Услуги" }/>
+            <Header text={ "Создать подарок" }/>
             <div className={styles.itemGrid}>
               <div className={styles.grid}>
-                <a href="/seller/dashboard/service/create">
-                  <div className={styles.itemWrap}>
-                    <SellerCard title={ "Добавить Услугу!" } image={ "/add.svg" } />
-                  </div>
-                </a>
-                <a href="/seller/dashboard/service/1">
-                  <div className={styles.itemWrap}>
-                    <SellerCard title={ "Упаковка подарков" } image={ "/packaging.png" } />
-                  </div>
-                </a>
+                <div className={styles.itemWrap}>
+                  <SellerCard title={ "Добавить Услугу!" } image={ "/add.svg" } />
+                </div>
+                <div className={styles.itemWrap}>
+                  <SellerCard title={ "Упаковка подарков" } image={ "/packaging.png" } />
+                </div>
                 <div className={styles.itemWrap}>
                   <SellerCard title={ "Доставка на дом" } image={ "/delivery.png" } />
                 </div>

@@ -17,7 +17,9 @@ export default function Login(){
                         <span>пароль</span>
                         <input type="password" id="pass"></input>
                     </div>
-                    <Button text={ "Войти" } />
+                    <a href="/seller/dashboard/gift">
+                        <Button text={ "Войти" } />
+                    </a>
                     <div className={styles.support}>
                         <a href="/seller/login/forgot-password" className={styles.forgotPass}>Забыли пароль?</a>
                         <a href="/seller/registration" className={styles.register}>Зарегистрироваться</a>
