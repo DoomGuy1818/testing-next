@@ -55,15 +55,15 @@
 		margin: 0rem;
 		margin-left: 0.5rem;
 		margin-right: 0.5rem;
-		font-size: 0pt;
 	}
-	@media only screen and (600px < width < 840px) {
-		padding: 1rem;
-		padding-left: 2rem;
-		padding-right: 2rem;
+	@media only screen and (600px < width < 700px) {
+	}
+	@media only screen and (700px < width < 840px) {
+		padding-right: 0.5rem;
+		padding-left: 1rem;
 		margin: 0rem;
-		margin-left: 1rem;
-		margin-right: 1rem;
+		margin-left: 0.5rem;
+		margin-right: 0.5rem;
 	}
 }
 
@@ -71,6 +71,9 @@
 	@include sidebarSection;
 	@media only screen and (width < 600px) {
 		display: none;
+	}
+	@media only screen and (600px < width < 840px) {
+		font-size: 1.2rem;
 	}
 }
 
@@ -92,8 +95,7 @@
 	@include sidebarChild;
 	@media only screen and (max-width: 840px) {
 		padding: 0rem;
-		padding-left: 1.5rem;
-		padding-right: 1.5rem;
+		padding-left: 0.5rem;
 	}
 }
 
