@@ -12,9 +12,9 @@ export default function CreateService() {
           <div className={styles.createForm}>
             <div className={styles.textRow}>
               <div className={styles.textInputs}>
-                <input className={styles.input} value={ "Название" }></input>
-                <input className={styles.input} value={ "Адрес (опционально)" }></input>
-                <input className={styles.input} value={ "Цена (в рублях)" }></input>
+                <input className={styles.input} placeholder={ "Название" }></input>
+                <input className={styles.input} placeholder={ "Адрес (опционально)" }></input>
+                <input className={styles.input} placeholder={ "Цена (в рублях)" }></input>
               </div>
               <button className={styles.createButton}>Создать услугу!</button>
             </div>

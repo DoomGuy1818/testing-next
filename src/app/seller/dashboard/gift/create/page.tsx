@@ -12,9 +12,9 @@ export default function CreateGift() {
           <div className={styles.createForm}>
             <div className={styles.textRow}>
               <div className={styles.textInputs}>
-                <input className={styles.input} value={ "Название" }></input>
-                <input className={styles.input} value={ "Описание (опционально)" }></input>
-                <input className={styles.input} value={ "Цена (в рублях)" }></input>
+                <input className={styles.input} placeholder={ "Название" }></input>
+                <input className={styles.input} placeholder={ "Описание (опционально)" }></input>
+                <input className={styles.input} placeholder={ "Цена (в рублях)" }></input>
               </div>
               <button className={styles.createButton}>Создать подарок!</button>
             </div>
