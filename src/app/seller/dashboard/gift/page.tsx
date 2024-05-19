@@ -1,6 +1,7 @@
 import styles from "./dashboard.module.scss"
 import Sidebar from "@/components/SellerDashboard/Sidebar"
 import Header from "@/components/SellerDashboard/Header"
+import Summary from "@/components/SellerDashboard/Summary"
 
 export default function SellerDashboard() {
   return (
@@ -12,6 +13,7 @@ export default function SellerDashboard() {
         </div>
         <div className={styles.summary}>
           <Header text={ "Сводка" } />
+          <Summary revenue={ 1990 } reviewCount={ 9 } />
         </div>
       </div>
     </div>
