@@ -4,6 +4,7 @@ import Image from "next/image";
 import styles from "./main.module.scss"; 
 import Selection from "../Selection/index";
 import Gifts from "../Gifts/index";
+import Fiolet from "../fioletcube/index"
 
 
 
@@ -35,6 +36,7 @@ export default function Main() {
                     <Gifts/>
                 </div>
             </div>
+            <Fiolet/>
         </div>
     );
 }
