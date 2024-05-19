@@ -10,11 +10,11 @@ export default function SellerDashboard() {
       <Sidebar/>
       <div className={styles.workSpace}>
         <div className={styles.itemContainer}>
-          <Header text={ "Подарки" }/>
+          <Header text={ "Услуги" }/>
           <div className={styles.itemGrid}>
             <div className={styles.grid}>
               <div className={styles.itemWrap}>
-                <SellerCard title={ "Добавить Подарок!" } image={ "/add.svg" } />
+                <SellerCard title={ "Добавить Услугу!" } image={ "/add.svg" } />
               </div>
               <div className={styles.itemWrap}>
                 <SellerCard title={ "Упаковка подарков" } image={ "/packaging.png" } />
@@ -30,7 +30,7 @@ export default function SellerDashboard() {
         </div>
         <div className={styles.summary}>
           <Header text={ "Сводка" } />
-          <Summary revenue={ 1990 } reviewCount={ 9 } />
+          <Summary revenue={ 3510 } reviewCount={ 15 } />
         </div>
       </div>
     </div>
