@@ -5,8 +5,9 @@
   height: 100vh;
   background-color: $white;
   margin-left: 13.5rem;
-  @media only screen and (max-width: 840px) {
+  @media only screen and (400px < width < 840px) {
     margin: 0;
+    height: 105vh;
   }
 }
 
@@ -85,6 +86,8 @@
   vertical-align: middle;
   @media only screen and (max-width: 840px) {
     order: -1;
+    align-self: center;
     margin-bottom: 2rem;
+    margin-left: 0;
   }
 }
