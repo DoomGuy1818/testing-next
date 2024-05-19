@@ -12,12 +12,34 @@
 	background: $pastel-indigo;
 	border-radius: 2rem;
 	padding: 3rem;
+	@media only screen and (width < 600px) {
+		padding: 1rem;
+		flex-direction: column;
+		align-items: flex-start;
+		padding-left: 2rem;
+		padding-top: 2rem;
+		margin-bottom: 5.5rem;
+	}
+	@media only screen and (600px < width < 840px) {
+		padding: 2rem;
+		flex-direction: column;
+		align-items: flex-start;
+		margin-bottom: 4rem;
+	}
 }
 
 .factContainer {
 	color: $dark-grey;
 	font-family: $first-montserrat;
 	margin-right: 4rem;
+	@media only screen and (width < 600px) {
+		margin: 0rem;
+		margin-bottom: 1rem;
+	}
+	@media only screen and (max-width: 840px) {
+		margin: 0rem;
+		margin-bottom: 2rem;
+	}
 }
 
 .number {
