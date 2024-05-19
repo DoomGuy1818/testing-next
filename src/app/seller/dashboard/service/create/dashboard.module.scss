@@ -17,6 +17,7 @@
   padding: 3rem;
   display: flex;
   flex-direction: column;
+  overflow: scroll;
   @media only screen and (max-width: 840px) {
     padding: 3rem 3rem 4rem 3rem;
   }
@@ -31,6 +32,10 @@
   flex-flow: nowrap;
   padding: 2rem;
   justify-content: space-between;
+  @media only screen and (max-width: 840px) {
+    flex-direction: column;
+    flex-flow: none;
+  }
 }
 
 .heading {
@@ -78,4 +83,8 @@
   padding-top: 6rem;
   text-align: center;
   vertical-align: middle;
+  @media only screen and (max-width: 840px) {
+    order: -1;
+    margin-bottom: 2rem;
+  }
 }
