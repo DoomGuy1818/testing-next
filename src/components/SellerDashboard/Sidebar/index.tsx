@@ -16,6 +16,11 @@ export default function Sidebar() {
 	  <div className={styles.section}>Отзывы</div>
 	</a>
       </div>
+      <div className={styles.exitParent}>
+	<a href="/seller">
+	  <div className={styles.exitSection}>Выйти</div>
+	</a>
+      </div>
     </div>
   );
 }

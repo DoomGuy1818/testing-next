@@ -39,3 +39,26 @@
 .section:active {
 	background-color: $white;
 }
+
+.exitParent {
+	display: inline-flex;
+	flex-direction: column;
+	justify-content: flex-end;
+	flex-wrap: nowrap;
+	padding: 35px 0;
+	flex-grow: 1;
+}
+
+.exitSection {
+	background-color: $pastel-indigo;
+	padding: 25px 20px;
+	color:$soft-red;
+	font-family: $first-montserrat;
+	font-size: 20pt;
+	font-weight: 600;
+}
+
+.exitSection:hover, 
+.exitSection:active {
+	background-color: $white;
+}

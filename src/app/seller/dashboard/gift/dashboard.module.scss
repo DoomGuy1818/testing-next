@@ -1,0 +1,33 @@
+@import '@/styles/mixins.scss';
+@import '@/styles/variables.scss';
+
+.dashboardContainer {
+  background-color: $white;
+  display: inline-flex;
+  flex-direction: row;
+  flex-flow: nowrap;
+  height: 100%;
+  width: 100%;
+}
+
+.navBar {
+  @include sideNavBar;
+}
+
+.workSpace {
+  background-color: $white;
+  flex-grow: 1;
+  padding: 3rem 2rem 2rem 3rem;
+  flex-direction: column;
+  flex-flow: nowrap;
+  justify-content: flex-start;
+}
+
+.summary {
+  height: 20vh;
+  width: 100%;
+}
+
+.itemGrid { 
+  flex-grow: 1;
+}

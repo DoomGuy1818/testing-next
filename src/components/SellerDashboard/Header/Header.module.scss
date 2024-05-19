@@ -3,19 +3,12 @@
 
 .header {
 	overflow: hidden;	
-	display: inline;
-	position: fixed;
-	top: 45px;
-	left: 45px;
-	width: 100%;
-	align-self: center;
+	// position: fixed;
 	color: $dark-grey;
 	text-align: left;
-	padding: 14px 16px;
-	margin-top: 30px;
+	// padding: 14px 16px;
 	font-family: $first-montserrat;
 	font-size: 32px;
 	font-weight: 700;
-	justify-content: center;
-	line-height: 20px;
+	line-height: 40px;
 }
