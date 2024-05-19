@@ -8,8 +8,24 @@ export default function SellerDashboard() {
     <div className={styles.dashboardContainer}>
       <Sidebar/>
       <div className={styles.workSpace}>
-        <div className={styles.itemGrid}>
+        <div className={styles.itemContainer}>
           <Header text={ "Подарки" }/>
+          <div className={styles.itemGrid}>
+            <div className={styles.grid}>
+              <div className={styles.itemWrap}>
+                <div className={styles.item}></div>
+              </div>
+              <div className={styles.itemWrap}>
+                <div className={styles.item}></div>
+              </div>
+              <div className={styles.itemWrap}>
+                <div className={styles.item}></div>
+              </div>
+              <div className={styles.itemWrap}>
+                <div className={styles.item}></div>
+              </div>
+            </div>
+          </div>
         </div>
         <div className={styles.summary}>
           <Header text={ "Сводка" } />
