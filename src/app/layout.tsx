@@ -1,3 +1,10 @@
+// seller
+import type { Metadata } from "next";
+import { Montserrat } from "next/font/google";
+import "./globals.css";
+
+const montserrat = Montserrat({ subsets: ["latin-ext", "cyrillic"] });
+/*
 import Header from '@/components/header/Header'
 import type { Metadata } from 'next'
 import { Poppins } from 'next/font/google'
@@ -7,6 +14,7 @@ const popins = Poppins({
 	subsets: ['latin'],
 	weight: ['400', '500', '700', '800'],
 })
+master*/
 
 export const metadata: Metadata = {
 	title: 'Create Next App',
@@ -18,6 +26,13 @@ export default function RootLayout({
 }: Readonly<{
 	children: React.ReactNode
 }>) {
+// seller
+  return (
+    <html lang="en">
+      <body className={montserrat.className}>{children}</body>
+    </html>
+  );
+/*
 	return (
 		<html lang="ru">
 			<body className={popins.className}>
@@ -26,4 +41,5 @@ export default function RootLayout({
 			</body>
 		</html>
 	)
+master*/
 }

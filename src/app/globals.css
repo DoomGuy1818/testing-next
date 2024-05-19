@@ -10,6 +10,10 @@ body {
 	overflow-x: hidden;
 }
 
+.picture_frame {
+  border-radius: 20%;
+}
+
 body {
 	background-color: #ffffff; /* Например, белый цвет фона */
 }
