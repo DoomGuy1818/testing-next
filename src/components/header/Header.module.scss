@@ -1,0 +1,397 @@
+// .headerNav {
+//   padding: 2vw 5.5vw 2vw 5.5vw;
+//   background-color: #e5aaaf;
+
+//   .header__list {
+//     display: flex;
+//     align-items: center;
+//     list-style-type: none;
+//     justify-content: space-between;
+//     margin: 0;
+//     padding: 0;
+//     font-size: 1.8vw;
+//     color: #ffffff;
+
+//     .header__item {
+//       margin-left: 1vw;
+//     }
+
+//     .header__lastItem {
+//       margin-right: 10vw;
+//     }
+
+//     .header__item__img {
+//       margin-left: 1vw;
+//     }
+//   }
+
+//   .header__logo {
+//     margin-right: -3.5vw;
+//   }
+//   .header__logo__text {
+//     margin-right: 10vw;
+//   }
+
+//   .header__list__main {
+//     display: flex;
+//     flex-direction: column;
+//     list-style-type: none;
+//     margin-top: 6.5vw;
+//   }
+
+//   .header__item__main {
+//     font-size: 96px;
+//     font-weight: 800;
+//     color: #ffffff;
+//     // font-family: 'Montserrat', sans-serif;
+//   }
+
+//   .header__item__text {
+//     font-weight: 400;
+//     font-size: 32px;
+//     max-width: 1062px;
+//     color: #ffffff;
+//     margin-top: 85px;
+//   }
+// }
+
+// /* Для устройств с шириной экрана до 320px */
+// @media only screen and (max-width: 320px) {
+//   .headerNav {
+//     padding: 5vw;
+//   }
+
+//   .header__list {
+//     flex-direction: column;
+//     font-size: 5vw;
+//   }
+
+//   .header__item {
+//     margin-left: 2vw;
+//   }
+
+//   .header__lastItem {
+//     margin-right: 2vw;
+//   }
+
+//   .header__item__img {
+//     width: 20px; /* Изменение размера иконки */
+//     height: 20px; /* Изменение размера иконки */
+//     margin-left: 2vw;
+//   }
+
+//   .header__logo {
+//     margin-right: 2vw;
+//   }
+
+//   .header__logo__text {
+//     margin-right: 2vw;
+//   }
+
+//   .header__item__main {
+//     font-size: 20px;
+//   }
+
+//   .header__item__text {
+//     font-size: 14px;
+//     margin-top: 40px;
+//   }
+// }
+
+// /* Для устройств с шириной экрана от 320px до 576px */
+// @media only screen and (min-width: 320px) and (max-width: 576px) {
+//   .headerNav {
+//     padding: 4vw;
+//   }
+
+//   .header__list {
+//     flex-direction: column;
+//     font-size: 4vw;
+//   }
+
+//   .header__item {
+//     margin-left: 2vw;
+//   }
+
+//   .header__lastItem {
+//     margin-right: 2vw;
+//   }
+
+//   .header__item__img {
+//     width: 30px; /* Изменение размера иконки */
+//     height: 30px; /* Изменение размера иконки */
+//     margin-left: 2vw;
+//   }
+
+//   .header__logo {
+//     margin-right: 2vw;
+//   }
+
+//   .header__logo__text {
+//     margin-right: 2vw;
+//   }
+
+//   .header__item__main {
+//     font-size: 30px;
+//   }
+
+//   .header__item__text {
+//     font-size: 16px;
+//     margin-top: 50px;
+//   }
+// }
+
+// /* Для устройств с шириной экрана от 576px до 768px */
+// @media only screen and (min-width: 576px) and (max-width: 768px) {
+//   .headerNav {
+//     padding: 3vw;
+//   }
+
+//   .header__list {
+//     flex-direction: row;
+//     font-size: 3vw;
+//   }
+
+//   .header__item {
+//     margin-left: 1vw;
+//   }
+
+//   .header__lastItem {
+//     margin-right: 10vw;
+//   }
+
+//   .header__item__img {
+//     width: 40px; /* Изменение размера иконки */
+//     height: 40px; /* Изменение размера иконки */
+//     margin-left: 1vw;
+//   }
+
+//   .header__logo {
+//     margin-right: -3.5vw;
+//   }
+
+//   .header__logo__text {
+//     margin-right: 10vw;
+//   }
+
+//   .header__item__main {
+//     font-size: 48px;
+//   }
+
+//   .header__item__text {
+//     font-size: 24px;
+//     margin-top: 60px;
+//   }
+// }
+
+// /* Для устройств с шириной экрана от 768px до 992px */
+// @media only screen and (min-width: 768px) and (max-width: 992px) {
+//   .headerNav {
+//     padding: 2.5vw;
+//   }
+
+//   .header__list {
+//     flex-direction: row;
+//     font-size: 2.5vw;
+//   }
+
+//   .header__item {
+//     margin-left: 1vw;
+//   }
+
+//   .header__lastItem {
+//     margin-right: 10vw;
+//   }
+
+//   .header__item__img {
+//     width: 50px; /* Изменение размера иконки */
+//     height: 50px; /* Изменение размера иконки */
+//     margin-left: 1vw;
+//   }
+
+//   .header__logo {
+//     margin-right: -3.5vw;
+//   }
+
+//   .header__logo__text {
+//     margin-right: 10vw;
+//   }
+
+//   .header__item__main {
+//     font-size: 60px;
+//   }
+
+//   .header__item__text {
+//     font-size: 28px;
+//     margin-top: 70px;
+//   }
+// }
+
+// /* Для устройств с шириной экрана от 992px до 1200px */
+// @media only screen and (min-width: 992px) and (max-width: 1200px) {
+//   .headerNav {
+//     padding: 2vw;
+//   }
+
+//   .header__list {
+//     flex-direction: row;
+//     font-size: 2vw;
+//   }
+
+//   .header__item {
+//     margin-left: 1vw;
+//   }
+
+//   .header__lastItem {
+//     margin-right: 10vw;
+//   }
+
+//   .header__item__img {
+//     width: 60px; /* Изменение размера иконки */
+//     height: 60px; /* Изменение размера иконки */
+//     margin-left: 1vw;
+//   }
+
+//   .header__logo {
+//     margin-right: -3.5vw;
+//   }
+
+//   .header__logo__text {
+//     margin-right: 10vw;
+//   }
+
+//   .header__item__main {
+//     font-size: 72px;
+//   }
+
+//   .header__item__text {
+//     font-size: 32px;
+//     margin-top: 80px;
+//   }
+// }
+
+// /* Для устройств с шириной экрана более 1200px */
+// @media only screen and (min-width: 1200px) {
+//   .headerNav {
+//     padding: 2vw 5.5vw 2vw 5.5vw;
+//   }
+
+//   .header__list {
+//     flex-direction: row;
+//     font-size: 1.8vw;
+//   }
+
+//   .header__item {
+//     margin-left: 1vw;
+//   }
+
+//   .header__lastItem {
+//     margin-right: 10vw;
+//   }
+
+//   .header__item__img {
+//     width: 70px; /* Изменение размера иконки */
+//     height: 70px; /* Изменение размера иконки */
+//     margin-left: 1vw;
+//   }
+
+//   .header__logo {
+//     margin-right: -3.5vw;
+//   }
+
+//   .header__logo__text {
+//     margin-right: 10vw;
+//   }
+
+//   .header__item__main {
+//     font-size: 96px;
+//   }
+
+//   .header__item__text {
+//     font-size: 32px;
+//     margin-top: 85px;
+//   }
+// }
+
+.headerNav {
+  padding: 2vw 5.5vw 2vw 5.5vw;
+  background-color: #e5aaaf;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .headerLeft {
+    display: flex;
+    align-items: center;
+  }
+
+  .headerLogo {
+    margin-right: 1vw;
+  }
+
+  .headerLogoText {
+    font-size: 2vw;
+    color: #ffffff;
+  }
+
+  .headerRight {
+    display: flex;
+    align-items: center;
+  }
+
+  .headerList {
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+    font-size: 1.8vw;
+    color: #ffffff;
+
+    .headerItem {
+      margin-left: 1vw;
+    }
+
+    .headerLastItem {
+      margin-right: 10vw;
+    }
+
+    .headerItemImg {
+      margin-left: 1vw;
+    }
+  }
+}
+
+@media only screen and (max-width: 576px) {
+  .headerNav {
+    padding: 5vw;
+    flex-direction: column;
+    align-items: flex-start;
+
+    .headerLeft {
+      margin-bottom: 2vw;
+    }
+
+    .headerLogoText {
+      font-size: 5vw;
+      margin-left: 2vw;
+    }
+
+    .headerRight {
+      margin-top: 2vw;
+    }
+
+    .headerList {
+      flex-direction: column;
+      font-size: 5vw;
+
+      .headerItem,
+      .headerLastItem,
+      .headerItemImg {
+        margin-left: 0;
+        margin-right: 0;
+        margin-top: 2vw;
+      }
+    }
+  }
+}
