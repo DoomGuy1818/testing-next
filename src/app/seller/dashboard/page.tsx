@@ -1,7 +1,10 @@
+import { redirect } from "next/navigation";
+
 export default function SellerDashboard() {
+  redirect("/seller/dashboard/gift");
   return (
     <div>
-      Dashboard
+      Перенаправляем в панель управления...
     </div>
   );
 }

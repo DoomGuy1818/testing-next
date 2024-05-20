@@ -9,7 +9,7 @@ export default function CreateService() {
       <Sidebar/>
       <div className={styles.dashboardContainer}>
         <div className={styles.workSpace}>
-          <Header text={ "Создать подарок" }/>
+          <Header text={ "Подарок" }/>
           <div className={styles.createForm}>
             <div className={styles.textRow}>
               <div className={styles.textInputs}>
