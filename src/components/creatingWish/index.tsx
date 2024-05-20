@@ -28,7 +28,7 @@ export default function creatingWish() {
                         <div>
                             <div className={styles.block1}>
                                 <span className={styles.text}>Название*</span>
-                                <input className={styles.name} placeholder="Например: Альтушка" />
+                                <input className={styles.name} placeholder="Например: Клавиатура - Ugreen" />
                             </div>
                             <div className={styles.block2}>
                                 <span className={styles.text}>Цена</span>
