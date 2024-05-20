@@ -1,8 +1,8 @@
 
 export interface Wishlist {
-    ID: string;
-    Name: string;
-    UserID: string;
+    id: string;
+    name: string;
+    userId: string;
 }
 
 export interface WishlistData {

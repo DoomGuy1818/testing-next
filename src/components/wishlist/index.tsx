@@ -45,7 +45,9 @@ function Wishlist() {
                 <a href="#" className={styles.createButton}></a>
                 <div className={styles.wishlistGrid}>
                     {data?.map((wishlist) => (
-                       <button key={wishlist.ID}>{wishlist.Name}</button>
+                        <Link key={wishlist.id} href="#">
+                            <div>{wishlist.name}</div>
+                        </Link>
                     ))}
                 </div>
             </div>

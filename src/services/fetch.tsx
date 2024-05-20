@@ -26,15 +26,15 @@ export async function fetchWishes(): Promise<Wish[]> {
 }
 
 export async function fetchWishlists(): Promise<Wishlist[]> {
-    let authToken = localStorage.getItem("user");
-    if (authToken && authToken.startsWith('"') && authToken.endsWith('"')) {
-        authToken = authToken.slice(1, -1);
-    }
+    // let authToken = localStorage.getItem("user");
+    // if (authToken && authToken.startsWith('"') && authToken.endsWith('"')) {
+    //     authToken = authToken.slice(1, -1);
+    // }
     const res = await fetch(`${BASE}/wishlists`, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
-            'Authorization': `${authToken}`
+            'Authorization': 'session_cp4ahofnnsjf4mhn7ufg'
         }
         });
 
@@ -82,7 +82,7 @@ export async function CreateWishlist(newWishlist: Wishlist): Promise<Wishlist> {
             'Authorization': authToken ? authToken : ''
         },
         body: JSON.stringify({
-            Name: newWishlist.Name,
+            Name: newWishlist.name,
         })
     });
 
