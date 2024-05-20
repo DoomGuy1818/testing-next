@@ -1,6 +1,6 @@
 import styles from "./loginCard.module.scss"
 
-export default function login(){
+export default function Login(){
     return(
         <div className={styles.container}>
             <div className={styles.loginBox}>

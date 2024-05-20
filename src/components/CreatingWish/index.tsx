@@ -1,6 +1,7 @@
 import styles from "./creatingWish.module.scss"
-import SideNavBar from "../sideNavbar/index"
-export default function creatingWish() {
+import SideNavBar from "@/components/sideNavbar/index"
+
+export default function CreatingWish() {
     return(
         <div className={styles.container}>
 

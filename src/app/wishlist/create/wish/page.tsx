@@ -1,9 +1,9 @@
-import Wishlist from "@/components/wishlist"
+import CreatingWish from "@/components/CreatingWish"
 
 export default function createWishlistPage() {
   return(
     <>
-      <Wishlist />
+      <CreatingWish />
     </>
   );
 }

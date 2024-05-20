@@ -4,7 +4,7 @@ import  SideNavBar from '@/components/sideNavbar/index'
 import { UseGetWishesQuery } from '@/hooks/useGetWishesQuery'
 import Link from "next/link";
 
-export default function wishesInWishlist(){
+export default function WishesInWishlist(){
     const {data: Wish, } = UseGetWishesQuery();
     return(
 

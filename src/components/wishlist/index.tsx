@@ -1,12 +1,9 @@
 'use client';
 import styles from "./wishlist.module.scss";
 import Image from "next/image";
-import SideNavBar from "@/components/sideNavbar";
+import SideNavbar from "@/components/sideNavbar";
 import { UseGetWishlistQuery } from "@/hooks/useGetWishlistQuery";
 import Link from "next/link";
-
-
-
 
 function Wishlist() {
 
@@ -29,7 +26,7 @@ function Wishlist() {
         <div className={styles.container}>
             <div className={styles.pageWrap}>
                 <div className={styles.sidebarDiv}>
-                    <SideNavBar/>
+                    <SideNavbar />
                 </div>
 
                 <div className={styles.page}>
