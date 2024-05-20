@@ -28,7 +28,7 @@ const BurgerMenu = () => {
   return (
     <div className={styles.all}>
       <div className={styles.biggift}>
-              <Image src="Images/giftbig.svg" width={windowWidth * 0.33} height={windowWidth * 0.335} alt="Not found" />
+              <Image src="/images/giftbig.svg" width={windowWidth * 0.33} height={windowWidth * 0.335} alt="Not found" />
           </div>
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       <section className={styles.topNav}>

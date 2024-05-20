@@ -30,7 +30,7 @@ export default function Header() {
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       <section className={styles.topNav}>
         <div className={styles.logo}>
-        <Image src="Images/logo.svg" width={logoWidth} height={logoHeight} alt="Not found" />
+        <Image src="/images/logo_white.svg" width={logoWidth} height={logoHeight} alt="Not found" />
         </div>
         <input id="menu-toggle" type="checkbox" className={styles.menuToggle} />
         <label className={styles.menuButtonContainer} htmlFor="menu-toggle">
