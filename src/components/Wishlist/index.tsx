@@ -12,7 +12,7 @@ export default function CreatingWish() {
                 <div className={styles.mainContent}>
                     <div className={styles.header}>
                         <h1 className={styles.title}>Вишлист</h1>
-                        <button className={styles.addButton}>добавить подарок</button>
+                        <button className={styles.addButton}><a href = "/create-wish">добавить подарок</a></button>
                         <div className={styles.shareButton}>
                             <Image 
                                 src="/images/share.svg" 
