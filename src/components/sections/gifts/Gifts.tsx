@@ -6,6 +6,7 @@ export default function GiftsSection() {
 		<div className={styles.gifts}>
 			<div className={styles.container}>
 				<div className={styles.giftsInner}>
+					
 					<h2 className={styles.giftsTitle}>
 						Добавьте подарки в вашу подборку
 					</h2>

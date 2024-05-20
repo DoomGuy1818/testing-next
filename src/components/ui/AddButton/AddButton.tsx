@@ -4,7 +4,7 @@ import styles from './AddButton.module.scss'
 
 export default function AddButton() {
   return (
-    <Link href="/add_present">
+    <Link href="/create-wish-in-selection">
       <div className={styles.imageContainer}>
         <Image
           src="/images/BigPlusButton.svg"
