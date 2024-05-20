@@ -21,7 +21,7 @@ export default function SellerDashboard() {
                 </a>
                 <a href="/seller/dashboard/gift/1">
                   <div className={styles.itemWrap}>
-                    <SellerCard title={ "Упаковка подарков" } image={ "/packaging.png" } />
+                    <SellerCard title={ "Клавиатура Угрин" } image={ "/content/keyboard.jpg" } />
                   </div>
                 </a>
                 <div className={styles.itemWrap}>
