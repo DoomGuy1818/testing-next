@@ -1,0 +1,156 @@
+@import '../styles/variables';
+@import '../styles/mixins';
+
+.container{
+  background-color: $background-white;
+  margin: auto;
+  display: block;
+  justify-content: space-around;
+}
+.blocklink {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 50px;
+}
+
+.link{
+  position: relative;
+  top: 20px;
+  height: 40px;
+  width: 1050px;
+  @include input-box;
+}
+
+.name{
+  margin-top: 30px;
+  height: 40px;
+  width: 600px;
+  @include input-box
+}
+
+.comment{
+  height: 149px;
+  width: 700px;
+  @include input-box;
+}
+.addGift{
+  position: relative;
+  margin-top: 158px;
+  margin-right: 50px;
+
+  a{
+    @include back-button;
+    position: relative;
+  }
+}
+
+.addGiftText{
+  @include h1-title;
+  position: relative;
+  left: 50px;
+  top: 20px;
+  display: flex;
+}
+
+.sector{
+   display: flex;
+   flex-direction: row;
+   justify-content: space-between;
+   margin-top: 54px;
+}
+
+.title{
+  @include h1-title;
+  margin-bottom: 47px;
+}
+
+
+.import{
+  display: flex;
+  flex-direction: column;
+  margin-right: 100px;
+  span{
+    margin-bottom: 18px;
+  }
+}
+
+.img{
+  height: 330px;
+  width: 340px;
+  @include input-box;
+}
+
+.bigblock{
+  display: flex;
+}
+
+.block1{
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 40px;
+  span {
+    margin-bottom: 18px;
+  }
+}
+
+.block2{
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 40px;
+  input{
+    width: 100px;
+    margin-right: 30px;
+  }
+  span{
+    margin-bottom: 18px;
+  }
+}
+
+.rectangle{
+  position: relative;
+  right: 130px;
+  padding: 5px;
+  border: 2px solid white;
+  width: fit-content;
+}
+
+.price{
+  display: flex;
+  justify-content: space-between;
+  input{
+    width: 500px;
+    @include input-box;
+  }
+}
+
+.block3{
+  display: flex;
+  flex-direction: column;
+  span{
+    margin-bottom: 18px;
+  }
+  input{
+    @include input-box;
+    width: 600px;
+    height: 150px;
+
+  }
+}
+.buttonBox{
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  margin-left: 200px;
+  margin-top: 86px;
+}
+
+.createButton{
+  @include create-button;
+  @include button-text;
+  height: 100px;
+  width: 300px;
+}
+
+.text{
+  @include span-text;
+}

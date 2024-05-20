@@ -1,3 +1,40 @@
+/*
+@import "../styles/mixins";
+@import "../styles/variables";
+
+.list{
+  position: relative;
+  margin-top: 16rem;
+  margin-left: 6rem;
+  list-style-type: none;
+
+  a{
+    text-decoration: none;
+    @include back-button;
+  }
+}
+
+.friend{
+  position: relative;
+  margin-top: 56px;
+}
+
+.gifts{
+  position: relative;
+  margin-top: 56px;
+}
+.settings{
+  position: relative;
+  margin-top: 56px;
+}
+
+.page{
+  a{
+    color: $accent-blue
+  }
+}
+
+*/
 @import "../styles/mixins";
 @import "../styles/variables";
 
@@ -52,7 +89,5 @@
     font-size: 2vw;
   }
 }
-
-
 
 
