@@ -43,6 +43,7 @@ export default function CreatingWish() {
                             price="1727"
                             link="https://example.com"
                         />
+                        
                     </div>
                 </div>
             </div>
