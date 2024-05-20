@@ -8,7 +8,7 @@ const Titleshops = () => {
     <div className="shops-title">
       <TitleItem
         text="Оффлайн магазины"
-        className="offline-shops"
+        className="title-item offline-shops"
         funct={() => {}}
       />
       <div className="slider-buttons">

@@ -1,3 +1,4 @@
+import "./Titleitem.scss";
 type Props = {
   text: string;
   className: string;

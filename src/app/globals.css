@@ -8,6 +8,10 @@
 body {
   color: rgb(var(--foreground-rgb));
   background: #f2f3f5;
+  height: 100%;
+}
+html {
+  height: 100%;
 }
 /* :root {
   --max-width: 1100px;
