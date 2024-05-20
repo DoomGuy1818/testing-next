@@ -30,7 +30,9 @@ export default function Header() {
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       <section className={styles.topNav}>
         <div className={styles.logo}>
-        <Image src="/images/logo.svg" width={logoWidth} height={logoHeight} alt="Not found" />
+        <a href ="/">
+        <Image src="Images/logo.svg" width={logoWidth} height={logoHeight} alt="Not found" />
+        </a>
         </div>
         <input id="menu-toggle" type="checkbox" className={styles.menuToggle} />
         <label className={styles.menuButtonContainer} htmlFor="menu-toggle">
@@ -38,7 +40,6 @@ export default function Header() {
         </label>
         <ul className={styles.menu}>
           <li>Подборки</li>
-          <li>Подарки</li>
           <li>Мои вишлисты</li>
           <li>Подарки друзьям</li>
           <li>Мой профиль</li>
