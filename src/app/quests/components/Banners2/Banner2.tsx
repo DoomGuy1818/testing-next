@@ -1,7 +1,7 @@
 import Titlequest from "./Titlequests";
 import "./Banner2.scss";
 import CardQuests from "./Cardsquests";
-import { useGetQuestsQuery } from "@/app/service/api";
+import { useGetQuestsQuery } from "@/app/quests/service/api";
 
 type Props = {
   setState: Function;

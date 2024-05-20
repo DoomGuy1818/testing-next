@@ -1,5 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit";
-import { wishlistApi } from "@/app/service/api";
+import { wishlistApi } from "@/app/quests/service/api";
 
 export const store = configureStore({
   reducer: {

@@ -1,6 +1,6 @@
 import "./Cardsshops.scss";
 import CardsShopsItem from "./CardsShopsItem";
-import { shopsIcons } from "@/app/moks/shopsIcons";
+import { shopsIcons } from "@/app/quests/moks/shopsIcons";
 
 const Cardsshops = () => {
   return (

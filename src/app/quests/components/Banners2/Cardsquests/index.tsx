@@ -1,6 +1,6 @@
 import CardQuestItem from "./CardQuestItem/CardQuestItem";
 import "./Cardsquests.scss";
-import { quests } from "@/app/moks/quests";
+import { quests } from "@/app/quests/moks/quests";
 type Props = {
   setState: Function;
   setInfo: Function;
