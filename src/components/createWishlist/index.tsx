@@ -6,7 +6,7 @@ import SideNavBar from "../sideNavbar";
 import {UseGetWishlistQuery} from "@/hooks/useGetWishlistQuery";
 import {CreateWishlist} from "@/services/fetch";
 
-export default function createWishlist() {
+export default function CreateWishlistForm() {
     const [ formData , setFormData ] = useState(
         { ID: "", Name: "", UserID: "" });
 
