@@ -6,11 +6,12 @@ import CreateWishlist from "../components/createWishlist"
 import Login from "../components/login/index"
 import Register from "../components/register"
 import Wishlist from "../components/wishlist"
+import WishesInWishlist from "../components/wishesInWishlist/index"
 
 export default function Home() {
   return (
     <main>
-        <CreateWishlist/>
+        <Wishlist/>
     </main>
   );
 }

@@ -3,7 +3,7 @@
 import { useQuery } from '@tanstack/react-query';
 import { fetchWishes } from '../services/fetch';
 
-const useGetWishesQuery = () => {
+const UseGetWishesQuery = () => {
     return useQuery({
         // queryFn: () => fetchCategories(),
         queryFn: fetchWishes,
@@ -12,4 +12,4 @@ const useGetWishesQuery = () => {
     });
 };
 
-export { useGetWishesQuery };
+export { UseGetWishesQuery };

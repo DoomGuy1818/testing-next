@@ -1,7 +1,7 @@
 import styles from "./sideNavbar.module.scss"
 import Image from 'next/image';
 
-export default function SideNavbar() {
+export default function SideNavBar() {
     return(
         <div className={styles.container}>
             <ul className={styles.list}>

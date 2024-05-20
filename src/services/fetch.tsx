@@ -2,34 +2,48 @@ import { User } from  '../types/user'
 import { Wish } from '../types/wish'
 import { Wishlist } from '../types/wishlist'
 import {json} from "node:stream/consumers";
+import wishlist from "@/components/wishlist";
 
 const BASE = 'http://84.38.183.178:7777'
 
 
 export async function fetchWishes(): Promise<Wish[]> {
+    let authToken = localStorage.getItem("user");
+    if (authToken && authToken.startsWith('"') && authToken.endsWith('"')) {
+        authToken = authToken.slice(1, -1);
+    }
     const res = await fetch(`${BASE}/wishes`, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
-            'Authorization': 'bearer ' + localStorage.getItem('user'),
+            'Authorization': authToken ? authToken : ''
         },
     })
 
     if (!res.ok) throw new Error("Ошибка в загрузке подарка");
     return await res.json()
+
 }
 
 export async function fetchWishlists(): Promise<Wishlist[]> {
-    const res = await fetch(`${BASE}/wishlists/`, {
+    let authToken = localStorage.getItem("user");
+    if (authToken && authToken.startsWith('"') && authToken.endsWith('"')) {
+        authToken = authToken.slice(1, -1);
+    }
+    const res = await fetch(`${BASE}/wishlists`, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
-            'Authorization': 'bearer ' + localStorage.getItem('user'),
+            'Authorization': `${authToken}`
         }
-    })
+        });
 
-    if (!res.ok) throw new Error("Ошибка в загрузке вишлиста")
-    return await res.json()
+    if (!res.ok) {
+        throw new Error('Failed to fetch wishlists');
+    }
+    return res.json()
+
+
 }
 
 export async function RegisterUser(newUser: User): Promise<User> {
@@ -53,7 +67,7 @@ export async function RegisterUser(newUser: User): Promise<User> {
     const session = await res.json()
     const sessionId : string = session.id.replace(/"/g, '');
     localStorage.setItem("user", sessionId)
-    return await res.json();
+    return res.json();
 }
 
 export async function CreateWishlist(newWishlist: Wishlist): Promise<Wishlist> {

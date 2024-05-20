@@ -8,6 +8,3 @@ export interface Wish {
     Category: string;
 }
 
-interface WishData {
-    wishes: Wish[];
-}

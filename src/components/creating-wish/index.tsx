@@ -1,12 +1,12 @@
 import styles from "./creatingWish.module.scss"
-import SideNavbar from "../sideNavbar/index"
+import SideNavBar from "../sideNavbar/index"
 export default function creatingWish() {
     return(
         <div className={styles.container}>
 
             <div className={styles.sector}>
 
-                <div className={styles.sideNavbar}><SideNavbar/></div>
+                <div className={styles.sideNavbar}><SideNavBar/></div>
                 <div className={styles.addGift}>
 
                     <a href="#" className="#">Назад</a>

@@ -1,17 +1,35 @@
-'use client'
+'use client';
 import styles from "./wishlist.module.scss";
 import Image from "next/image";
-import SideNavbar from "@/components/sideNavbar";
+import SideNavBar from "@/components/sideNavbar";
 import { UseGetWishlistQuery } from "@/hooks/useGetWishlistQuery";
 import Link from "next/link";
 
-function wishlist() {
-    const { data: Wishlist} = UseGetWishlistQuery();
+
+
+
+function Wishlist() {
+
+    const { data, isLoading, isError } = UseGetWishlistQuery();
+    console.log(isLoading);
+    console.log(isError);
+    console.log(data);
+
+    // Если данные загружаются, отобразите сообщение о загрузке
+    if (isLoading) {
+        return <div>Loading...</div>;
+    }
+
+    // Если произошла ошибка при загрузке данных, отобразите сообщение об ошибке
+    if (isError) {
+        return <div>Error fetching wishlist</div>;
+    }
+
     return (
         <div className={styles.container}>
             <div className={styles.pageWrap}>
                 <div className={styles.sidebarDiv}>
-                    <SideNavbar />
+                    <SideNavBar/>
                 </div>
 
                 <div className={styles.page}>
@@ -26,13 +44,8 @@ function wishlist() {
                 <h1>Мои Вишлисты</h1>
                 <a href="#" className={styles.createButton}></a>
                 <div className={styles.wishlistGrid}>
-                    {Wishlist?.map((wishlist) => (
-
-                        <div key = {wishlist.ID} className={styles.wishlistCard}>
-                            <Link href="#">
-                                <button>{wishlist.Name}</button>
-                            </Link>
-                        </div>
+                    {data?.map((wishlist) => (
+                       <button key={wishlist.ID}>{wishlist.Name}</button>
                     ))}
                 </div>
             </div>
@@ -40,4 +53,4 @@ function wishlist() {
     );
 }
 
-export default wishlist;
+export default Wishlist;

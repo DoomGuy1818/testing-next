@@ -2,7 +2,7 @@
 import React, {useState} from 'react';
 import styles from "./createWishlist.module.scss";
 import sidebar from "../sideNavbar";
-import SideNavbar from "../sideNavbar";
+import SideNavBar from "../sideNavbar";
 import {UseGetWishlistQuery} from "@/hooks/useGetWishlistQuery";
 import {CreateWishlist} from "@/services/fetch";
 
@@ -34,7 +34,7 @@ export default function createWishlist() {
         <div className={styles.container}>
             <div className={styles.flexbox}>
                 <div className={styles.sidebarDiv}>
-                    <SideNavbar/>
+                    <SideNavBar/>
                 </div>
                 <div className={styles.createWishlist}>
                     <div className={styles.content}>
