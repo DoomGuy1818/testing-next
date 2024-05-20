@@ -6,7 +6,7 @@ export default function SideNavbar() {
         <div className={styles.container}>
             <ul className={styles.list}>
                 <li className={styles.page}>
-                    <a href="#">
+                    <a href="/profile">
                         <span className={styles.Text}>Моя Страница</span>
                     </a>
                 </li>
