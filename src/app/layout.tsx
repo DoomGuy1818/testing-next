@@ -2,6 +2,9 @@
 import type { Metadata } from "next";
 import { Montserrat } from "next/font/google";
 import "./globals.css";
+import ReactQueryProvider from '@/providers/react-query'
+import {QueryClient} from "@tanstack/query-core";
+const queryClient = new QueryClient();
 
 const montserrat = Montserrat({ subsets: ["latin-ext", "cyrillic"] });
 /*

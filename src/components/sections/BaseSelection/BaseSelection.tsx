@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import Link from 'next/link'
 import styles from './BaseSelection.module.scss'
 
 export default function BaseSelection() {
@@ -23,14 +24,15 @@ export default function BaseSelection() {
               alt="selection Card"
             />
           </div>
-          <div className={styles.selectionCard}>
+
+          <Link href="/user-selection" className={styles.selectionCard}>
             <Image
-              src="images/selectionCard/Hozyaikam.svg"
+              src="/images/selectionCard/Hozyaikam.svg"
               width={408}
               height={354}
               alt="selection Card"
             />
-          </div>
+          </Link>
           <div className={styles.selectionCard}>
             <Image
               src="images/selectionCard/forVibe.svg"

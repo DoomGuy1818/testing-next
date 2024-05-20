@@ -39,10 +39,9 @@ export default function Header() {
           <div className={styles.menuButton}></div>
         </label>
         <ul className={styles.menu}>
-          <li>Подборки</li>
-          <li>Мои вишлисты</li>
-          <li>Подарки друзьям</li>
-          <li>Мой профиль</li>
+          <li><a href="/main-selection">Подборки</a></li>
+          <li><a href="/boocked-gift">Подарки</a></li>
+          <li><a href="in-wishlist">Мои вишлисты</a></li>
         </ul>
       </section>
 
