@@ -1,66 +1,66 @@
 @import './variables.scss';
 
 @mixin title60 {
-    font-size: 60px;
-    font-weight: 600;
-    color: $absolute-white-color;
-    line-height: 120%;
+  font-size: 60px;
+  font-weight: 600;
+  color: $absolute-white-color;
+  line-height: 120%;
 }
 
 @mixin blackBtn {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #FFFFFF;
-    background-color: #141414;
-    border-radius: 10px;
-    border-width: 1px;
-    border-style: solid;
-    border-color: #262626;
-    font-size: 18px;
-    font-weight: 500;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #ffffff;
+  background-color: #141414;
+  border-radius: 10px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #262626;
+  font-size: 18px;
+  font-weight: 500;
 }
 
 @mixin grayBtn {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #FFFFFF;
-    background-color: $gray-btn-color;
-    border-radius: 10px;
-    border-width: 1px;
-    border-style: solid;
-    border-color: #262626;
-    font-size: 18px;
-    font-weight: 500;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #ffffff;
+  background-color: $gray-btn-color;
+  border-radius: 10px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #262626;
+  font-size: 18px;
+  font-weight: 500;
 }
 
 @mixin purpleBtn {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #FFFFFF;
-    background-color: $purple-btn-color;
-    border-radius: 10px;
-    border-width: 1px;
-    border-style: solid;
-    border-color: #262626;
-    font-size: 18px;
-    font-weight: 500;
-    line-height: 150%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #ffffff;
+  background-color: $purple-btn-color;
+  border-radius: 10px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #262626;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 150%;
 }
 @mixin purpleBtn2 {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #FFFFFF;
-    background-color: $purple-btn-color;
-    border-radius: 10px;
-    border-width: 1px;
-    border-style: solid;
-    border-color: #262626;
-    font-size: 14px;
-    font-weight: 500;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #ffffff;
+  background-color: $purple-btn-color;
+  border-radius: 10px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #262626;
+  font-size: 14px;
+  font-weight: 500;
 }
 
 @mixin h1-title {
@@ -71,7 +71,7 @@
   font-weight: bold;
 }
 
-@mixin back-button{
+@mixin back-button {
   color: $font-soft-grey;
   font-family: $first-montserrat;
   font-size: 24px;
@@ -80,15 +80,15 @@
   text-decoration: none;
 }
 
-@mixin span-text{
-  color : $dark-grey;
+@mixin span-text {
+  color: $dark-grey;
   font-family: $first-montserrat;
   font-style: normal;
   font-weight: 100;
   font-size: 18px;
 }
 
-@mixin placeholder-text{
+@mixin placeholder-text {
   color: $font-soft-grey;
   font-family: $first-montserrat;
   font-style: normal;
@@ -96,7 +96,7 @@
   font-size: 24px;
 }
 
-@mixin input-box{
+@mixin input-box {
   border: $white;
   border-radius: 20px;
   box-shadow: $shadow;
@@ -107,9 +107,10 @@
   padding: 1em 1em;
 }
 
-@mixin create-button{
-  background-color: #BC13CB;
-  border: #BC13CB;
+@mixin create-button {
+  background-color: #bc13cb;
+  color: #ffffff;
+  border: #bc13cb;
   border-radius: 20px;
 }
 
@@ -138,7 +139,7 @@
 @mixin register-button {
   height: 62px;
   width: 490px;
-  background-color: #BC13CB;
+  background-color: #bc13cb;
   border: none;
   border-radius: 20px;
   color: $white;
@@ -174,29 +175,30 @@
 }
 
 @mixin sidebarParent {
-	display: inline-flex;
-	flex-direction: column;
-	justify-content: space-between;
-	flex-wrap: nowrap;
-	padding: 4rem 0;
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  padding: 4rem 0;
 }
 
 @mixin sidebarChild {
-        padding-left: 1.5rem;
-	display: inline-flex;
-	flex-direction: row;
-	justify-content: flex-start;
-	align-items: center;
-	flex-wrap: nowrap;
-	&:hover, &:active {
-		background-color: $white;
-	}
+  padding-left: 1.5rem;
+  display: inline-flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: nowrap;
+  &:hover,
+  &:active {
+    background-color: $white;
+  }
 }
 
 @mixin sidebarSection {
-	padding: 1.5rem 1rem;
-	color: $dark-grey;
-	font-family: $first-montserrat;
-	font-size: 20pt;
-	font-weight: 600;
+  padding: 1.5rem 1rem;
+  color: $dark-grey;
+  font-family: $first-montserrat;
+  font-size: 20pt;
+  font-weight: 600;
 }

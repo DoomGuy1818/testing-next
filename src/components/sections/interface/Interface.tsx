@@ -7,7 +7,7 @@ export default function InterfaceSection() {
     <section className={styles.interface}>
       <div className={styles.container}>
         <div className={styles.interfaceInner}>
-          <Link className={styles.interfaceLink} href="/">
+          <Link href="/lk" className={styles.interfaceLink}>
             <Image
               width={162}
               height={162}
@@ -15,11 +15,16 @@ export default function InterfaceSection() {
               alt="arrow"
             />
           </Link>
+
           <div className={styles.interfaceButtons}>
-            <button className={styles.interfaceGreen}>
-              Сохранить подборку
-            </button>
-            <button className={styles.interfaceRed}>Удалить подборку</button>
+            <Link href="/admin-selection">
+              <button className={styles.interfaceGreen}>
+                Сохранить подборку
+              </button>
+            </Link>
+            <Link href="/lk">
+              <button className={styles.interfaceRed}>Удалить подборку</button>
+            </Link>
           </div>
         </div>
       </div>
