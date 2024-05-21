@@ -2,11 +2,11 @@
 import React, {useState} from 'react';
 import styles from "./createWishlist.module.scss";
 import sidebar from "../sideNavbar";
-import SideNavBar from "../sideNavbar";
+import SideNavBarAdmin from "@/components/SideNavBarSelection";
 import {UseGetWishlistQuery} from "@/hooks/useGetWishlistQuery";
 import {CreateWishlist} from "@/services/fetch";
 
-export default function createWishlist() {
+export default function CreateWishlistForm() {
     const [ formData , setFormData ] = useState(
         { ID: "", Name: "", UserID: "" });
 
@@ -34,7 +34,7 @@ export default function createWishlist() {
         <div className={styles.container}>
             <div className={styles.flexbox}>
                 <div className={styles.sidebarDiv}>
-                    <SideNavBar/>
+                    <SideNavBarAdmin/>
                 </div>
                 <div className={styles.createWishlist}>
                     <div className={styles.content}>

@@ -1,59 +1,40 @@
-'use client'
-import React, { useState } from 'react';
-import styles from "./regCard.module.scss";
-import { RegisterUser } from "@/services/fetch";
-import { User } from "@/types/user";
+import Button from "@/components/GenericButton"
+import styles from "./Registration.module.scss"
 
-export default function Register() {
-    const [formData, setFormData] = useState({
-        Name: "",
-        LastName: "Jenkins",
-        Login: "",
-        Birthday: "30.10.2003",
-        Coins: 0,
-        Password: ""
-    });
-
-    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        const { name, value } = e.target;
-        setFormData({
-            ...formData,
-            [name]: value
-        });
-    };
-
-    const handleRegisterClick = async () => {
-        try {
-            await RegisterUser(formData);
-            console.log(formData)
-            console.log("Пользователь успешно зарегистрирован!");
-
-        } catch (error) {
-            console.log(formData)
-            console.error("Ошибка во время регистрации пользователя:", error);
-        }
-    };
-
-    return (
+export default function RegistrationCard( { back, login } ){
+    return(
         <div className={styles.container}>
-            <div className={styles.regBox}>
-                <div className={styles.regContent}>
+            <div className={styles.loginBox}>
+                <div className={styles.loginContent}>
+                    <a href={ back ? back : "/nope!" } className={styles.backButton}>Назад</a>
                     <h1>Регистрация</h1>
-                    <div className={styles.nameInput}>
-                        <span>Имя</span>
-                        <input type='text' name="Name" value={formData.Name} onChange={handleInputChange} />
+                    <div className={styles.formInputs}>
+                        <div className={styles.loginInput}>
+                            <span>как вас называть?</span>
+                            <input></input>
+
+                        </div>
+                        <div className={styles.loginInput}>
+                            <span>email</span>
+                            <input></input>
+
+                        </div>
+                        <div className={styles.passwordInput}>
+                            <span>пароль</span>
+                            <input type="password" id="pass"></input>
+                        </div>
+                        <div className={styles.passwordInput}>
+                            <span>повторите пароль</span>
+                            <input type="password" id="pass"></input>
+                        </div>
                     </div>
-                    <div className={styles.emailInput}>
-                        <span>Почта</span>
-                        <input type='text' name="Login" value={formData.Login} onChange={handleInputChange} />
+                    <Button text={ "Зарегестрироваться" } />
+                    <div className={styles.support}>
+                        <a href={login ? login : "/nope!" } className={styles.login}>Уже зарегестрированы?</a>
                     </div>
-                    <div className={styles.passwordInput}>
-                        <span>Пароль</span>
-                        <input type='password' name="Password" value={formData.Password} onChange={handleInputChange} />
-                    </div>
-                    <button onClick={handleRegisterClick}>Зарегистрироваться</button>
                 </div>
+
             </div>
         </div>
-    );
+    )
 }
