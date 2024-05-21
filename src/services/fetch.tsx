@@ -1,8 +1,8 @@
 import { User } from  '../types/user'
 import { Wish } from '../types/wish'
 import { Wishlist } from '../types/wishlist'
-import {json} from "node:stream/consumers";
-import wishlist from "@/components/wishlist";
+import { Credentials } from '@/types/credentionals';
+
 
 const BASE = 'http://84.38.183.178:7777'
 
@@ -34,7 +34,7 @@ export async function fetchWishlists(): Promise<Wishlist[]> {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
-            'Authorization': authToken? authToken : ''
+            'Authorization': 'session_cp4ahofnnsjf4mhn7ufg'
         }
         });
 
@@ -105,7 +105,7 @@ export async function CreateWishlist(newWishlist: Wishlist): Promise<Wishlist> {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
-            'Authorization': authToken ? authToken : ''
+            'Authorization': 'session_cp4ahofnnsjf4mhn7ufg'
         },
         body: JSON.stringify({
             Name: newWishlist.name,
@@ -116,6 +116,24 @@ export async function CreateWishlist(newWishlist: Wishlist): Promise<Wishlist> {
         throw new Error("Ошибка в создании пользователя");
     }
 
+    return await res.json();
+}
+
+export async function LoginUser(credetionals: Credentials): Promise<User> {
+    const res = await fetch(`${BASE}/wishlists`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            login: credetionals.login,
+            password: credetionals.password
+        })
+    });
+
+    if (!res.ok) {
+       throw new Error("Error in login") 
+    }  
     return await res.json();
 }
 
