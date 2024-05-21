@@ -1,6 +1,6 @@
 // 'use client';
 import React from "react";
-import styles from "@/app/components/Banners1/Subbanner1/Subbanner1.module.scss";
+import styles from "./Subbanner1.module.scss";
 import Image from "next/image";
 
 const Subbanner1 = () => {
