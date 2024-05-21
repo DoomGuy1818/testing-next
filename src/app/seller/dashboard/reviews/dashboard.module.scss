@@ -18,6 +18,9 @@
   padding: 3rem;
   display: flex;
   flex-direction: column;
+  @media only screen and (max-width: 400px) {
+    padding: 1rem;
+  }
   @media only screen and (max-width: 840px) {
     padding: 3rem 3rem 4rem 3rem;
   }
@@ -33,6 +36,11 @@
   padding: 2rem;
   justify-content: space-between;
   margin-bottom: 2rem;
+  @media only screen and (max-width: 550px) {
+    padding: 1rem;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
 }
 
 .filterBox {
@@ -44,4 +52,5 @@
   @include input-box;
   height: 60vh;
   box-shadow: none;
+  overflow: scroll;
 }

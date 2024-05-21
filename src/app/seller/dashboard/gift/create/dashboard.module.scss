@@ -60,6 +60,9 @@
   @include sellerButton;
   margin: 0rem;
   max-height: 10vh;
+  @media only screen and (max-width: 400px) {
+    font-size: 1.2rem;
+  }
 }
 
 .textInputs {
@@ -85,6 +88,11 @@
   padding-top: 6rem;
   text-align: center;
   vertical-align: middle;
+  @media only screen and (max-width: 400px) {
+    padding-top: 3rem;
+    height: 10rem;
+    width: 10rem;
+  }
   @media only screen and (max-width: 840px) {
     order: -1;
     align-self: center;

@@ -36,7 +36,12 @@
   font-family: $first-montserrat;
   font-size: 4rem;
   font-weight: 700;
+  padding-right: 1rem;
+  padding-left: 1rem;
   text-shadow: $shadow;
+  @media only screen and (max-width: 550px) {
+    font-size: 2.5rem;
+  }
 }
 
 .subheading {
@@ -50,6 +55,9 @@
   font-weight: 400;
   text-align: center;
   margin-top: 1rem;
+  @media only screen and (max-width: 550px) {
+    font-size: 1.2rem;
+  }
 }
 
 .fuckingButton {
@@ -57,5 +65,14 @@
 }
 
 .landingButton {
-  @include sellerButton
+  @include sellerButton;
+  align-self: center;
+  margin-top: 1rem;
+  font-size: 1.5rem;
+  @media only screen and (max-width: 550px) {
+    font-size: 1.2rem;
+  }
+  @media only screen and (max-width: 400px) {
+    font-size: 1rem;
+  }
 }
