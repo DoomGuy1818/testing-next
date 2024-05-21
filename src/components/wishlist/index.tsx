@@ -4,10 +4,12 @@ import Image from "next/image";
 import SideNavbar from "@/components/sideNavbar";
 import { UseGetWishlistQuery } from "@/hooks/useGetWishlistQuery";
 import Link from "next/link";
+import {FileReader} from "undici-types";
 
 function Wishlist() {
 
     const { data, isLoading, isError } = UseGetWishlistQuery();
+    const converter = FileReader
     console.log(isLoading);
     console.log(isError);
     console.log(data);

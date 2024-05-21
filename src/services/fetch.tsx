@@ -3,6 +3,8 @@ import { Wish } from '../types/wish'
 import { Wishlist } from '../types/wishlist'
 import {json} from "node:stream/consumers";
 import wishlist from "@/components/wishlist";
+import {Photo} from "@/types/photo";
+
 
 const BASE = 'http://84.38.183.178:7777'
 
@@ -94,6 +96,63 @@ export async function CreateWish(newWish: Wish): Promise<Wish> {
     }
 
     return await res.json()
+}
+
+export async function getPhoto(): Promise<Photo[]> {
+    let category =  localStorage.getItem("category");
+    if (category && category.startsWith('"') && category.endsWith('"')) {
+        category = category.slice(1, -1); // Удаление первого и последнего символов (кавычек)
+    }
+    let id = localStorage.getItem("photoId");
+    if (id && id.startsWith('"') && id.endsWith('"')) {
+        id = id.slice(1, -1); // Удаление первого и последнего символов (кавычек)
+    }
+
+    let authToken = localStorage.getItem("user");
+    if (authToken && authToken.startsWith('"') && authToken.endsWith('"')) {
+        authToken = authToken.slice(1, -1); // Удаление первого и последнего символов (кавычек)
+    }
+    const res = await fetch(`${BASE}/${category}/${id}`, {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': authToken ? authToken : ''
+        },
+    })
+    if (!res.ok) {
+        throw new Error('Failed to load photo')
+    }
+
+    return await res.json()
+}
+
+
+export async function uploadPhoto (newPhoto: Photo): Promise<Photo> {
+    const category =  localStorage.getItem("category");
+    let authToken = localStorage.getItem("user");
+    if (authToken && authToken.startsWith('"') && authToken.endsWith('"')) {
+        authToken = authToken.slice(1, -1); // Удаление первого и последнего символов (кавычек)
+    }
+
+    const res = await fetch(`${BASE}/upload`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': authToken ? authToken : ''
+        },
+        body: JSON.stringify({
+            photo: newPhoto.photo,
+            category: category,
+        })
+    });
+    if (!res.ok) {
+        throw new Error("Failed to upload photo");
+    }
+
+    return await res.json()
+
+
+
 }
 
 export async function CreateWishlist(newWishlist: Wishlist): Promise<Wishlist> {
