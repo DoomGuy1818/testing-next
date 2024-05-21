@@ -1,5 +1,5 @@
 import Header from "../../components/HeaderGift/HeaderGift";
-import Main from "../../components/wishlist/index"
+import Main from "../../components/inWishlist/index"
 
 
 export default function CreatingWish() {
