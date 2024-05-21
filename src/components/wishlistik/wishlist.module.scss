@@ -7,6 +7,8 @@
   flex-direction: column;
   align-items: center;
   padding: 20px;
+  padding-bottom: 100vw;
+
 }
 
 .pageWrap {
@@ -21,8 +23,8 @@
   @media (max-width: 800px) {
       width: 27%;
   }
-  @media (max-width: 425px){
-      width: 40%; 
+  @media (max-width: 455px){
+      display: none;
   }
 }
 
@@ -48,6 +50,14 @@
   background-color: #000;
   border-radius: 50%;
   margin-right: 20px;
+  @media (max-width: 800px){
+    width: 14VW;
+    height: 14VW;
+  }
+  @media (max-width: 425px){
+    width: 18VW;
+    height: 18VW;
+  }
 }
 
 .profileInfo {
@@ -58,6 +68,12 @@
 .profileInfo h1 {
   margin: 0;
   font-size: 3vw;
+  @media (max-width: 800px){
+    font-size: 5vw;
+  }
+  @media (max-width: 425px){
+    font-size: 6vw;
+  }
 }
 
 .refToEdit {
@@ -66,6 +82,12 @@
   color: #6c63ff;
   text-decoration: none;
   cursor: pointer;
+  @media (max-width: 800px){
+    font-size: 3vw;
+  }
+  @media (max-width: 425px){
+    font-size: 4vw;
+  }
 }
 
 .myWishlists {
@@ -77,7 +99,9 @@
   padding-top: 4vw;
   
   border-radius: 10px;
-  
+  @media (max-width: 450px){
+    padding-left: 9.5vw;
+  }
 
 }
 
@@ -85,6 +109,10 @@
   margin: 0;
   margin-bottom: 3vw;
   font-size: 2.5vw;
+  @media(max-width: 800px){
+    font-size: 3.5vw;
+  }
+
 }
 
 .createButton {
@@ -96,15 +124,28 @@
   color: #ffffff;
   text-decoration: none;
   border-radius: 30px;
+  @media (max-width: 800px){
+    font-size: 2.5vw;
+  }
+  @media (max-width: 425px){
+    font-size: 4.5vw;
+  }
 }
 
 .wishlistGrid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
+  @media (max-width: 800px){
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @media (max-width: 425px){
+    grid-template-columns: repeat(1, 1fr);
+  }
 }
 
 .wishlistItem {
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -113,5 +154,15 @@
   border-radius: 10px;
   cursor: pointer;
   text-align: center;
-  font-size: 2.5vw;
+}
+
+.deleteButton {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  color: #ff0000;
 }

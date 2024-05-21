@@ -21,7 +21,10 @@ export default function Header() {
     };
   }, []);
 
-  
+  const checkUserSession = () => {
+    const userSession = localStorage.getItem('userSession');
+    return !!userSession;
+  };
 
 
     return (
@@ -34,7 +37,7 @@ export default function Header() {
                 Никаких глупых и нелепых сюрпризов! Добавь ссылку и получи
                 гарантированно то, что хотел в нужном виде, цвете и качестве!
                 </p>
-                <a href = "/profile">
+                <a href = {checkUserSession()? "/wishlist/create/wishlist" : "/login"  }>
                 <button className={styles.createButton}>
                   Создать вишлист
                 </button>

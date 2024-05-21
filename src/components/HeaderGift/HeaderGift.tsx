@@ -31,7 +31,7 @@ export default function Header() {
       <section className={styles.topNav}>
         <div className={styles.logo}>
         <a href ="/">
-        <Image src="Images/logo.svg" width={logoWidth} height={logoHeight} alt="Not found" />
+        <Image src="/images/logo.svg" width={logoWidth} height={logoHeight} alt="Not found" />
         </a>
         </div>
         <input id="menu-toggle" type="checkbox" className={styles.menuToggle} />
@@ -40,7 +40,6 @@ export default function Header() {
         </label>
         <ul className={styles.menu}>
         <li><a href = "/main-selection">Подборки</a></li>
-          <li><a href = "/in-wishlist">Мои вишлист</a></li>
           <li><a href = "/boocked-gift">Подарки друзьям</a></li>
           <li><a href = "/profile">Мой профиль</a></li>
         </ul>

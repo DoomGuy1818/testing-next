@@ -134,6 +134,9 @@ export async function LoginUser(credetionals: Credentials): Promise<User> {
     if (!res.ok) {
        throw new Error("Error in login") 
     }  
+    const session = await res.json()
+    const sessionId : string = session.id.replace(/"/g, '');
+    localStorage.setItem("user", sessionId)
     return await res.json();
 }
 

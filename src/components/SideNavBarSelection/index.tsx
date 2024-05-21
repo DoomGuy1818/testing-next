@@ -11,23 +11,12 @@ export default function SideNavBarAdmin() {
                     </a>
                 </li>
 
-                <li className={styles.friend}>
-                    <a href="#">
-                        <span className={styles.Text}>Друзья</span>
-                    </a>
-                </li>
-
                 <li className={styles.gifts}>
                     <a href="#">
                         <span className={styles.Text}>Подарки друзьям</span>
                     </a>
                 </li>
 
-                <li className={styles.settings}>
-                    <a href="#">
-                        <span className={styles.Text}>Настройки</span>
-                    </a>
-                </li>
 
                 <li className={styles.settings}>
                     <a href="#">

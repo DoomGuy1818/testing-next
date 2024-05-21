@@ -11,11 +11,6 @@ export default function SideNavbar() {
                     </a>
                 </li>
 
-                <li className={styles.friend}>
-                    <a href="#">
-                        <span className={styles.Text}>Друзья</span>
-                    </a>
-                </li>
 
                 <li className={styles.gifts}>
                     <a href="/boocked-gift">
@@ -23,11 +18,6 @@ export default function SideNavbar() {
                     </a>
                 </li>
 
-                <li className={styles.settings}>
-                    <a href="#">
-                        <span className={styles.Text}>Настройки</span>
-                    </a>
-                </li>
             </ul>
 
         </div>

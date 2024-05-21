@@ -1,12 +1,17 @@
 import { LoginUser } from "@/services/fetch";
 import { useMutation } from "@tanstack/react-query";
 
-const UseRegisterUser = () => {
+interface Credentials {
+    login: string;
+    password: string;
+  }
+
+const UseLoginUser = () => {
     return useMutation({
        mutationFn: LoginUser,
         }
     );
  }
  
- export { UseRegisterUser };
+ export { UseLoginUser };
 

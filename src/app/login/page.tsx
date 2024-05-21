@@ -1,9 +1,9 @@
-import Login from "@/components/login"
+import LoginCard from '@/components/login';
 
-export default function CustomerLogin() {
-  return(
-    <>
-      <Login />
-    </>
-  );
+export default function LoginPage() {
+    return (
+        <div>
+            <LoginCard back="/" registration="/register" recover="/recover" />
+        </div>
+    );
 }

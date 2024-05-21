@@ -1,7 +1,8 @@
 import Button from "@/components/GenericButton"
 import styles from "./Registration.module.scss"
 
-export default function RegistrationCard( { back, login } ){
+
+export default function RegistrationCard( { back , login } ){
     return(
         <div className={styles.container}>
             <div className={styles.loginBox}>
@@ -38,3 +39,5 @@ export default function RegistrationCard( { back, login } ){
         </div>
     )
 }
+
+

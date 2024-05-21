@@ -25,6 +25,11 @@ const BurgerMenu = () => {
   const logoWidth = windowWidth * 0.16; 
   const logoHeight = logoWidth * 0.4; 
 
+  const checkUserSession = () => {
+    const userSession = localStorage.getItem('userSession');
+    return !!userSession;
+  };
+
   return (
     <div className={styles.all}>
       <div className={styles.biggift}>
@@ -43,9 +48,9 @@ const BurgerMenu = () => {
         </label>
         <ul className={styles.menu}>
           <li><a href = "/main-selection">Подборки</a></li>
-          <li><a href = "/in-wishlist">Мои вишлист</a></li>
           <li><a href = "/boocked-gift">Подарки друзьям</a></li>
-          <li><a href = "/profile">Мой профиль</a></li>
+          <li><a href = {checkUserSession()? "/profile" : "/login"  }>Мой профиль</a></li>
+          {/* <li><a href = "/profile">Мой профиль</a></li> */}
         </ul>
       </section>
       <ul className={styles.header__list__main}>
@@ -57,7 +62,7 @@ const BurgerMenu = () => {
             </li>
             
           </ul>
-          <a href = "/profile">
+          <a href = {checkUserSession()? "/wishlist/create/wishlist" : "/login"  }>
           <button className={styles.createButton}>
             Создать вишлист
           </button>

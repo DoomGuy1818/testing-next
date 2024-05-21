@@ -1,3 +1,4 @@
+'use client'
 import styles from "./login.module.scss"
 import Button from "@/components/GenericButton";
 
@@ -17,12 +18,12 @@ export default function LoginCard( { back, pass, registration, recover } ){
                         <span>пароль</span>
                         <input type="password" id="pass"></input>
                     </div>
-                    <a href={ pass ? pass : "/nope!" }>
+                    <a href={ pass ? pass : "/profile" }>
                         <Button text={ "Войти" } />
                     </a>
                     <div className={styles.support}>
                         <a href={ recover ? recover : "/nope!" } className={styles.forgotPass}>Забыли пароль?</a>
-                        <a href={registration? registration : "/nope!" } className={styles.register}>Зарегистрироваться</a>
+                        <a href={registration? registration : "/register" } className={styles.register}>Зарегистрироваться</a>
                     </div>
                 </div>
 

@@ -18,6 +18,10 @@ function Wishlist() {
         return <div>Error fetching wishlist</div>;
     }
 
+    const handleDelete = (id : string) => {
+        console.log(`Delete wishlist with id: ${id}`);
+    };
+
     return (
         <div className={styles.container}>
             <div className={styles.pageWrap}>
@@ -37,12 +41,20 @@ function Wishlist() {
 
             <div className={styles.myWishlists}>
                 <h1>Мои Вишлисты</h1>
-                <a href="#" className={styles.createButton}>Создать вишлист</a>
+                <a href="/wishlist/create/wishlist" className={styles.createButton}>Создать вишлист</a>
                 <div className={styles.wishlistGrid}>
                     {data?.map((wishlist) => (
-                        <Link key={wishlist.id} href="#">
-                            <div className={styles.wishlistItem}>{wishlist.name}</div>
-                        </Link>
+                        <div key={wishlist.id} className={styles.wishlistItem}>
+                            <button 
+                                className={styles.deleteButton} 
+                                onClick={() => handleDelete(wishlist.id)}
+                            >
+                                &times;
+                            </button>
+                            <Link href="#">
+                                <div>{wishlist.name}</div>
+                            </Link>
+                        </div>
                     ))}
                 </div>
             </div>

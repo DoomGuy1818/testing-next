@@ -40,7 +40,6 @@ export default function Header() {
         </label>
         <ul className={styles.menu}>
         <li><a href = "/main-selection">Подборки</a></li>
-          <li><a href = "/in-wishlist">Мои вишлист</a></li>
           <li><a href = "/boocked-gift">Подарки друзьям</a></li>
           <li><a href = "/profile">Мой профиль</a></li>
         </ul>
