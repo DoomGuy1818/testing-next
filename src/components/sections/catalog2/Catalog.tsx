@@ -1,8 +1,8 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import styles from './Catalog.module.scss'
+import styles from './Catalog2.module.scss'
 
-export default function CatalogSection() {
+export default function CatalogSection2() {
   return (
     <div className={styles.catalog}>
       <div className={styles.container}>
@@ -14,6 +14,7 @@ export default function CatalogSection() {
               height={350}
               alt="product photo"
             />
+            <button className={styles.deleteButton}></button>
             <div className={styles.catalogTitle}>
               Ручной отпариватель Xiaomi
             </div>

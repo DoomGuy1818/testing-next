@@ -1,8 +1,30 @@
+'use client'
+import { CreateSelection } from '@/services/fetch'
 import Image from 'next/image'
 import Link from 'next/link'
+import { useState } from 'react'
 import styles from './Interface.module.scss'
 
 export default function InterfaceSection() {
+  const [formData, setFormData] = useState({
+    id: '',
+    name: '',
+    description: '',
+    userId: '',
+    isGenerated: false,
+    image: '',
+  })
+
+  const handleCreateCollectionClick = async () => {
+    try {
+      await CreateSelection(formData)
+      console.log(formData)
+      console.log('Подборка успешно создана!')
+    } catch (error) {
+      console.log(formData)
+      console.error('Ошибка во время создания подборки:', error)
+    }
+  }
   return (
     <section className={styles.interface}>
       <div className={styles.container}>
@@ -18,7 +40,10 @@ export default function InterfaceSection() {
 
           <div className={styles.interfaceButtons}>
             <Link href="/admin-selection">
-              <button className={styles.interfaceGreen}>
+              <button
+                onClick={handleCreateCollectionClick}
+                className={styles.interfaceGreen}
+              >
                 Сохранить подборку
               </button>
             </Link>

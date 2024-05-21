@@ -3,6 +3,7 @@ import GiftsSection from '@/components/sections/gifts/Gifts'
 import InterfaceSection from '@/components/sections/interface/Interface'
 import TitlesSection from '@/components/sections/titles/Titles'
 import Header from "@/components/HeaderSelection/HeaderSelection";
+import CatalogSection2 from '@/components/sections/catalog2/Catalog';
 
 export default function SelectionPage() {
 	return (
@@ -11,7 +12,7 @@ export default function SelectionPage() {
 			<TitlesSection />
 			<InterfaceSection />
 			<GiftsSection />
-			<CatalogSection />
+			<CatalogSection2 />
 		</>
 	)
 }
