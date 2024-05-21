@@ -20,9 +20,9 @@ export default function wishesInWishlist(){
                 <div className={styles.wishesGrid}>
                     {Wish?.map((wish) => (
 
-                        <div key = {wish.ID} className={styles.wishlistCard}>
+                        <div key = {wish.id} className={styles.wishlistCard}>
                             <Link href="#">
-                                <button>{wish.Name}</button>
+                                <button>{wish.name}</button>
                             </Link>
                         </div>
                     ))}

@@ -26,15 +26,15 @@ export async function fetchWishes(): Promise<Wish[]> {
 }
 
 export async function fetchWishlists(): Promise<Wishlist[]> {
-    // let authToken = localStorage.getItem("user");
-    // if (authToken && authToken.startsWith('"') && authToken.endsWith('"')) {
-    //     authToken = authToken.slice(1, -1);
-    // }
+     let authToken = localStorage.getItem("user");
+     if (authToken && authToken.startsWith('"') && authToken.endsWith('"')) {
+         authToken = authToken.slice(1, -1);
+     }
     const res = await fetch(`${BASE}/wishlists`, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
-            'Authorization': 'session_cp4ahofnnsjf4mhn7ufg'
+            'Authorization': authToken? authToken : ''
         }
         });
 
@@ -68,6 +68,32 @@ export async function RegisterUser(newUser: User): Promise<User> {
     const sessionId : string = session.id.replace(/"/g, '');
     localStorage.setItem("user", sessionId)
     return res.json();
+}
+
+export async function CreateWish(newWish: Wish): Promise<Wish> {
+    let authToken = localStorage.getItem("user");
+    if (authToken && authToken.startsWith('"') && authToken.endsWith('"')) {
+        authToken = authToken.slice(1, -1); // Удаление первого и последнего символов (кавычек)
+    }
+    const res = await fetch(`${BASE}/wishlists`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': authToken ? authToken : ''
+        },
+        body: JSON.stringify({
+            name: newWish.name,
+            price: newWish.price,
+            photo: newWish.photo,
+            description: newWish.description,
+            link: newWish.link,
+        })
+    });
+    if (!res.ok) {
+        throw new Error("Failed to create wish");
+    }
+
+    return await res.json()
 }
 
 export async function CreateWishlist(newWishlist: Wishlist): Promise<Wishlist> {
