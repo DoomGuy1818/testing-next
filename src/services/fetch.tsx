@@ -21,22 +21,22 @@ export async function fetchWishes(): Promise<Gift[]> {
         authToken = authToken.slice(1, -1);
     }
 
-    const res = await fetch(`${BASE}/wishes/${wishlistID}`, {
-        method: 'GET',
-        headers: {
-            'Content-Type': 'application/json',
-            'Authorization': authToken? authToken : ''
+        const res = await fetch(`${BASE}/wishes/${wishlistID}`, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': authToken ? authToken : ''
+            }
+        });
+
+        if (!res.ok) {
+            throw new Error('Failed to fetch wish');
         }
-    });
 
-    if (!res.ok) {
-        throw new Error('Failed to fetch wish');
+        return await res.json()
+
     }
-
-    return await res.json()
-
 }
-
 export async function CreateWish(wish: Wish): Promise<Wish> {
 
     let giftID = localStorage.getItem("giftID");
@@ -230,8 +230,6 @@ export async function uploadPhoto (newPhoto: Photo): Promise<Photo> {
     }
 
     return await res.json()
-
-
 
 }
 

@@ -34,7 +34,11 @@ export default function Header() {
                 Никаких глупых и нелепых сюрпризов! Добавь ссылку и получи
                 гарантированно то, что хотел в нужном виде, цвете и качестве!
                 </p>
-                <button className={styles.createButton}>Создать вишлист</button>
+                <a href = "/profile">
+                <button className={styles.createButton}>
+                  Создать вишлист
+                </button>
+                </a>
                 
             </div>
             <div className={styles.image_container}>

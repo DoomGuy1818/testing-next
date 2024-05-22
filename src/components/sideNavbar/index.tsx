@@ -1,39 +1,3 @@
-/*
-import styles from "./sideNavbar.module.scss"
-import Image from 'next/image';
-
-export default function SideNavBar() {
-    return(
-        <div className={styles.container}>
-            <ul className={styles.list}>
-                <li className={styles.page}>
-                    <a href="#">
-                        <span className={styles.Text}>Моя Страница</span>
-                    </a>
-                </li>
-
-                <li className={styles.friend}>
-                    <a href="#">
-                        <span className={styles.Text}>Друзья</span>
-                    </a>
-                </li>
-
-                <li className={styles.gifts}>
-                    <a href="#">
-                        <span className={styles.Text}>Подарки друзьям</span>
-                    </a>
-                </li>
-
-                <li className={styles.settings}>
-                    <a href="#">
-                        <span className={styles.Text}>Настройки</span>
-                    </a>
-                </li>
-            </ul>
-
-        </div>
-    )
-*/
 import styles from "./sideNavbar.module.scss"
 import Image from 'next/image';
 
@@ -42,7 +6,7 @@ export default function SideNavbar() {
         <div className={styles.container}>
             <ul className={styles.list}>
                 <li className={styles.page}>
-                    <a href="#">
+                    <a href="/profile">
                         <span className={styles.Text}>Моя Страница</span>
                     </a>
                 </li>
@@ -54,7 +18,7 @@ export default function SideNavbar() {
                 </li>
 
                 <li className={styles.gifts}>
-                    <a href="#">
+                    <a href="/boocked-gift">
                         <span className={styles.Text}>Подарки друзьям</span>
                     </a>
                 </li>

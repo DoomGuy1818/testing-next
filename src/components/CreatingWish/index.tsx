@@ -42,12 +42,9 @@ export default function CreatingWish() {
 
         return(
         <div className={styles.container}>
-
             <div className={styles.sector}>
-
                 <div className={styles.sideNavbar}><SideNavBar/></div>
                 <div className={styles.addGift}>
-
                     <a href="#" className="#">Назад</a>
                     <h1 className={styles.title}>Добавить подарок</h1>
 

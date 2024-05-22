@@ -5,7 +5,7 @@ import { UseGetWishesQuery } from '@/hooks/useGetWishesQuery'
 import Link from "next/link";
 
 export default function WishesInWishlist(){
-    const {data: Wish, } = UseGetWishesQuery();
+    const { data } = UseGetWishesQuery();
     return(
 
         <div className={styles.container}>
@@ -18,7 +18,7 @@ export default function WishesInWishlist(){
                     <h1>placeHolder.Name</h1>
                 </div>
                 <div className={styles.wishesGrid}>
-                    {Wish?.map((wish) => (
+                    {data?.map((wish) => (
 
                         <div key = {wish.id} className={styles.wishlistCard}>
                             <Link href="#">

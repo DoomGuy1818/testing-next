@@ -30,18 +30,19 @@ export default function Header() {
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       <section className={styles.topNav}>
         <div className={styles.logo}>
-        <Image src="/images/logo_white.svg" width={logoWidth} height={logoHeight} alt="Not found" />
+        <a href ="/">
+        <Image src="Images/logo.svg" width={logoWidth} height={logoHeight} alt="Not found" />
+        </a>
         </div>
         <input id="menu-toggle" type="checkbox" className={styles.menuToggle} />
         <label className={styles.menuButtonContainer} htmlFor="menu-toggle">
           <div className={styles.menuButton}></div>
         </label>
         <ul className={styles.menu}>
-          <li>Подборки</li>
-          <li>Подарки</li>
-          <li>Мои вишлисты</li>
-          <li>Подарки друзьям</li>
-          <li>Мой профиль</li>
+        <li><a href = "/main-selection">Подборки</a></li>
+          <li><a href = "/in-wishlist">Мои вишлист</a></li>
+          <li><a href = "/boocked-gift">Подарки друзьям</a></li>
+          <li><a href = "/profile">Мой профиль</a></li>
         </ul>
       </section>
 
