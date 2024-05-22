@@ -41,33 +41,27 @@ export default function LoginCard( { back, pass, registration, recover } ){
 
       
 
-    return(
+    return (
         <div className={styles.container}>
             <div className={styles.loginBox}>
                 <div className={styles.loginContent}>
-                    <a href={ back ? back : "/nope!" } className={styles.backButton}>Назад</a>
+                    <a href={back ? back : '/nope!'} className={styles.backButton}>Назад</a>
                     <h1>Вход</h1>
                     <div className={styles.loginInput}>
                         <span>логин</span>
-                        <input type="text" name="login" value={formData.login}
-                               onChange={handleInputChange}></input>
-
+                        <input type="text" name="login" value={formData.login} onChange={handleInputChange} />
                     </div>
                     <div className={styles.passwordInput}>
                         <span>пароль</span>
-                        <input type="password" id="pass"  name="password" value={formData.password}
-                               onChange={handleInputChange}></input>
+                        <input type="password" name="password" value={formData.password} onChange={handleInputChange} />
                     </div>
-                    <a href={pass? pass : "/nope!"}>
-                        <button type="button" className={buttonStyles.sellerButton} onClick={handleLoginClick}>Войти</button>
-                    </a>
+                    <button type="button" className={buttonStyles.sellerButton} onClick={handleLoginClick}>Войти</button>
                     <div className={styles.support}>
-                        <a href={recover ? recover : "/nope!"} className={styles.forgotPass}>Забыли пароль?</a>
-                        <a href={registration? registration : "/nope!" } className={styles.register}>Зарегистрироваться</a>
+                        <a href={recover ? recover : '/nope!'} className={styles.forgotPass}>Забыли пароль?</a>
+                        <a href={registration ? registration : '/nope!'} className={styles.register}>Зарегистрироваться</a>
                     </div>
                 </div>
-
             </div>
         </div>
-    )
+    );
 }
