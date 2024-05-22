@@ -7,6 +7,7 @@ import Link from "next/link";
 
 function Wishlist() {
     const { data, isLoading, isError } = UseGetWishlistQuery();
+    console.log(data)
 
     // Если данные загружаются, отобразите сообщение о загрузке
     if (isLoading) {

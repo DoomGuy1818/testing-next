@@ -1,13 +1,14 @@
 'use client'
 import { useQuery } from '@tanstack/react-query';
-import {fetchWishes} from '@/services/fetch';
+import { fetchWishes } from '@/services/fetch';
 
 const UseGetWishesQuery = () => {
 
     return useQuery({
         // queryFn: () => fetchCategories(),
-        queryFn: fetchWishes,
         queryKey: ['wishes'],
+        queryFn: fetchWishes,
+
         staleTime: 1000 * 5,
     });
 };

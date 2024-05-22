@@ -5,14 +5,21 @@ import {UseUploadPhoto} from "@/hooks/useUploadPhoto";
 import {UseCreateWishQuery} from "@/hooks/useCreateWishQuery";
 import React, {useState} from 'react'
 import { CreateGift } from "@/services/fetch";
+import {number} from "prop-types";
 
 
 export default function CreatingWish() {
 
     const [ formData , setFormData ] = useState(
-        { id: "", name: "", price: "", description: "", photo: "", link: "", category: "" });
+        {
+            Name: "",
+            Price: 0,
+            Description: "",
+            Photo: "",
+            Link: "",
+            Category: "" });
 
-    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const handleInputChange = (e) => {
         const { name, value } = e.target;
         setFormData({
             ...formData,
@@ -24,7 +31,7 @@ export default function CreatingWish() {
         try {
             await CreateGift(formData);
             console.log(formData)
-            console.log("Пользователь успешно зарегистрирован!");
+            console.log("Подарок успешно создан!");
 
         } catch (error) {
             console.log(formData)
@@ -50,7 +57,7 @@ export default function CreatingWish() {
 
                     <div className={styles.blocklink}>
                         <span className={styles.text}>Ссылка</span>
-                        <input className={styles.link} type='text' name="link" value={formData.link}
+                        <input className={styles.link} type='url' name="Link" value={formData.Link}
                                onChange={handleInputChange}></input>
                     </div>
 
@@ -64,14 +71,13 @@ export default function CreatingWish() {
                         <div>
                             <div className={styles.block1}>
                                 <span className={styles.text}>Название</span>
-                                <input className={styles.link} type='text' name="name" value={formData.name} onChange={handleInputChange}></input>
+                                <input className={styles.link} type='text' name="Name" value={formData.Name} onChange={handleInputChange}></input>
                             </div>
 
                             <div className={styles.block2}>
                                 <span className={styles.text}>Цена</span>
                                 <div className={styles.price}>
-                                    <input className={styles.link} type='decimal' name="price" value={formData.price}
-                                           onChange={handleInputChange}></input>
+                                    <input className={styles.link} type="number" name="Price" value={formData.Price} onChange={handleInputChange}></input>
                                 </div>
 
                             </div>
@@ -79,8 +85,7 @@ export default function CreatingWish() {
 
                             <div className={styles.block3}>
                                 <span className={styles.text}>Комментарий</span>
-                                <input className={styles.link} type='text' name="description" value={formData.description}
-                                       onChange={handleInputChange}></input>
+                                <input className={styles.link} type='text' name="Description" value={formData.Description} onChange={handleInputChange}></input>
                             </div>
 
                             <div className={styles.buttonBox}>
