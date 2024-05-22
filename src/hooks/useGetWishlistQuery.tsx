@@ -1,3 +1,4 @@
+'use client'
 import { useQuery } from '@tanstack/react-query';
 import { fetchWishlists } from '@/services/fetch';
 import { Wishlist } from "@/types/wishlist"

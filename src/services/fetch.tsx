@@ -3,7 +3,7 @@ import { Gift } from '@/types/gift';
 import { Wishlist } from '@/types/wishlist';
 import { Wish} from "@/types/wish";
 import {json} from "node:stream/consumers";
-import wishlist from "@/components/wishlist/wishlist";
+// import wishlist from "@/components/wishlist/wishlist";
 import {Photo} from "@/types/photo";
 import {Credentionals} from "@/types/credentionals";
 
@@ -35,7 +35,7 @@ export async function fetchWishes(): Promise<Gift[]> {
 
         return await res.json()
 
-    }
+
 }
 export async function CreateWish(wish: Wish): Promise<Wish> {
 
