@@ -52,7 +52,9 @@ const BurgerMenu = () => {
         </label>
         <ul className={styles.menu}>
           <ul className={styles.menu}>
-          <li><a href = {checkUserSession()? "/main-selection" : "/login"  }>Подборки</a></li>
+          {/* <li><a href = {checkUserSession()? "/profile" : "/profile"  }>Мои квесты</a></li> */}
+          <li><a href = {checkUserSession()? "/seller/dashboard/gift" : "/seller/dashboard/gift"  }>Продавцам</a></li>
+          <li><a href = {checkUserSession()? "/main-selection" : "/main-selection"  }>Подборки</a></li>
           <li><a href = {checkUserSession()? "/profile" : "/login"  }>Мой профиль</a></li>
         </ul>
         </ul>

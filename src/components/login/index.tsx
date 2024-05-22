@@ -55,7 +55,9 @@ export default function LoginCard( { back, pass, registration, recover } ){
                         <span>пароль</span>
                         <input type="password" name="password" value={formData.password} onChange={handleInputChange} />
                     </div>
-                    <button type="button" className={buttonStyles.sellerButton} onClick={handleLoginClick}>Войти</button>
+                    <a href={pass? pass : "/nope!"}>
+                        <button type="button" className={buttonStyles.sellerButton} onClick={handleLoginClick}>Войти без данных</button>
+                    </a>
                     <div className={styles.support}>
                         <a href={recover ? recover : '/nope!'} className={styles.forgotPass}>Забыли пароль?</a>
                         <a href={registration ? registration : '/nope!'} className={styles.register}>Зарегистрироваться</a>
