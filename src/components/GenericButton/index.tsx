@@ -1,7 +1,7 @@
 import styles from "./GenericButton.module.scss"
 
-export default function Button({ text }) {
+export default function Button({ text, onClick }) {
   return (
-    <button type="button" className={styles.sellerButton}>{text ? text : "Button"}</button>
+    <button type="button" className={styles.sellerButton}>{text ? text : "Button"} {onClick? onClick : "пампампам"}</button>
   );
 }

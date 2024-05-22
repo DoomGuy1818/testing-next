@@ -4,6 +4,7 @@ import { Wishlist } from '../types/wishlist'
 import {json} from "node:stream/consumers";
 import wishlist from "@/components/wishlist";
 import {Photo} from "@/types/photo";
+import {Credentionals} from "@/types/credentionals";
 
 
 const BASE = 'http://84.38.183.178:7777'
@@ -96,6 +97,28 @@ export async function CreateWish(newWish: Wish): Promise<Wish> {
     }
 
     return await res.json()
+}
+
+export async function LoginUser(credentionals: Credentionals): Promise<User> {
+    const res = await fetch( `${BASE}/login`, {
+        method: "POST",
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+           login: credentionals.login,
+           password: credentionals.password
+        })
+    });
+
+    if (!res.ok) {
+        throw new Error("Ошибка в создании пользователя");
+    }
+    const session = await res.json()
+    const sessionId : string = session.id.replace(/"/g, '');
+    localStorage.setItem("user", sessionId)
+    return res.json();
+
 }
 
 export async function getPhoto(): Promise<Photo[]> {
