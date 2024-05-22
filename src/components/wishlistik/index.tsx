@@ -4,29 +4,32 @@ import Image from "next/image";
 import SideNavbar from "@/components/sideNavbar";
 import { UseGetWishlistQuery } from "@/hooks/useGetWishlistQuery";
 import Link from "next/link";
+import { UseGetUserQuery } from "@/hooks/useGetUserQuery";
 
 function Wishlist() {
     const { data, isLoading, isError } = UseGetWishlistQuery();
+    const { data: dataUser, isLoading: userLoading, isError: userError } = UseGetUserQuery();
 
-    // Если данные загружаются, отобразите сообщение о загрузке
-    if (isLoading) {
+    if (isLoading || userLoading) {
         return <div>Loading...</div>;
     }
 
-    // Если произошла ошибка при загрузке данных, отобразите сообщение об ошибке
     if (isError) {
         return <div>Error fetching wishlist</div>;
     }
 
-    const handleDelete = (id : string) => {
+    if (userError) {
+        return <div>Error fetching User</div>;
+    }
+
+    const handleDelete = (id: string) => {
         console.log(`Delete wishlist with id: ${id}`);
     };
 
-    const handleWishlistID = (id : string) => {
+    const handleWishlistID = (id: string) => {
         localStorage.setItem("wishlistID", id);
-        console.log(localStorage.getItem("wishlistID"))
-    }
-
+        console.log(localStorage.getItem("wishlistID"));
+    };
 
     return (
         <div className={styles.container}>
@@ -38,7 +41,9 @@ function Wishlist() {
                     <div className={styles.profile}>
                         <div className={styles.profileImage}></div>
                         <div className={styles.profileInfo}>
-                            <h1>Елизавета Ланус</h1>
+                            {dataUser?.map((user) => (
+                                <h1 key={user.ID}>{user.Name}</h1>
+                            ))}
                             <a href="#" className={styles.refToEdit}>редактировать</a>
                         </div>
                     </div>
@@ -53,11 +58,10 @@ function Wishlist() {
                         <div key={wishlist.id} className={styles.wishlistItem}>
                             <button
                                 className={styles.deleteButton}
-                                onClick={() => handleDelete(wishlist.id)}
-                            >
+                                onClick={() => handleDelete(wishlist.id)}>
                                 &times;
                             </button>
-                            <Link href="/in-wishlist" onClick={()=> handleWishlistID(wishlist.id)}>
+                            <Link href="/in-wishlist" onClick={() => handleWishlistID(wishlist.id)}>
                                 <div>{wishlist.name}</div>
                             </Link>
                         </div>

@@ -28,7 +28,7 @@ export default function RegistrationCard( { back, login } ) {
             try {
                 await RegisterUser(formData);
                 console.log(formData)
-                console.log("Пользователь успешно вошёл!");
+                console.log("Пользователь успешно зарегистрирован!");
 
             } catch (error) {
                 console.log(formData)

@@ -19,17 +19,27 @@ export default function LoginCard( { back, pass, registration, recover } ){
         });
     };
 
+    const handleUserID = (id : string) => {
+        localStorage.setItem("userID", id);
+        console.log(localStorage.getItem("userID"))
+        return(localStorage.getItem("userID"))
+    }
+
     const handleLoginClick = async () => {
         try {
-            await LoginUser(formData);
+            
+            const userID = await LoginUser(formData);
             console.log(formData)
-            console.log("Пользователь успешно зарегистрирован!");
+            console.log("Пользователь успешно вошёл!");
+            handleUserID (userID.ID)
 
         } catch (error) {
             console.log(formData)
-            console.error("Ошибка во время регистрации пользователя:", error);
+            console.error("Ошибка во время входа пользователя:", error);
         }
     };
+
+      
 
     return(
         <div className={styles.container}>
