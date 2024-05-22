@@ -1,0 +1,92 @@
+@import '../styles/variables';
+@import '../styles/mixins';
+
+.container {
+  background-color: $background-white;
+  height: 1080px;
+
+}
+.loginBox {
+  //margin-top: 30px;
+  border-radius: 30px;
+  margin-top: 100px;
+  @include register-card;
+  margin-left: 450px;
+  box-shadow: $shadow;
+  button {
+    @include register-button;
+  }
+
+  h1 {
+    margin-left: 62px;
+    margin-top: 12px;
+    @include h1-title;
+  }
+}
+
+.loginContent {
+  padding-top: 25px;
+}
+
+.backButton {
+  @include back-button;
+  margin-left: 62px;
+  margin-top: 15px;
+}
+
+.loginInput {
+  display: flex;
+  flex-direction: column;
+  span {
+    margin-left: 62px;
+    @include span-text;
+  }
+
+  input {
+    @include input-box;
+    width: 490px;
+    height: 50px;
+    margin-left: 62px;
+    margin-bottom: 11px;
+    margin-top: 11px;
+  }
+}
+
+.passwordInput {
+  display: flex;
+  flex-direction: column;
+
+  span {
+    margin-left: 62px;
+    margin-top: 48px;
+    @include span-text;
+  }
+
+  input {
+    width: 490px;
+    height: 50px;
+    margin-left: 62px;
+    margin-bottom: 11px;
+    margin-top: 11px;
+    @include input-box;
+  }
+}
+
+.support {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.forgotPass {
+  @include span-text;
+  text-decoration: none;
+  margin-left: 62px;
+}
+
+.register {
+  @include span-text;
+  text-decoration: none;
+  margin-right: 72px;
+}

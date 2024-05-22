@@ -6,7 +6,8 @@ import "./globals.css";
 import { QueryClient} from 'react-query'
 import QueryClientProvider from '@/providers/react-query'
 import ReactQueryProvider from "@/providers/react-query";
-// import {QueryClient} from "@tanstack/query-core";
+import {QueryClient} from "@tanstack/query-core";
+
 const queryClient = new QueryClient();
 
 const montserrat = Montserrat({ subsets: ["latin-ext", "cyrillic"] });
