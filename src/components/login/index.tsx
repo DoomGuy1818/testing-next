@@ -1,9 +1,11 @@
+'use client'
 import styles from "./login.module.scss"
-import Button from "@/components/GenericButton";
 import React, { useState } from "react";
 import { LoginUser } from "@/services/fetch";
+import buttonStyles from "@/components/GenericButton/GenericButton.module.scss";
 
 export default function LoginCard( { back, pass, registration, recover } ){
+
     const [formData, setFormData] = useState({
         login: "",
         password: ""
@@ -37,7 +39,7 @@ export default function LoginCard( { back, pass, registration, recover } ){
                     <h1>Вход</h1>
                     <div className={styles.loginInput}>
                         <span>логин</span>
-                        <input type='text' name="login" value={formData.login}
+                        <input type="text" name="login" value={formData.login}
                                onChange={handleInputChange}></input>
 
                     </div>
@@ -46,11 +48,11 @@ export default function LoginCard( { back, pass, registration, recover } ){
                         <input type="password" id="pass"  name="password" value={formData.password}
                                onChange={handleInputChange}></input>
                     </div>
-                    <a href={ pass ? pass : "/nope!" }>
-                        <Button text={ "Войти" } onClick={ handleLoginClick }/>
+                    <a href={pass? pass : "/nope!"}>
+                        <button type="button" className={buttonStyles.sellerButton} onClick={handleLoginClick}>Войти</button>
                     </a>
                     <div className={styles.support}>
-                        <a href={ recover ? recover : "/nope!" } className={styles.forgotPass}>Забыли пароль?</a>
+                        <a href={recover ? recover : "/nope!"} className={styles.forgotPass}>Забыли пароль?</a>
                         <a href={registration? registration : "/nope!" } className={styles.register}>Зарегистрироваться</a>
                     </div>
                 </div>

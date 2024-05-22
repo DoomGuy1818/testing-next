@@ -1,5 +1,5 @@
 import Header from "../../components/HeaderGift/HeaderGift";
-import Main from "../../components/creatingWish/index"
+import Creating from "@/components/CreatingWish/index"
 import styles from "./createWish.module.scss";
 
 
@@ -10,7 +10,7 @@ export default function CreatingWish() {
           <Header/>
         </div>
         <div>
-          <Main/>
+          <Creating />
         </div>
       </div>
       );

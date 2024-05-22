@@ -1,3 +1,4 @@
+'use client'
 import styles from "./creatingWish.module.scss"
 import SideNavBar from "@/components/sideNavbar/index"
 import {UseUploadPhoto} from "@/hooks/useUploadPhoto";
@@ -9,7 +10,7 @@ import { CreateWish } from "@/services/fetch";
 export default function CreatingWish() {
 
     const [ formData , setFormData ] = useState(
-        { ID: "", Name: "", "" });
+        { id: "", name: "", price: "", description: "", photo: "", link: "", category: "" });
 
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const { name, value } = e.target;
@@ -19,7 +20,7 @@ export default function CreatingWish() {
         });
     };
 
-    const handleCreateWishlistClick = async () => {
+    const handleCreateWishClick = async () => {
         try {
             await CreateWish(formData);
             console.log(formData)
@@ -36,7 +37,7 @@ export default function CreatingWish() {
             const file = event.target.files[0];
             const category = localStorage.setItem("category", "selection")
         };
-
+    };
 
 
         return(
@@ -52,27 +53,28 @@ export default function CreatingWish() {
 
                     <div className={styles.blocklink}>
                         <span className={styles.text}>Ссылка</span>
-                        <input className={styles.link}></input>
+                        <input className={styles.link} type='text' name="link" value={formData.link}
+                               onChange={handleInputChange}></input>
                     </div>
 
                     <div className={styles.bigblock}>
 
                         <div className={styles.import}>
                             <span className={styles.text}>Фото</span>
-                            <input className={styles.img} type="file" name="photo" onChange={handleFileChange}></input>
+                            <input className={styles.img} type="file" name="photo" onChange={handleInputChange}></input>
                         </div>
 
                         <div>
                             <div className={styles.block1}>
                                 <span className={styles.text}>Название</span>
-                                <input className={styles.name}></input>
+                                <input className={styles.link} type='text' name="name" value={formData.name} onChange={handleInputChange}></input>
                             </div>
 
                             <div className={styles.block2}>
                                 <span className={styles.text}>Цена</span>
                                 <div className={styles.price}>
-                                    <input></input>
-                                    <div className={styles.rectangle}>руб</div>
+                                    <input className={styles.link} type='decimal' name="price" value={formData.price}
+                                           onChange={handleInputChange}></input>
                                 </div>
 
                             </div>
@@ -80,11 +82,12 @@ export default function CreatingWish() {
 
                             <div className={styles.block3}>
                                 <span className={styles.text}>Комментарий</span>
-                                <input></input>
+                                <input className={styles.link} type='text' name="description" value={formData.description}
+                                       onChange={handleInputChange}></input>
                             </div>
 
                             <div className={styles.buttonBox}>
-                                <button className={styles.createButton}>
+                                <button className={styles.createButton} onClick={handleCreateWishClick}>
                                     Создать!
                                 </button>
                             </div>
@@ -97,6 +100,7 @@ export default function CreatingWish() {
 
                 </div>
             </div>
+
         )
-    }
+
 }

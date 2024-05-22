@@ -2,7 +2,7 @@ import { User } from  '../types/user'
 import { Wish } from '../types/wish'
 import { Wishlist } from '../types/wishlist'
 import {json} from "node:stream/consumers";
-import wishlist from "@/components/wishlist";
+import wishlist from "@/components/wishlist/wishlist";
 import {Photo} from "@/types/photo";
 import {Credentionals} from "@/types/credentionals";
 
@@ -65,12 +65,14 @@ export async function RegisterUser(newUser: User): Promise<User> {
     });
 
     if (!res.ok) {
-        throw new Error("Ошибка в создании пользователя");
+        throw new Error("Ошибка во время выполнения запроса на регистрацию пользователя");
     }
-    const session = await res.json()
-    const sessionId : string = session.id.replace(/"/g, '');
-    localStorage.setItem("user", sessionId)
-    return res.json();
+
+    const session = await res.json(); // Разбираем JSON-ответ
+    const sessionId = session.id.replace(/"/g, ''); // Обрабатываем sessionId
+    localStorage.setItem("user", sessionId);
+
+    return session; // Возвращаем разобранный JSON-объект
 }
 
 export async function CreateWish(newWish: Wish): Promise<Wish> {
@@ -78,7 +80,7 @@ export async function CreateWish(newWish: Wish): Promise<Wish> {
     if (authToken && authToken.startsWith('"') && authToken.endsWith('"')) {
         authToken = authToken.slice(1, -1); // Удаление первого и последнего символов (кавычек)
     }
-    const res = await fetch(`${BASE}/wishlists`, {
+    const res = await fetch(`${BASE}/${wishlist_id}/wishes`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -106,19 +108,21 @@ export async function LoginUser(credentionals: Credentionals): Promise<User> {
             'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-           login: credentionals.login,
-           password: credentionals.password
+            login: credentionals.login,
+            password: credentionals.password
         })
     });
 
     if (!res.ok) {
-        throw new Error("Ошибка в создании пользователя");
+        throw new Error("Ошибка во время выполнения запроса на вход");
     }
-    const session = await res.json()
-    const sessionId : string = session.id.replace(/"/g, '');
-    localStorage.setItem("user", sessionId)
-    return res.json();
 
+    const session = await res.json();
+    const sessionId = session.id.replace(/"/g, ''); // Убедимся, что sessionId необходимо обработать правильным образом
+    localStorage.setItem("user", sessionId);
+
+    // Возвращаем обработанный объект JSON, а не вызываем res.json() повторно
+    return session;
 }
 
 export async function getPhoto(): Promise<Photo[]> {

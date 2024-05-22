@@ -8,7 +8,7 @@ import {CreateWishlist} from "@/services/fetch";
 
 export default function CreateWishlistForm() {
     const [ formData , setFormData ] = useState(
-        { ID: "", Name: "", UserID: "" });
+        { id: "", name: "", userId: "" });
 
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const { name, value } = e.target;
@@ -42,7 +42,7 @@ export default function CreateWishlistForm() {
                         <h1>Создать Вишлист</h1>
                         <div className={styles.titleBox}>
                             <span>Название</span>
-                            <input type='text' name="Name" value={formData.Name} onChange={handleInputChange}/>
+                            <input type='text' name="Name" value={formData.name} onChange={handleInputChange}/>
                         </div>
                         <div className={styles.commentBox}>
                             <span>Комментарий</span>

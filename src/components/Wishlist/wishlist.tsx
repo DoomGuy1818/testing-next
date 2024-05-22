@@ -4,7 +4,7 @@ import Image from "next/image";
 import SideNavbar from "@/components/sideNavbar";
 import { UseGetWishlistQuery } from "@/hooks/useGetWishlistQuery";
 import Link from "next/link";
-import {FileReader} from "undici-types";
+
 
 function Wishlist() {
 

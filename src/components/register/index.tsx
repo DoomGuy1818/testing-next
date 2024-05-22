@@ -1,5 +1,7 @@
+'use client'
 import Button from "@/components/GenericButton"
 import styles from "./Registration.module.scss"
+import buttonStyles from "@/components/GenericButton/GenericButton.module.scss"
 import React, {useState} from "react";
 import {RegisterUser} from "@/services/fetch";
 
@@ -26,7 +28,7 @@ export default function RegistrationCard( { back, login } ) {
             try {
                 await RegisterUser(formData);
                 console.log(formData)
-                console.log("Пользователь успешно зарегистрирован!");
+                console.log("Пользователь успешно вошёл!");
 
             } catch (error) {
                 console.log(formData)
@@ -62,7 +64,7 @@ export default function RegistrationCard( { back, login } ) {
                                 <input type="password" id="pass"></input>
                             </div>
                         </div>
-                        <Button text={"Зарегестрироваться"} onClick={handleRegisterClick}/>
+                        <button type="button" className={buttonStyles.sellerButton} onClick={handleRegisterClick}>Зарегистрироваться</button>
                         <div className={styles.support}>
                             <a href={login ? login : "/nope!"} className={styles.login}>Уже зарегестрированы?</a>
                         </div>
@@ -71,5 +73,5 @@ export default function RegistrationCard( { back, login } ) {
                 </div>
             </div>
         )
-    }
+}
 
