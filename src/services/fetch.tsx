@@ -37,6 +37,12 @@ export async function fetchWishes(): Promise<Gift[]> {
 
 
 }
+export async function DeleteWishlist(id: string): Promise<void> {
+    const res = await fetch(`${BASE}/wishes/${id}`, {})
+    return  res.json()
+}
+
+
 export async function CreateWish(wish: Wish): Promise<Wish> {
 
     let giftID = localStorage.getItem("giftID");
