@@ -4,7 +4,7 @@ import SideNavBar from "@/components/sideNavbar/index"
 import {UseUploadPhoto} from "@/hooks/useUploadPhoto";
 import {UseCreateWishQuery} from "@/hooks/useCreateWishQuery";
 import React, {useState} from 'react'
-import { CreateWish } from "@/services/fetch";
+import { CreateGift } from "@/services/fetch";
 
 
 export default function CreatingWish() {
@@ -22,7 +22,7 @@ export default function CreatingWish() {
 
     const handleCreateWishClick = async () => {
         try {
-            await CreateWish(formData);
+            await CreateGift(formData);
             console.log(formData)
             console.log("Пользователь успешно зарегистрирован!");
 

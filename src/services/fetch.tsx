@@ -1,6 +1,7 @@
-import { User } from  '../types/user'
-import { Wish } from '../types/wish'
-import { Wishlist } from '../types/wishlist'
+import { User } from  '@/types/user';
+import { Gift } from '@/types/gift';
+import { Wishlist } from '@/types/wishlist';
+import { Wish} from "@/types/wish";
 import {json} from "node:stream/consumers";
 import wishlist from "@/components/wishlist/wishlist";
 import {Photo} from "@/types/photo";
@@ -9,21 +10,67 @@ import {Credentionals} from "@/types/credentionals";
 
 const BASE = 'http://84.38.183.178:7777'
 
+export async function fetchWishes(): Promise<Gift[]> {
+    let wishlistID = localStorage.getItem("wishlistID");
+    if (wishlistID && wishlistID.startsWith('"') && wishlistID.endsWith('"')) {
+        wishlistID = wishlistID.slice(1, -1);
+    }
 
-export async function fetchWishes(): Promise<Wish[]> {
     let authToken = localStorage.getItem("user");
     if (authToken && authToken.startsWith('"') && authToken.endsWith('"')) {
         authToken = authToken.slice(1, -1);
     }
-    const res = await fetch(`${BASE}/wishes`, {
+
+    const res = await fetch(`${BASE}/wishes/${wishlistID}`, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
-            'Authorization': authToken ? authToken : ''
-        },
-    })
+            'Authorization': authToken? authToken : ''
+        }
+    });
 
-    if (!res.ok) throw new Error("Ошибка в загрузке подарка");
+    if (!res.ok) {
+        throw new Error('Failed to fetch wish');
+    }
+
+    return await res.json()
+
+}
+
+export async function CreateWish(wish: Wish): Promise<Wish> {
+
+    let giftID = localStorage.getItem("giftID");
+    if (giftID && giftID.startsWith('"') && giftID.endsWith('"')) {
+        giftID = giftID.slice(1, -1);
+    }
+
+    let wishlistID = localStorage.getItem("wishlistID");
+    if (wishlistID && wishlistID.startsWith('"') && wishlistID.endsWith('"')) {
+        wishlistID = wishlistID.slice(1, -1);
+    }
+
+    let authToken = localStorage.getItem("user");
+    if (authToken && authToken.startsWith('"') && authToken.endsWith('"')) {
+        authToken = authToken.slice(1, -1);
+    }
+
+    const res = await fetch(`${BASE}/${giftID}/${wishlistID}`, {
+        method: 'GET',
+        headers: {
+            'Content-Type':  'application/json',
+            'Authorization': 'session_cnvdk9k69lbm5c1vej1g'
+        },
+
+        body: JSON.stringify({
+            giftID: giftID,
+            wishlistID: wishlistID
+        })
+    });
+
+    if (!res.ok) {
+        throw new Error('Failed to fetch wish');
+    }
+
     return await res.json()
 
 }
@@ -39,6 +86,7 @@ export async function fetchWishlists(): Promise<Wishlist[]> {
             'Content-Type': 'application/json',
             'Authorization': authToken? authToken : ''
         }
+
         });
 
     if (!res.ok) {
@@ -75,30 +123,35 @@ export async function RegisterUser(newUser: User): Promise<User> {
     return session; // Возвращаем разобранный JSON-объект
 }
 
-export async function CreateWish(newWish: Wish): Promise<Wish> {
+export async function CreateGift(newGift: Gift): Promise<Gift> {
+    // let wishlist_id = localStorage.getItem("wishlistID");
     let authToken = localStorage.getItem("user");
     if (authToken && authToken.startsWith('"') && authToken.endsWith('"')) {
         authToken = authToken.slice(1, -1); // Удаление первого и последнего символов (кавычек)
     }
-    const res = await fetch(`${BASE}/${wishlist_id}/wishes`, {
+    const res = await fetch(`${BASE}/gifts`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
             'Authorization': authToken ? authToken : ''
         },
         body: JSON.stringify({
-            name: newWish.name,
-            price: newWish.price,
-            photo: newWish.photo,
-            description: newWish.description,
-            link: newWish.link,
+            name: newGift.name,
+            price: newGift.price,
+            photo: newGift.photo,
+            description: newGift.description,
+            link: newGift.link,
         })
     });
     if (!res.ok) {
         throw new Error("Failed to create wish");
     }
 
-    return await res.json()
+    const gift = await res.json(); // Разбираем JSON-ответ
+    const giftID = gift.id.replace(/"/g, ''); // Обрабатываем sessionId
+    localStorage.setItem("giftID", giftID);
+
+    return gift;
 }
 
 export async function LoginUser(credentionals: Credentionals): Promise<User> {

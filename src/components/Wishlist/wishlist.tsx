@@ -24,6 +24,11 @@ function Wishlist() {
         return <div>Error fetching wishlist</div>;
     }
 
+    const handleWishlistID = (id : string) => {
+        localStorage.setItem("wishlistID", id);
+        console.log(localStorage.getItem("wishlistID"))
+    }
+
     return (
         <div className={styles.container}>
             <div className={styles.pageWrap}>
@@ -44,7 +49,7 @@ function Wishlist() {
                 <a href="#" className={styles.createButton}></a>
                 <div className={styles.wishlistGrid}>
                     {data?.map((wishlist) => (
-                        <Link key={wishlist.id} href="#">
+                        <Link key={wishlist.id} href="#" onClick={() => handleWishlistID(wishlist.id)}>
                             <div>{wishlist.name}</div>
                         </Link>
                     ))}

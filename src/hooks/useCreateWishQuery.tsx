@@ -1,5 +1,5 @@
-import {useMutation, useQuery} from "@tanstack/react-query";
-import {CreateWish, } from "@/services/fetch";
+import {useMutation} from "@tanstack/react-query";
+import {CreateWish} from "@/services/fetch";
 
 export const UseCreateWishQuery =  () => {
      return useMutation({
