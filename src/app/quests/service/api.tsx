@@ -1,8 +1,8 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { url } from "inspector";
-import { Task } from "../types/Task";
-import { Subquest } from "../types/Subquest";
-import { Quest } from "../types/Quest";
+import { Task } from "@/types/Task";
+import { Subquest } from "@/types/Subquest";
+import { Quest } from "@/types/Quest";
 
 // Define a service using a base URL and expected endpoints
 export const wishlistApi = createApi({

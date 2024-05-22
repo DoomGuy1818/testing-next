@@ -1,7 +1,7 @@
 import Titlequest from "./Titlequests";
 import "./Banner2.scss";
 import CardQuests from "./Cardsquests";
-import { useGetQuestsQuery } from "@/app/quests/service/api";
+import { useGetQuestsQuery, useGetTasksQuery } from "@/app/quests/service/api";
 
 type Props = {
   setState: Function;
@@ -9,7 +9,7 @@ type Props = {
 };
 
 const Banner2 = ({ setState, setInfo }: Props) => {
-  const data = useGetQuestsQuery();
+  const data = useGetQuestsQuery()
   console.log(data);
   return (
     <div className="banner-two">
@@ -19,3 +19,4 @@ const Banner2 = ({ setState, setInfo }: Props) => {
   );
 };
 export default Banner2;
+

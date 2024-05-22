@@ -6,7 +6,7 @@ import TaskBanner from "../quests/components/TaskBanner/TaskBanner";
 import Header from "../quests/components/Header/Header";
 import { Provider } from "react-redux";
 import { store } from "./store/store";
-import { BannerInfo } from "./types/BannerInfo";
+import { BannerInfo } from "@/types/BannerInfo";
 
 const Page = () => {
   const bannerInfo: BannerInfo = {
