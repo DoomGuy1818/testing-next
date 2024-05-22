@@ -24,6 +24,10 @@ export default function Header() {
         const logoWidth = windowWidth * 0.16; 
         const logoHeight = logoWidth * 0.4; 
 
+    const checkUserSession = () => {
+    const userSession = localStorage.getItem('userSession');
+    return !!userSession;
+  };
   
     return(
       <div className={styles.all}>
@@ -39,9 +43,9 @@ export default function Header() {
           <div className={styles.menuButton}></div>
         </label>
         <ul className={styles.menu}>
-        <li><a href = "/main-selection">Подборки</a></li>
-          <li><a href = "/boocked-gift">Подарки друзьям</a></li>
-          <li><a href = "/profile">Мой профиль</a></li>
+        <li><a href = {checkUserSession()? "/main-selection" : "/login"  }>Подборки</a></li>
+          <li><a href = {checkUserSession()? "/boocked-gift" : "/login"  }>Подарки друзьям</a></li>
+          <li><a href = {checkUserSession()? "/profile" : "/login"  }>Мой профиль</a></li>
         </ul>
       </section>
 

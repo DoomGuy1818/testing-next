@@ -5,6 +5,9 @@ import Link from 'next/link'
 
 import styles from './gifts.module.scss'
 export default function CatalogSection() {
+
+    
+
     return (
         <div className={styles.catalog}>
             <div className={styles.container}>
@@ -21,17 +24,6 @@ export default function CatalogSection() {
                         </div>
                         <div className={styles.catalogPrice}>1 727 ₽</div>
                         <div className={styles.catalogAdd}>
-                            <button className={styles.catalogBtn}>
-                                <Image
-                                    width={44}
-                                    height={44}
-                                    src="/images/plus.svg"
-                                    alt="plusButton"
-                                />
-                                <div className={styles.catalogAddTxt}>
-                                Добавить в Wishlist
-                                </div>
-                            </button>
                         </div>
                         <Link className={styles.catalogLink} href="/">
                             Перейти в магазин
@@ -49,17 +41,6 @@ export default function CatalogSection() {
                         </div>
                         <div className={styles.catalogPrice}>2 659 ₽</div>
                         <div className={styles.catalogAdd}>
-                            <button className={styles.catalogBtn}>
-                                <Image
-                                    width={44}
-                                    height={44}
-                                    src="/images/plus.svg"
-                                    alt="plusButton"
-                                />
-                                <div className={styles.catalogAddTxt}>
-                                Добавить в Wishlist
-                                </div>
-                            </button>
                         </div>
                         <Link className={styles.catalogLink} href="/">
                             Перейти в магазин
@@ -77,17 +58,6 @@ export default function CatalogSection() {
                         </div>
                         <div className={styles.catalogPrice}>10 999 ₽</div>
                         <div className={styles.catalogAdd}>
-                            <button className={styles.catalogBtn}>
-                                <Image
-                                    width={44}
-                                    height={44}
-                                    src="/images/plus.svg"
-                                    alt="plusButton"
-                                />
-                                <div className={styles.catalogAddTxt}>
-                                Добавить в Wishlist
-                                </div>
-                            </button>
                         </div>
                         <Link className={styles.catalogLink} href="/">
                             Перейти в магазин
@@ -105,17 +75,6 @@ export default function CatalogSection() {
                         </div>
                         <div className={styles.catalogPrice}>14 241 ₽</div>
                         <div className={styles.catalogAdd}>
-                            <button className={styles.catalogBtn}>
-                                <Image
-                                    width={44}
-                                    height={44}
-                                    src="/images/plus.svg"
-                                    alt="plusButton"
-                                />
-                                <div className={styles.catalogAddTxt}>
-                                Добавить в Wishlist
-                                </div>
-                            </button>
                         </div>
                         <Link className={styles.catalogLink} href="/">
                             Перейти в магазин
@@ -133,17 +92,6 @@ export default function CatalogSection() {
                         </div>
                         <div className={styles.catalogPrice}>3 325 ₽</div>
                         <div className={styles.catalogAdd}>
-                            <button className={styles.catalogBtn}>
-                                <Image
-                                    width={44}
-                                    height={44}
-                                    src="/images/plus.svg"
-                                    alt="plusButton"
-                                />
-                                <div className={styles.catalogAddTxt}>
-                                Добавить в Wishlist
-                                </div>
-                            </button>
                         </div>
                         <Link className={styles.catalogLink} href="/">
                             Перейти в магазин
@@ -161,17 +109,6 @@ export default function CatalogSection() {
                         </div>
                         <div className={styles.catalogPrice}>9 928 ₽</div>
                         <div className={styles.catalogAdd}>
-                            <button className={styles.catalogBtn}>
-                                <Image
-                                    width={44}
-                                    height={44}
-                                    src="/images/plus.svg"
-                                    alt="plusButton"
-                                />
-                                <div className={styles.catalogAddTxt}>
-                                Добавить в Wishlist
-                                </div>
-                            </button>
                         </div>
                         <Link className={styles.catalogLink} href="/">
                             Перейти в магазин
@@ -189,17 +126,6 @@ export default function CatalogSection() {
                         </div>
                         <div className={styles.catalogPrice}>9 120 ₽</div>
                         <div className={styles.catalogAdd}>
-                            <button className={styles.catalogBtn}>
-                                <Image
-                                    width={44}
-                                    height={44}
-                                    src="/images/plus.svg"
-                                    alt="plusButton"
-                                />
-                                <div className={styles.catalogAddTxt}>
-                                Добавить в Wishlist
-                                </div>
-                            </button>
                         </div>
                         <Link className={styles.catalogLink} href="/">
                             Перейти в магазин
@@ -217,7 +143,7 @@ export default function CatalogSection() {
                         </div>
                         <div className={styles.catalogPrice}>6 335 ₽</div>
                         <div className={styles.catalogAdd}>
-                            <button className={styles.catalogBtn}>
+                            {/* <button className={styles.catalogBtn}>
                                 <Image
                                     width={44}
                                     height={44}
@@ -227,7 +153,7 @@ export default function CatalogSection() {
                                 <div className={styles.catalogAddTxt}>
                                 Добавить в Wishlist
                                 </div>
-                            </button>
+                            </button> */}
                         </div>
                         <Link className={styles.catalogLink} href="/">
                             Перейти в магазин
