@@ -93,6 +93,7 @@ export async function fetchWishlists(): Promise<Wishlist[]> {
     if (!res.ok) {
         throw new Error('Failed to fetch wishlists');
     }
+
     return res.json()
 
 
@@ -169,7 +170,7 @@ export async function LoginUser(credentionals: Credentionals): Promise<User> {
         method: "POST",
         headers: {
             'Content-Type': 'application/json',
-            'Authorization': ''
+
         },
         body: JSON.stringify({
             login: credentionals.login,
@@ -207,7 +208,7 @@ export async function getPhoto(): Promise<Photo[]> {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
-            'Authorization': authToken ? authToken : ''
+            'Authorization': 'session_cp4ahofnnsjf4mhn7ufg'
         },
     })
     if (!res.ok) {
@@ -229,7 +230,7 @@ export async function uploadPhoto (newPhoto: Photo): Promise<Photo> {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
-            'Authorization': authToken ? authToken : ''
+            'Authorization': 'session_cp4ahofnnsjf4mhn7ufg'
         },
         body: JSON.stringify({
             photo: newPhoto.photo,
@@ -253,7 +254,7 @@ export async function CreateWishlist(newWishlist: Wishlist): Promise<Wishlist> {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
-            'Authorization': authToken ? authToken : ''
+            'Authorization': 'session_cp4ahofnnsjf4mhn7ufg'
         },
         body: JSON.stringify({
             Name: newWishlist.name,

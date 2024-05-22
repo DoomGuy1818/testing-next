@@ -19,9 +19,6 @@ function Wishlist() {
         return <div>Error fetching wishlist</div>;
     }
 
-    const handleDelete = (id : string) => {
-        console.log(`Delete wishlist with id: ${id}`);
-    };
 
     const handleWishlistID = (id : string) => {
         localStorage.setItem("wishlistID", id);
