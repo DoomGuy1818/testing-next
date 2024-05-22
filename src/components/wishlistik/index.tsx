@@ -51,7 +51,7 @@ function Wishlist() {
                             >
                                 &times;
                             </button>
-                            <Link href="#">
+                            <Link href="/in-wishlist">
                                 <div>{wishlist.name}</div>
                             </Link>
                         </div>
