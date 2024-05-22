@@ -1,7 +1,7 @@
 export interface Gift {
     id: string;
     name: string;
-    price: string;
+    price: number;
     photo: string;
     description: string;
     link: string;

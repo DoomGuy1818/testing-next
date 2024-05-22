@@ -38,6 +38,12 @@ export async function fetchWishes(): Promise<Gift[]> {
 
 
 }
+export async function DeleteWishlist(id: string): Promise<void> {
+    const res = await fetch(`${BASE}/wishes/${id}`, {})
+    return  res.json()
+}
+
+
 export async function CreateWish(wish: Wish): Promise<Wish> {
 
     let giftID = localStorage.getItem("giftID");
@@ -78,6 +84,7 @@ export async function CreateWish(wish: Wish): Promise<Wish> {
 
 export async function fetchWishlists(): Promise<Wishlist[]> {
      let authToken = localStorage.getItem("user");
+     console.log(authToken)
      if (authToken && authToken.startsWith('"') && authToken.endsWith('"')) {
          authToken = authToken.slice(1, -1);
      }
@@ -93,6 +100,7 @@ export async function fetchWishlists(): Promise<Wishlist[]> {
     if (!res.ok) {
         throw new Error('Failed to fetch wishlists');
     }
+
     return res.json()
 
 
@@ -154,24 +162,33 @@ export async function RegisterUser(newUser: User): Promise<User> {
 
 export async function CreateGift(newGift: Gift): Promise<Gift> {
     // let wishlist_id = localStorage.getItem("wishlistID");
+    const price = newGift.price
     let authToken = localStorage.getItem("user");
     if (authToken && authToken.startsWith('"') && authToken.endsWith('"')) {
         authToken = authToken.slice(1, -1); // Удаление первого и последнего символов (кавычек)
     }
-    const res = await fetch(`${BASE}/gifts`, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-            'Authorization': authToken ? authToken : ''
-        },
-        body: JSON.stringify({
-            name: newGift.name,
-            price: newGift.price,
-            photo: newGift.photo,
-            description: newGift.description,
-            link: newGift.link,
-        })
-    });
+        const res = await fetch(`${BASE}/gifts`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'session_cp4ahofnnsjf4mhn7ufg'
+            },
+            body: JSON.stringify({
+                name: newGift.name,
+                price: Number(price),
+                photo: newGift.photo,
+                description: newGift.description,
+                link: newGift.link,
+            })
+        });
+
+    console.log('у меня памяти 16 мегабайт' + JSON.stringify({
+        name: newGift.name,
+        price: newGift.price,
+        photo: newGift.photo,
+        description: newGift.description,
+        link: newGift.link}))
+
     if (!res.ok) {
         throw new Error("Failed to create wish");
     }
@@ -188,6 +205,7 @@ export async function LoginUser(credentials: { login: string, password: string }
         method: "POST",
         headers: {
             'Content-Type': 'application/json',
+
         },
         body: JSON.stringify(credentials)
     });
@@ -224,7 +242,7 @@ export async function getPhoto(): Promise<Photo[]> {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
-            'Authorization': authToken ? authToken : ''
+            'Authorization': 'session_cp4ahofnnsjf4mhn7ufg'
         },
     })
     if (!res.ok) {
@@ -246,7 +264,7 @@ export async function uploadPhoto (newPhoto: Photo): Promise<Photo> {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
-            'Authorization': authToken ? authToken : ''
+            'Authorization': 'session_cp4ahofnnsjf4mhn7ufg'
         },
         body: JSON.stringify({
             photo: newPhoto.photo,
@@ -270,7 +288,7 @@ export async function CreateWishlist(newWishlist: Wishlist): Promise<Wishlist> {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
-            'Authorization': authToken ? authToken : ''
+            'Authorization': 'session_cp4ahofnnsjf4mhn7ufg'
         },
         body: JSON.stringify({
             Name: newWishlist.name,

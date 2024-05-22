@@ -9,6 +9,8 @@ import { UseGetUserQuery } from "@/hooks/useGetUserQuery";
 function Wishlist() {
     const { data, isLoading, isError } = UseGetWishlistQuery();
     const { data: dataUser, isLoading: userLoading, isError: userError } = UseGetUserQuery();
+    console.log(data)
+
 
     if (isLoading || userLoading) {
         return <div>Loading...</div>;

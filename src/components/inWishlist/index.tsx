@@ -1,15 +1,16 @@
+'use client'
 import React from 'react';
 import styles from './wishlist.module.scss';
 import SideNavbar from '../sideNavbar/index';
 import WishlistCard from '../WishlistCard/index';
 import Image from "next/image";
-import { UseGetWishesQuery } from "@/hooks/useGetWishesQuery";
-
+ import { UseGetWishesQuery } from "@/hooks/useGetWishesQuery";
+import {useQuery} from "@tanstack/react-query";
+import {fetchWishes} from "@/services/fetch";
 
 
 export default function CreatingWish() {
     const {data} = UseGetWishesQuery();
-
     return (
         <div className={styles.container}>
             <div className={styles.sector}>
@@ -28,7 +29,7 @@ export default function CreatingWish() {
                             <WishlistCard key = {item.id}
                                 imgSrc="/images/mainCard.svg"
                                 title={item.name}
-                                price={item.price}
+                                price={(item.price).toString()}
                                 link={item.link}
                             />
                         ))}
