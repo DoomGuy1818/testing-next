@@ -1,0 +1,11 @@
+.tasks-item {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  grid-gap: 90px;
+}
+
+@media (max-width: 650px) {
+  .tasks-item {
+    display: block;
+  }
+}
