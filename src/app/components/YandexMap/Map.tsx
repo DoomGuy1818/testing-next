@@ -1,7 +1,7 @@
 "use client";
 import "./Map.scss";
 import { YMaps, Map, Placemark, Panorama } from "@pbe/react-yandex-maps";
-
+import "./BallonMap/BallonMap.scss";
 const YandexMap = () => {
   return (
     <div className="map-wrapper">
@@ -16,7 +16,12 @@ const YandexMap = () => {
           <Placemark
             modules={["geoObject.addon.balloon", "geoObject.addon.hint"]}
             properties={{
-              balloonContent: "Это моя метка",
+              balloonContent: `
+              <div class="ballon">
+              <h4 class="title">OZON</h4>
+              <p class="text">OZON shop</p>
+              <p class="address">street, number</p>
+              </div>`,
             }}
             options={{
               iconLayout: "default#image",
@@ -26,6 +31,15 @@ const YandexMap = () => {
             defaultGeometry={[47.219194189662765, 39.713237819997836]}
           />
           <Placemark
+            modules={["geoObject.addon.balloon", "geoObject.addon.hint"]}
+            properties={{
+              balloonContent: `
+                        <div class="ballon">
+                        <h4 class="title">WB</h4>
+                        <p class="text">WB shop</p>
+                        <p class="address">street, number</p>
+                        </div>`,
+            }}
             options={{
               iconLayout: "default#image",
               iconImageHref: "/images/geo.svg",
@@ -34,6 +48,15 @@ const YandexMap = () => {
             defaultGeometry={[47.21603633410099, 39.716585216848415]}
           />
           <Placemark
+            modules={["geoObject.addon.balloon", "geoObject.addon.hint"]}
+            properties={{
+              balloonContent: `
+                        <div class="ballon">
+                        <h4 class="title">Yandex Market</h4>
+                        <p class="text">Yandex Market shop</p>
+                        <p class="address">street, number</p>
+                        </div>`,
+            }}
             options={{
               iconLayout: "default#image",
               iconImageHref: "/images/geo.svg",
@@ -42,6 +65,15 @@ const YandexMap = () => {
             defaultGeometry={[47.222735314018884, 39.71482229626466]}
           />
           <Placemark
+            modules={["geoObject.addon.balloon", "geoObject.addon.hint"]}
+            properties={{
+              balloonContent: `
+                                  <div class="ballon">
+                                  <h4 class="title">Sber Market</h4>
+                                  <p class="text">Sber Market shop</p>
+                                  <p class="address">street, number</p>
+                                  </div>`,
+            }}
             options={{
               iconLayout: "default#image",
               iconImageHref: "/images/geo.svg",

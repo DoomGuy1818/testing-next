@@ -3,17 +3,28 @@ import "./ActionsTasksActions.scss";
 import { QuestItem } from "@/types/QuestItem";
 import { useDeleteOneSubquestMutation } from "@/service/api";
 type Props = {
-  text: string;
+  id: number;
   setQuests: Function;
   questsItems: QuestItem[];
+  setEditedTask: Function;
 };
-const ActionsTasksActions = ({ text, setQuests, questsItems }: Props) => {
+const ActionsTasksActions = ({
+  id,
+  setQuests,
+  questsItems,
+  setEditedTask,
+}: Props) => {
   const [deleteOneSubquestQuest, { isLoading: isDeliting }] =
     useDeleteOneSubquestMutation();
-  const editQuest = () => {};
+  const editQuest = () => {
+    const editedItem = questsItems.find((quest) => {
+      return quest.id === id;
+    });
+    setEditedTask(editedItem);
+  };
   const deleteQuest = () => {
     const itemIndex = questsItems.findIndex((quest) => {
-      return quest.text == text;
+      return quest.id === id;
     });
     const quests = [...questsItems];
     quests.splice(itemIndex, 1);
@@ -22,7 +33,7 @@ const ActionsTasksActions = ({ text, setQuests, questsItems }: Props) => {
   };
   return (
     <div className="actions">
-      <button className="edit-button">
+      <button className="edit-button" onClick={() => editQuest()}>
         <Image
           className="edit-img"
           width={60}

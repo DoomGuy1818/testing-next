@@ -3,6 +3,8 @@ import "./CreateTaskBanner.scss";
 import TitleItem from "../TitleItem";
 import { useEffect, useState } from "react";
 import {
+  useDeleteOneTaskMutation,
+  useGetUserQuery,
   useLoginUserMutation,
   usePostSubquestMutation,
   usePostTasksMutation,
@@ -10,18 +12,26 @@ import {
 import { QuestItem } from "@/types/QuestItem";
 type Props = {
   editedTask: QuestItem;
+  setEditedTask: Function;
+  setQuestsItems: Function;
+  questsItems: QuestItem[];
 };
 type Credentionals = {
   login: string;
   password: string;
 };
-const CreateTaskBanner = ({ editedTask }: Props) => {
+const CreateTaskBanner = ({
+  editedTask,
+  setEditedTask,
+  setQuestsItems,
+  questsItems,
+}: Props) => {
   const [loginUser, { isLoading, isError, error }] = useLoginUserMutation();
 
   const handleLogin = async (credentionals: Credentionals) => {
     try {
       const result = await loginUser(credentionals).unwrap();
-      const data = result.json();
+      const data = result;
       console.log(data);
       const sessionId = result.id.replace(/"/g, "");
       localStorage.setItem("user", sessionId);
@@ -37,23 +47,61 @@ const CreateTaskBanner = ({ editedTask }: Props) => {
       password: "DKgfhuhgrjkhj___2324",
     });
   }, []);
-  const [title, setTitle] = useState("");
-  const [text, setText] = useState("");
-  const [coins, setCoins] = useState(0);
+
+  const [title, setTitle] = useState(editedTask.text);
+  const [text, setText] = useState(editedTask.taskText);
+  const [coins, setCoins] = useState(editedTask.coins);
+  useEffect(() => {
+    setTitle(editedTask.text);
+    setText(editedTask.taskText);
+    setCoins(editedTask.coins);
+  }, [editedTask]);
+
   const [postTasks] = usePostTasksMutation();
   const [postSubquest] = usePostSubquestMutation();
-  const createTask = () => {
+  const [deleteTask] = useDeleteOneTaskMutation();
+  const createTask = async () => {
     if (title.length > 5 && text.length > 5 && coins !== 0) {
-      try {
-        const taskData = postTasks({ name: title, description: text });
-        const subquestData = postSubquest({
-          task_id: taskData.data?.id,
-          is_done: false,
-          reward: coins,
-        });
-        return subquestData;
-      } catch (error) {
-        console.log(error);
+      if (editedTask.id) {
+        const itemIndex = questsItems.findIndex(
+          (quest) => quest.id === editedTask.id
+        );
+        const updatedQuest: QuestItem = {
+          id: editedTask.id,
+          text: title,
+          coins: coins,
+          src: editedTask.src,
+          taskText: text,
+        };
+        questsItems.splice(itemIndex, 1, updatedQuest);
+        setQuestsItems(questsItems);
+      } else {
+        try {
+          let authToken = localStorage.getItem("user");
+          if (
+            authToken &&
+            authToken.startsWith('"') &&
+            authToken.endsWith('"')
+          ) {
+            authToken = authToken.slice(1, -1); // Удаление первого и последнего символов (кавычек)
+          }
+          console.log(authToken);
+          const taskData = await postTasks({
+            name: title,
+            description: text,
+            authToken: authToken,
+          });
+          console.log(taskData);
+          const deleteData = await deleteTask({ id: 1, authToken: authToken });
+          // const subquestData = postSubquest({
+          //   task_id: taskData.data?.id,
+          //   is_done: false,
+          //   reward: coins,
+          // });
+          // return subquestData;
+        } catch (error) {
+          console.log(error);
+        }
       }
     } else {
       console.log("incorrect data");

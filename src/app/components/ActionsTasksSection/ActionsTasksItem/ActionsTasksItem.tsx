@@ -4,20 +4,24 @@ import "./ActionsTasksItem.scss";
 import { QuestItem } from "@/types/QuestItem";
 
 type Props = {
+  id: number;
   text: string;
   coins: number;
   taskText: string;
   src: string;
   setQuests: Function;
   questsItems: QuestItem[];
+  setEditedTask: Function;
 };
 const ActionsTasksItem = ({
+  id,
   text,
   coins,
   taskText,
   src,
   setQuests,
   questsItems,
+  setEditedTask,
 }: Props) => {
   return (
     <div className="tasks-item">
@@ -30,7 +34,8 @@ const ActionsTasksItem = ({
         text={text}
       />
       <ActionsTasksActions
-        text={text}
+        setEditedTask={setEditedTask}
+        id={id}
         setQuests={setQuests}
         questsItems={questsItems}
       />

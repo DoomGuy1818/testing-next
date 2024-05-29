@@ -2,10 +2,19 @@ import { quests } from "@/app/quests/moks/quests";
 import TitleItem from "../TitleItem";
 import "./ActionsTasksSection.scss";
 import ActionsTasksItem from "./ActionsTasksItem/ActionsTasksItem";
-import { useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { QuestItem } from "@/types/QuestItem";
-const ActionsTasksSection = ({ editedTask }: QuestItem) => {
-  const [questsItems, setQuestsItems] = useState(quests);
+
+type Props = {
+  setEditedTask: Function;
+  questsItems: QuestItem[];
+  setQuestsItems: Function;
+};
+const ActionsTasksSection = ({
+  setEditedTask,
+  questsItems,
+  setQuestsItems,
+}: Props) => {
   return (
     <div className="section">
       <div className="section-header">
@@ -25,12 +34,14 @@ const ActionsTasksSection = ({ editedTask }: QuestItem) => {
           return (
             <ActionsTasksItem
               key={index}
+              id={quest.id}
               text={quest.text}
               coins={quest.coins}
               taskText={quest.taskText}
               src={quest.src}
               setQuests={setQuestsItems}
               questsItems={questsItems}
+              setEditedTask={setEditedTask}
             />
           );
         })}
