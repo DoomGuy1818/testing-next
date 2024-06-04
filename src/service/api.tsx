@@ -1,8 +1,9 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { url } from "inspector";
-import { Task } from "@/types/Task";
+import { CreateTask, Task } from "@/types/Task";
 import { Subquest } from "@/types/Subquest";
 import { Quest } from "@/types/Quest";
+import { Login, LoginReturn } from "@/types/Login";
 
 const adminSession = "session_cnvdk9k69lbm5c1vej1g";
 
@@ -11,28 +12,28 @@ export const wishlistApi = createApi({
   reducerPath: "wishlistApi",
   baseQuery: fetchBaseQuery({ baseUrl: "http://84.38.183.178:7070" }),
   endpoints: (builder) => ({
-    loginUser: builder.mutation({
-      query: (credentionals) => ({
+    loginUser: builder.mutation<LoginReturn, Login>({
+      query: ({ login, password }) => ({
         url: "/login",
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          login: credentionals.login,
-          password: credentionals.password,
+          login,
+          password,
         }),
       }),
     }),
-    getTasks: builder.query({
+    getTasks: builder.query<Task[], null>({
       query: () => "/tasks",
       // transformResponse: (response: { data: Task[] }, meta, arg) => response.data,
     }),
-    getOneTask: builder.query({
+    getOneTask: builder.query<Task, string>({
       query: (id) => `/tasks/${id}`,
       // transformResponse: (response: { data: Task }, meta, arg) => response.data,
     }),
-    updateOneTask: builder.mutation({
+    updateOneTask: builder.mutation<Task, Task>({
       query: (data) => {
         const { id, ...task } = data;
         return {
@@ -47,7 +48,7 @@ export const wishlistApi = createApi({
       },
       // transformResponse: (response: { data: Task }, meta, arg) => response.data,
     }),
-    postTasks: builder.mutation({
+    postTasks: builder.mutation<Task, CreateTask>({
       query: (task) => ({
         url: "/tasks",
         method: "POST",
