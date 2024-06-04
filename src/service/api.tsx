@@ -1,9 +1,11 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { url } from "inspector";
 import { CreateTask, Task } from "@/types/Task";
-import { Subquest } from "@/types/Subquest";
-import { Quest } from "@/types/Quest";
+import { CreateSubquest, Subquest } from "@/types/Subquest";
+import { CreateQuest, Quest } from "@/types/Quest";
 import { Login, LoginReturn } from "@/types/Login";
+import { CreateOfflineShop, OfflineShop } from "@/types/OfflineShops";
+import { User } from "@/types/User";
 
 const adminSession = "session_cnvdk9k69lbm5c1vej1g";
 
@@ -49,7 +51,7 @@ export const wishlistApi = createApi({
       // transformResponse: (response: { data: Task }, meta, arg) => response.data,
     }),
     postTasks: builder.mutation<Task, CreateTask>({
-      query: (task) => ({
+      query: ({ name, description }) => ({
         url: "/tasks",
         method: "POST",
         headers: {
@@ -57,13 +59,13 @@ export const wishlistApi = createApi({
           Authorization: adminSession,
         },
         body: JSON.stringify({
-          name: task.name,
-          description: task.description,
+          name,
+          description,
         }),
       }),
       // transformResponse: (response: { data: Task }, meta, arg) => response.data,
     }),
-    deleteOneTask: builder.mutation({
+    deleteOneTask: builder.mutation<null, string>({
       query: (id) => ({
         url: `/tasks/${id}`,
         method: "DELETE",
@@ -72,27 +74,27 @@ export const wishlistApi = createApi({
         },
       }),
     }),
-    getSubquests: builder.query({
+    getSubquests: builder.query<Subquest[], null>({
       query: () => ({
         url: "/subquest",
         method: "GET",
       }),
     }),
-    getOneSubquest: builder.query({
+    getOneSubquest: builder.query<Subquest, string>({
       query: (id) => ({
         url: `/subquest/${id}`,
         method: "GET",
       }),
     }),
-    postSubquest: builder.mutation({
-      query: (subquest) => {
+    postSubquest: builder.mutation<Subquest, CreateSubquest>({
+      query: ({ is_done, reward, task_id }) => {
         return {
           url: "/subquest",
           method: "POST",
           body: JSON.stringify({
-            is_done: subquest.is_done,
-            reward: subquest.reward,
-            task_id: subquest.task_id,
+            is_done,
+            reward,
+            task_id,
           }),
           headers: {
             "Content-Type": "application/json",
@@ -103,7 +105,7 @@ export const wishlistApi = createApi({
       // transformResponse: (response: { data: Subquest }, meta, arg) =>
       //   response.data,
     }),
-    deleteOneSubquest: builder.mutation({
+    deleteOneSubquest: builder.mutation<null, string>({
       query: (id) => ({
         url: `/subquest/${id}`,
         method: "DELETE",
@@ -112,21 +114,21 @@ export const wishlistApi = createApi({
         },
       }),
     }),
-    getQuests: builder.query({
+    getQuests: builder.query<Quest[], null>({
       query: () => ({
         url: "/quest",
         method: "GET",
       }),
-      transformResponse: (response: { data: Quest }, meta, arg) =>
+      transformResponse: (response: { data: Quest[] }, meta, arg) =>
         response.data,
     }),
-    getOneQuest: builder.query({
+    getOneQuest: builder.query<Quest, string>({
       query: (id) => ({
         url: `/quest/${id}`,
         method: "GET",
       }),
     }),
-    updateOneQuest: builder.mutation({
+    updateOneQuest: builder.mutation<Quest, Quest>({
       query: (data) => {
         const { id, ...quest } = data;
         return {
@@ -140,7 +142,7 @@ export const wishlistApi = createApi({
         };
       },
     }),
-    deleteOneQuest: builder.mutation({
+    deleteOneQuest: builder.mutation<null, string>({
       query: (id) => ({
         url: `/quest/${id}`,
         method: "DELETE",
@@ -149,7 +151,7 @@ export const wishlistApi = createApi({
         },
       }),
     }),
-    postQuests: builder.mutation<Quest, Partial<Quest>>({
+    postQuests: builder.mutation<Quest, CreateQuest>({
       query: (quest) => ({
         url: "/quest",
         method: "POST",
@@ -162,25 +164,25 @@ export const wishlistApi = createApi({
       transformResponse: (response: { data: Quest }, meta, arg) =>
         response.data,
     }),
-    getOfflineShops: builder.query({
+    getOfflineShops: builder.query<OfflineShop[], null>({
       query: () => ({
         url: "/offlineshops",
         method: "GET",
       }),
     }),
-    postOfflineShops: builder.mutation({
-      query: (offlineshop) => ({
+    postOfflineShops: builder.mutation<OfflineShop, CreateOfflineShop>({
+      query: ({ location, name }) => ({
         url: "/offlineshops",
         method: "POST",
         headers: {
           "Content-Type": "application/json",
           Authorization: adminSession,
         },
-        body: JSON.stringify(offlineshop),
+        body: JSON.stringify({ location, name }),
       }),
     }),
-    getUser: builder.query({
-      query: ({ authToken }) => ({
+    getUser: builder.query<User, string>({
+      query: (authToken) => ({
         url: "/users",
         method: "GET",
         headers: {
