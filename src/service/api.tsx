@@ -201,6 +201,13 @@ export const wishlistApi = createApi({
       }),
       providesTags: ["Quest"],
     }),
+    getOneOfflineShop: builder.query<OfflineShop, string>({
+      query: (id) => ({
+        url: `/offlineshops/${id}`,
+        method: "GET",
+      }),
+      providesTags: (result, error, id) => [{ type: "OfflineShop", id }],
+    }),
     postOfflineShops: builder.mutation<OfflineShop, CreateOfflineShop>({
       query: ({ location, name }) => ({
         url: "/offlineshops",
@@ -211,7 +218,30 @@ export const wishlistApi = createApi({
         },
         body: JSON.stringify({ location, name }),
       }),
-      invalidatesTags: ["Quest"],
+      invalidatesTags: ["OfflineShop"],
+    }),
+    updateOfflineShop: builder.mutation<OfflineShop, OfflineShop>({
+      query: ({ id, location, name }) => ({
+        url: `/offlineshops/${id}`,
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: adminSession,
+        },
+        body: JSON.stringify({ location, name }),
+      }),
+      invalidatesTags: (result, error, { id }) => [{ type: "OfflineShop", id }],
+    }),
+    deleteOfflineShop: builder.mutation<null, string>({
+      query: (id) => ({
+        url: `/offlineshops/${id}`,
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: adminSession,
+        },
+      }),
+      invalidatesTags: ["OfflineShop"],
     }),
     getUser: builder.query<User, string>({
       query: (authToken) => ({
@@ -245,4 +275,7 @@ export const {
   usePostOfflineShopsMutation,
   useGetUserQuery,
   useUpdateOneSubquestMutation,
+  useGetOneOfflineShopQuery,
+  useDeleteOfflineShopMutation,
+  useUpdateOfflineShopMutation,
 } = wishlistApi;

@@ -4,6 +4,6 @@ export type Login = {
 };
 
 export type LoginReturn = {
-  session_id: string;
+  id: string;
   user_id: string;
 };
