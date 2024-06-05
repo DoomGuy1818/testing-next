@@ -12,6 +12,7 @@ const adminSession = "session_cnvdk9k69lbm5c1vej1g";
 // Define a service using a base URL and expected endpoints
 export const wishlistApi = createApi({
   reducerPath: "wishlistApi",
+  tagTypes: ["Task", "Subquest", "Quest", "OfflineShop"],
   baseQuery: fetchBaseQuery({ baseUrl: "http://84.38.183.178:7070" }),
   endpoints: (builder) => ({
     loginUser: builder.mutation<LoginReturn, Login>({
@@ -29,10 +30,12 @@ export const wishlistApi = createApi({
     }),
     getTasks: builder.query<Task[], null>({
       query: () => "/tasks",
+      providesTags: ["Task"],
       // transformResponse: (response: { data: Task[] }, meta, arg) => response.data,
     }),
     getOneTask: builder.query<Task, string>({
       query: (id) => `/tasks/${id}`,
+      providesTags: (result, error, id) => [{ type: "Task", id }],
       // transformResponse: (response: { data: Task }, meta, arg) => response.data,
     }),
     updateOneTask: builder.mutation<Task, Task>({
@@ -48,6 +51,7 @@ export const wishlistApi = createApi({
           body: JSON.stringify(task),
         };
       },
+      invalidatesTags: (result, error, { id }) => [{ type: "Task", id }],
       // transformResponse: (response: { data: Task }, meta, arg) => response.data,
     }),
     postTasks: builder.mutation<Task, CreateTask>({
@@ -63,6 +67,7 @@ export const wishlistApi = createApi({
           description,
         }),
       }),
+      invalidatesTags: ["Task"],
       // transformResponse: (response: { data: Task }, meta, arg) => response.data,
     }),
     deleteOneTask: builder.mutation<null, string>({
@@ -73,18 +78,21 @@ export const wishlistApi = createApi({
           Authorization: adminSession,
         },
       }),
+      invalidatesTags: ["Task"],
     }),
     getSubquests: builder.query<Subquest[], null>({
       query: () => ({
         url: "/subquest",
         method: "GET",
       }),
+      providesTags: ["Task"],
     }),
     getOneSubquest: builder.query<Subquest, string>({
       query: (id) => ({
         url: `/subquest/${id}`,
         method: "GET",
       }),
+      providesTags: (result, error, id) => [{ type: "Subquest", id }],
     }),
     postSubquest: builder.mutation<Subquest, CreateSubquest>({
       query: ({ is_done, reward, task_id }) => {
@@ -102,6 +110,7 @@ export const wishlistApi = createApi({
           },
         };
       },
+      invalidatesTags: ["Subquest"],
       // transformResponse: (response: { data: Subquest }, meta, arg) =>
       //   response.data,
     }),
@@ -113,12 +122,29 @@ export const wishlistApi = createApi({
           Authorization: adminSession,
         },
       }),
+      invalidatesTags: ["Subquest"],
+    }),
+    updateOneSubquest: builder.mutation<Subquest, Subquest>({
+      query: ({ id, is_done, reward, task_id }) => ({
+        url: `/subquest/${id}`,
+        method: "PATCH",
+        headers: {
+          Authorization: adminSession,
+        },
+        body: JSON.stringify({
+          is_done,
+          reward,
+          task_id,
+        }),
+      }),
+      invalidatesTags: (result, error, { id }) => [{ type: "Subquest", id }],
     }),
     getQuests: builder.query<Quest[], null>({
       query: () => ({
         url: "/quest",
         method: "GET",
       }),
+      providesTags: ["Quest"],
       transformResponse: (response: { data: Quest[] }, meta, arg) =>
         response.data,
     }),
@@ -127,6 +153,7 @@ export const wishlistApi = createApi({
         url: `/quest/${id}`,
         method: "GET",
       }),
+      providesTags: (result, error, id) => [{ type: "Quest", id }],
     }),
     updateOneQuest: builder.mutation<Quest, Quest>({
       query: (data) => {
@@ -141,6 +168,7 @@ export const wishlistApi = createApi({
           body: JSON.stringify(quest),
         };
       },
+      invalidatesTags: (result, error, { id }) => [{ type: "Quest", id }],
     }),
     deleteOneQuest: builder.mutation<null, string>({
       query: (id) => ({
@@ -150,6 +178,7 @@ export const wishlistApi = createApi({
           Authorization: adminSession,
         },
       }),
+      invalidatesTags: ["Quest"],
     }),
     postQuests: builder.mutation<Quest, CreateQuest>({
       query: (quest) => ({
@@ -161,6 +190,7 @@ export const wishlistApi = createApi({
         },
         body: JSON.stringify(quest),
       }),
+      invalidatesTags: ["Quest"],
       transformResponse: (response: { data: Quest }, meta, arg) =>
         response.data,
     }),
@@ -169,6 +199,7 @@ export const wishlistApi = createApi({
         url: "/offlineshops",
         method: "GET",
       }),
+      providesTags: ["Quest"],
     }),
     postOfflineShops: builder.mutation<OfflineShop, CreateOfflineShop>({
       query: ({ location, name }) => ({
@@ -180,6 +211,7 @@ export const wishlistApi = createApi({
         },
         body: JSON.stringify({ location, name }),
       }),
+      invalidatesTags: ["Quest"],
     }),
     getUser: builder.query<User, string>({
       query: (authToken) => ({
@@ -212,4 +244,5 @@ export const {
   useGetOfflineShopsQuery,
   usePostOfflineShopsMutation,
   useGetUserQuery,
+  useUpdateOneSubquestMutation,
 } = wishlistApi;
