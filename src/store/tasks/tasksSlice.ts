@@ -3,12 +3,16 @@ import { Task } from "@/types/Task";
 import { createSlice, SerializedError } from "@reduxjs/toolkit";
 interface IState {
   tasks: Task[] | [];
-  task: Task | {};
+  task: Task;
   error: boolean | SerializedError;
 }
 const initialState: IState = {
   tasks: [],
-  task: {},
+  task: {
+    description: "",
+    id: "",
+    name: "",
+  },
   error: false,
 };
 const taskSlice = createSlice({

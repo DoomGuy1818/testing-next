@@ -1,25 +1,22 @@
 import Image from "next/image";
 import "./TaskBanner.scss";
 import TitleItem from "../TitleItem";
+import { selectorWithTypes } from "@/store/typedFunctions";
+import { useGetOneSubquestQuery, useGetOneTaskQuery } from "@/service/api";
+import ReactLoading from "react-loading";
 type Props = {
   isTaskBannerOpen: boolean;
   setState: Function;
-  logoSrc: string;
-  taskTitle: string;
-  taskText: string;
-  taskImage: string;
-  coins: number;
+  subquestId: string;
 };
 
-const TaskBanner = ({
-  isTaskBannerOpen,
-  setState,
-  logoSrc,
-  taskTitle,
-  taskText,
-  taskImage,
-  coins,
-}: Props) => {
+const TaskBanner = ({ isTaskBannerOpen, setState, subquestId }: Props) => {
+  const imageSrc = "";
+  const logoSrc = "";
+  useGetOneSubquestQuery(subquestId);
+  const { subquest } = selectorWithTypes((state) => state.subquest);
+  useGetOneTaskQuery(subquest.task_id);
+  const { task } = selectorWithTypes((state) => state.task);
   if (!isTaskBannerOpen) {
     return null;
   }
@@ -33,58 +30,73 @@ const TaskBanner = ({
         setState(false);
       }}
     >
-      <div className="task-banner__content">
-        <div
-          onClick={(e) => {
-            e.stopPropagation();
-          }}
-          className="task-banner__main"
-        >
-          <Image
-            className="task-banner__logo"
-            src={logoSrc}
-            height={40}
-            width={170}
-            alt="logo"
-          />
-          <h3 className="task-banner__title">{taskTitle}</h3>
-          <div className="task-banner__task">
-            {taskImage ? (
+      {!task.id ? (
+        <ReactLoading
+          color="#b8c7fb"
+          type={"spin"}
+          width={150}
+          height={150}
+          className="banner-loading"
+        />
+      ) : (
+        <div className="task-banner__content">
+          <div
+            onClick={(e) => {
+              e.stopPropagation();
+            }}
+            className="task-banner__main"
+          >
+            {logoSrc.length ? (
               <Image
-                width={121}
-                height={121}
-                className="task-banner__task-image"
-                src={taskImage}
-                alt="task-image"
+                className="task-banner__logo"
+                src={""}
+                height={40}
+                width={170}
+                alt="logo"
               />
             ) : (
-              <div className="gray-square"></div>
+              <div className="gray__logo"></div>
             )}
-            <p className="task-banner__task-name">{taskText}</p>
-          </div>
-          <div className="task-banner__coins">
-            <p className="task-banner__gray-text">Награда за выполнение:</p>
-            <div className="task-banner__coins-section">
-              <p className="task-banner__coins-counter">{coins}</p>
-              <Image
-                className="task-banner__coin-image"
-                src="/coin.png"
-                width={50}
-                height={50}
-                alt="coin"
-              />
+
+            <h3 className="task-banner__title">{task.name}</h3>
+            <div className="task-banner__task">
+              {imageSrc.length ? (
+                <Image
+                  width={121}
+                  height={121}
+                  className="task-banner__task-image"
+                  src={imageSrc}
+                  alt="task-image"
+                />
+              ) : (
+                <div className="gray-square"></div>
+              )}
+              <p className="task-banner__task-name">{task.description}</p>
+            </div>
+            <div className="task-banner__coins">
+              <p className="task-banner__gray-text">Награда за выполнение:</p>
+              <div className="task-banner__coins-section">
+                <p className="task-banner__coins-counter">{subquest.reward}</p>
+                <Image
+                  className="task-banner__coin-image"
+                  src="/coin.png"
+                  width={50}
+                  height={50}
+                  alt="coin"
+                />
+              </div>
             </div>
           </div>
+          <div className="dashed-border"></div>
+          <div className="task-banner__bottom">
+            <TitleItem
+              text="Забрать награду"
+              className="title-item task-banner__button"
+              funct={clickOnTheButton}
+            />
+          </div>
         </div>
-        <div className="dashed-border"></div>
-        <div className="task-banner__bottom">
-          <TitleItem
-            text="Забрать награду"
-            className="title-item task-banner__button"
-            funct={clickOnTheButton}
-          />
-        </div>
-      </div>
+      )}
     </div>
   );
 };

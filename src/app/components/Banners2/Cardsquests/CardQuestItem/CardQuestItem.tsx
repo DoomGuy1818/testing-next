@@ -1,19 +1,21 @@
 import Image from "next/image";
 import "./CardQuestItem.scss";
+import { useGetOneSubquestQuery } from "@/service/api";
+import { useEffect } from "react";
 type Props = {
   text: string | undefined;
   coins: number;
   src: string;
   setState: Function;
-  setInfo: Function;
+  setId: Function;
   id: string;
 };
-const CardQuestItem = ({ text, coins, src, setState, setInfo, id }: Props) => {
+const CardQuestItem = ({ text, coins, src, setState, id, setId }: Props) => {
   return (
     <li
       onClick={() => {
         setState(true);
-        setInfo({ taskTitle: text, coins, logoSrc: src });
+        setId(id);
       }}
       className="card-quest__item"
     >

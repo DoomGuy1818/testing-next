@@ -4,14 +4,14 @@ import CardQuests from "./Cardsquests";
 
 type Props = {
   setState: Function;
-  setInfo: Function;
+  setId: Function;
 };
 
-const Banner2 = ({ setState, setInfo }: Props) => {
+const Banner2 = ({ setState, setId }: Props) => {
   return (
     <div className="banner-two">
       <Titlequest />
-      <CardQuests setState={setState} setInfo={setInfo} />
+      <CardQuests setState={setState} setId={setId} />
     </div>
   );
 };

@@ -1,6 +1,6 @@
 export type Subquest = {
   id: string;
-  task_id: string | undefined;
+  task_id: string;
   is_done: boolean;
   reward: number;
 };

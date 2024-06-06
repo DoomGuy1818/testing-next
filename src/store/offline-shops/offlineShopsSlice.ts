@@ -3,12 +3,12 @@ import { OfflineShop } from "@/types/OfflineShops";
 import { createSlice, SerializedError } from "@reduxjs/toolkit";
 interface IState {
   offlineShops: OfflineShop[] | [];
-  offlineShop: OfflineShop | {};
+  offlineShop: OfflineShop;
   error: boolean | SerializedError;
 }
 const initialState: IState = {
   offlineShops: [],
-  offlineShop: {},
+  offlineShop: { id: "", location: "", name: "" },
   error: false,
 };
 const offlineShopsSlice = createSlice({

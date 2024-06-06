@@ -2,19 +2,28 @@ import { wishlistApi } from "@/service/api";
 import { Subquest } from "@/types/Subquest";
 import { createSlice, SerializedError } from "@reduxjs/toolkit";
 interface IState {
-  subquest: Subquest | {};
+  subquest: Subquest;
   subquests: Subquest[] | [];
   error: boolean | SerializedError;
 }
 const initialState: IState = {
-  subquest: {},
+  subquest: {
+    id: "",
+    is_done: false,
+    reward: 0,
+    task_id: "",
+  },
   subquests: [],
   error: false,
 };
 const subquestSlice = createSlice({
   name: "subquest",
   initialState,
-  reducers: {},
+  reducers: {
+    setSubquest: (state, action) => {
+      state.subquest = action.payload;
+    },
+  },
   extraReducers: (builder) => {
     builder.addMatcher(
       wishlistApi.endpoints.getOneSubquest.matchFulfilled,
@@ -41,4 +50,5 @@ const subquestSlice = createSlice({
   },
 });
 
+export const { setSubquest } = subquestSlice.actions;
 export default subquestSlice.reducer;

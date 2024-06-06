@@ -11,9 +11,9 @@ import { useSelector } from "react-redux";
 import { selectorWithTypes } from "@/store/typedFunctions";
 type Props = {
   setState: Function;
-  setInfo: Function;
+  setId: Function;
 };
-const CardQuests = ({ setState, setInfo }: Props) => {
+const CardQuests = ({ setState, setId }: Props) => {
   useGetSubquestsQuery(null);
   useGetTasksQuery(null);
   const { subquests } = selectorWithTypes((state) => state.subquest);
@@ -24,7 +24,7 @@ const CardQuests = ({ setState, setInfo }: Props) => {
         const task = tasks.find((task) => task.id === item.task_id);
         return item.is_done ? null : (
           <CardQuestItem
-            setInfo={setInfo}
+            setId={setId}
             setState={setState}
             key={index}
             text={task?.name}

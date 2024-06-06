@@ -3,13 +3,18 @@ import { Quest } from "@/types/Quest";
 import { createSlice, SerializedError } from "@reduxjs/toolkit";
 
 interface IState {
-  quest: Quest | {};
+  quest: Quest;
   quests: Quest[] | [];
   error: boolean | SerializedError;
 }
 
 const initialState: IState = {
-  quest: {},
+  quest: {
+    id: "",
+    is_done: false,
+    subquest_id: "",
+    user_id: "",
+  },
   quests: [],
   error: false,
 };
