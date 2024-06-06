@@ -131,11 +131,12 @@ export const wishlistApi = createApi({
         headers: {
           Authorization: adminSession,
         },
-        body: JSON.stringify({
+        body: {
+          id,
           is_done,
           reward,
           task_id,
-        }),
+        },
       }),
       invalidatesTags: (result, error, { id }) => [{ type: "Subquest", id }],
     }),

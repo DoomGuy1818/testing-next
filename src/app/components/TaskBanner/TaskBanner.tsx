@@ -2,7 +2,11 @@ import Image from "next/image";
 import "./TaskBanner.scss";
 import TitleItem from "../TitleItem";
 import { selectorWithTypes } from "@/store/typedFunctions";
-import { useGetOneSubquestQuery, useGetOneTaskQuery } from "@/service/api";
+import {
+  useGetOneSubquestQuery,
+  useGetOneTaskQuery,
+  useUpdateOneSubquestMutation,
+} from "@/service/api";
 import ReactLoading from "react-loading";
 type Props = {
   isTaskBannerOpen: boolean;
@@ -17,10 +21,18 @@ const TaskBanner = ({ isTaskBannerOpen, setState, subquestId }: Props) => {
   const { subquest } = selectorWithTypes((state) => state.subquest);
   useGetOneTaskQuery(subquest.task_id);
   const { task } = selectorWithTypes((state) => state.task);
+  const [updateOneSubquest] = useUpdateOneSubquestMutation();
   if (!isTaskBannerOpen) {
     return null;
   }
-  const clickOnTheButton = () => {
+  const clickOnTheButton = async () => {
+    const data = await updateOneSubquest({
+      id: subquest.id,
+      reward: subquest.reward,
+      task_id: subquest.task_id,
+      is_done: true,
+    });
+    console.log(data);
     setState(false);
   };
   return (
