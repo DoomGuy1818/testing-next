@@ -5,6 +5,7 @@ type Props = {
   imageClassName: string;
   width: number;
   height: number;
+  name: string;
 };
 const CardsShopsItem = ({
   shopIcon,
@@ -12,16 +13,21 @@ const CardsShopsItem = ({
   imageClassName,
   width,
   height,
+  name,
 }: Props) => {
   return (
     <li className={itemClassName}>
-      <Image
-        className={imageClassName}
-        alt="shop-icon"
-        src={shopIcon}
-        width={width}
-        height={height}
-      />
+      {shopIcon.length ? (
+        <Image
+          className={imageClassName}
+          alt="shop-icon"
+          src={shopIcon}
+          width={width}
+          height={height}
+        />
+      ) : (
+        <p className="shop-name">{name}</p>
+      )}
     </li>
   );
 };

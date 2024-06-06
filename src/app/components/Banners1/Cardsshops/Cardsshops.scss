@@ -10,9 +10,25 @@
   align-items: center;
   background-color: #e8edff;
   border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.4s ease-in-out;
+}
+.cards-shops__item:hover {
+  transform: scale(1.01);
 }
 .cards-shops__image {
   object-fit: contain;
+}
+
+.cards-shops__text {
+  text-align: center;
+  font-weight: 500;
+  font-size: 24px;
+}
+
+.shop-name {
+  font-size: 12px;
+  font-weight: 500;
 }
 
 @media (min-width: 427px) and (max-width: 767px) {

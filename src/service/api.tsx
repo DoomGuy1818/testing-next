@@ -85,7 +85,7 @@ export const wishlistApi = createApi({
         url: "/subquest",
         method: "GET",
       }),
-      providesTags: ["Task"],
+      providesTags: ["Subquest"],
     }),
     getOneSubquest: builder.query<Subquest, string>({
       query: (id) => ({

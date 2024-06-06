@@ -2,6 +2,9 @@
 import "./Map.scss";
 import { YMaps, Map, Placemark, Panorama } from "@pbe/react-yandex-maps";
 import "./BallonMap/BallonMap.scss";
+import { selectorWithTypes } from "@/store/typedFunctions";
+import { useDeleteOfflineShopMutation } from "@/service/api";
+import React from "react";
 const YandexMap = () => {
   return (
     <div className="map-wrapper">
@@ -87,4 +90,4 @@ const YandexMap = () => {
   );
 };
 
-export default YandexMap;
+export default React.memo(YandexMap);

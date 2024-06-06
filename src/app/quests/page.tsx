@@ -7,6 +7,7 @@ import Header from "../components/Header/Header";
 import { Provider } from "react-redux";
 import { store } from "../../store/store";
 import { BannerInfo } from "@/types/BannerInfo";
+import { usePostOfflineShopsMutation } from "@/service/api";
 
 const Page = () => {
   const bannerInfo: BannerInfo = {
@@ -19,6 +20,7 @@ const Page = () => {
   const [isTaskBannerOpen, setIsTaskBannerOpen] = useState(false);
   const [taskBannerInfo, setTaskBannerInfo] = useState(bannerInfo);
   const { logoSrc, taskTitle, coins, taskText } = taskBannerInfo;
+
   return (
     <Provider store={store}>
       <TaskBanner

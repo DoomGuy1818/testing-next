@@ -1,7 +1,7 @@
 export type Subquest = {
   id: string;
+  task_id: string | undefined;
   is_done: boolean;
   reward: number;
-  task_id: string;
 };
 export interface CreateSubquest extends Omit<Subquest, "id"> {}

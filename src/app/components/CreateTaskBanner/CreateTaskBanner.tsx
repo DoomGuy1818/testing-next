@@ -1,11 +1,18 @@
 import Image from "next/image";
 import "./CreateTaskBanner.scss";
 import TitleItem from "../TitleItem";
-import { useEffect, useState } from "react";
+import {
+  ChangeEvent,
+  FormEvent,
+  FormEventHandler,
+  useEffect,
+  useState,
+} from "react";
 import {
   useDeleteOneTaskMutation,
   useGetUserQuery,
   useLoginUserMutation,
+  usePostOfflineShopsMutation,
   usePostSubquestMutation,
   usePostTasksMutation,
 } from "@/service/api";
@@ -59,7 +66,6 @@ const CreateTaskBanner = ({
 
   const [postTasks] = usePostTasksMutation();
   const [postSubquest] = usePostSubquestMutation();
-  const [deleteTask] = useDeleteOneTaskMutation();
   const createTask = async () => {
     if (title.length > 5 && text.length > 5 && coins !== 0) {
       if (editedTask.id) {
@@ -77,28 +83,17 @@ const CreateTaskBanner = ({
         setQuestsItems(questsItems);
       } else {
         try {
-          let authToken = localStorage.getItem("user");
-          if (
-            authToken &&
-            authToken.startsWith('"') &&
-            authToken.endsWith('"')
-          ) {
-            authToken = authToken.slice(1, -1); // Удаление первого и последнего символов (кавычек)
-          }
-          console.log(authToken);
           const taskData = await postTasks({
             name: title,
             description: text,
-            authToken: authToken,
           });
           console.log(taskData);
-          const deleteData = await deleteTask({ id: 1, authToken: authToken });
-          // const subquestData = postSubquest({
-          //   task_id: taskData.data?.id,
-          //   is_done: false,
-          //   reward: coins,
-          // });
-          // return subquestData;
+          const subquestData = await postSubquest({
+            task_id: taskData.data?.id,
+            is_done: false,
+            reward: coins,
+          });
+          console.log(subquestData);
         } catch (error) {
           console.log(error);
         }
@@ -119,7 +114,7 @@ const CreateTaskBanner = ({
             className="task-banner__title"
             type="text"
             placeholder="Напишите название"
-            onInput={(e) => {
+            onInput={(e: ChangeEvent<HTMLInputElement>) => {
               setTitle(e.target.value);
             }}
             value={title}
@@ -130,7 +125,7 @@ const CreateTaskBanner = ({
               className="task-banner__task-name"
               type="text"
               placeholder="Напишите задачу"
-              onInput={(e) => {
+              onInput={(e: ChangeEvent<HTMLInputElement>) => {
                 setText(e.target.value);
               }}
               value={text}
@@ -143,7 +138,7 @@ const CreateTaskBanner = ({
                 className="task-banner__coins-counter"
                 type="number"
                 placeholder="+"
-                onInput={(e) => {
+                onInput={(e: ChangeEvent<HTMLInputElement>) => {
                   setCoins(+e.target.value);
                 }}
                 value={coins}

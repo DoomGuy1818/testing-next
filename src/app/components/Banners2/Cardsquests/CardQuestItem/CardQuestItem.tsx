@@ -1,26 +1,19 @@
 import Image from "next/image";
 import "./CardQuestItem.scss";
 type Props = {
-  text: string;
+  text: string | undefined;
   coins: number;
   src: string;
-  taskText: string;
   setState: Function;
   setInfo: Function;
+  id: string;
 };
-const CardQuestItem = ({
-  text,
-  coins,
-  src,
-  taskText,
-  setState,
-  setInfo,
-}: Props) => {
+const CardQuestItem = ({ text, coins, src, setState, setInfo, id }: Props) => {
   return (
     <li
       onClick={() => {
         setState(true);
-        setInfo({ taskTitle: text, coins, logoSrc: src, taskText });
+        setInfo({ taskTitle: text, coins, logoSrc: src });
       }}
       className="card-quest__item"
     >
