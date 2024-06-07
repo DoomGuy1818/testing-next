@@ -40,7 +40,7 @@ export const wishlistApi = createApi({
     }),
     updateOneTask: builder.mutation<Task, Task>({
       query: (data) => {
-        const { id, ...task } = data;
+        const { id, description, name } = data;
         return {
           url: `/tasks/${id}`,
           method: "PATCH",
@@ -48,7 +48,11 @@ export const wishlistApi = createApi({
             "Content-Type": "application/json",
             Authorization: adminSession,
           },
-          body: JSON.stringify(task),
+          body: {
+            id,
+            description,
+            name,
+          },
         };
       },
       invalidatesTags: (result, error, { id }) => [{ type: "Task", id }],
@@ -158,7 +162,7 @@ export const wishlistApi = createApi({
     }),
     updateOneQuest: builder.mutation<Quest, Quest>({
       query: (data) => {
-        const { id, ...quest } = data;
+        const { id, is_done, subquest_id, user_id } = data;
         return {
           url: `/quest/${id}`,
           method: "PATCH",
@@ -166,7 +170,12 @@ export const wishlistApi = createApi({
             "Content-Type": "application/json",
             Authorization: adminSession,
           },
-          body: JSON.stringify(quest),
+          body: {
+            id,
+            is_done,
+            subquest_id,
+            user_id,
+          },
         };
       },
       invalidatesTags: (result, error, { id }) => [{ type: "Quest", id }],
@@ -229,7 +238,11 @@ export const wishlistApi = createApi({
           "Content-Type": "application/json",
           Authorization: adminSession,
         },
-        body: JSON.stringify({ location, name }),
+        body: {
+          id,
+          location,
+          name,
+        },
       }),
       invalidatesTags: (result, error, { id }) => [{ type: "OfflineShop", id }],
     }),
