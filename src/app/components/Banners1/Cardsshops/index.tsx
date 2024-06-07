@@ -4,8 +4,8 @@ import CardsShopsItem from "./CardsShopsItem";
 import { shopsIcons } from "@/app/quests/moks/shopsIcons";
 import { selectorWithTypes } from "@/store/typedFunctions";
 const Cardsshops = () => {
-  const { offlineShops } = selectorWithTypes((state) => state.offlineShop);
   useGetOfflineShopsQuery(null);
+  const { offlineShops } = selectorWithTypes((state) => state.offlineShop);
   return (
     <div className="cards-shops">
       {offlineShops.length ? (

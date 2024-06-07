@@ -1,7 +1,5 @@
 "use client";
 import { Provider } from "react-redux";
-import styles from "./page.module.css";
-import { YMaps, Map, Placemark } from "@pbe/react-yandex-maps";
 import { store } from "@/store/store";
 import Shops from "../components/Banners1/Shops";
 import Header from "../components/Header/Header";
