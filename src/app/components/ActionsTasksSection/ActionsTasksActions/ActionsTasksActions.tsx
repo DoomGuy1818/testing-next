@@ -5,22 +5,21 @@ import {
   useDeleteOneTaskMutation,
   useGetOneSubquestQuery,
 } from "@/service/api";
-import { selectorWithTypes } from "@/store/typedFunctions";
 type Props = {
   id: string;
   setEditedTaskId: Function;
+  taskId: string;
 };
-const ActionsTasksActions = ({ id, setEditedTaskId }: Props) => {
+const ActionsTasksActions = ({ id, setEditedTaskId, taskId }: Props) => {
   const [deleteOneSubquest, { isLoading: isDeliting }] =
     useDeleteOneSubquestMutation();
-  const { subquest } = selectorWithTypes((state) => state.subquest);
   const [deleteOneTask] = useDeleteOneTaskMutation();
   const editQuest = () => {
     setEditedTaskId(id);
   };
   const deleteQuest = () => {
     deleteOneSubquest(id);
-    deleteOneTask(subquest.task_id);
+    deleteOneTask(taskId);
   };
   return (
     <div className="actions">

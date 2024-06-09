@@ -32,14 +32,15 @@ const ActionsTasksSection = ({ setEditedTaskId }: Props) => {
           funct={() => {}}
         />
       </div>
-      <div className="section-body section-items__list">
-        {subquests.length ? (
-          subquests.map((subquest, index) => {
+      {subquests.length ? (
+        <div className="section-body section-items__list">
+          {subquests.map((subquest, index) => {
             const task = tasks.find((task) => task.id === subquest.task_id);
             return (
               <ActionsTasksItem
                 key={index}
                 id={subquest.id}
+                taskId={task?.id || ""}
                 text={task?.name}
                 coins={subquest.reward}
                 taskText={task?.description}
@@ -47,16 +48,18 @@ const ActionsTasksSection = ({ setEditedTaskId }: Props) => {
                 setEditedTaskId={setEditedTaskId}
               />
             );
-          })
-        ) : (
+          })}
+        </div>
+      ) : (
+        <div className="loader-section">
           <ReactLoading
             width={150}
             height={150}
             type={"spin"}
             color="#b8c7fb"
           />
-        )}
-      </div>
+        </div>
+      )}
     </div>
   );
 };

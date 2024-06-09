@@ -4,6 +4,17 @@
   grid-gap: 22px;
 }
 
+.loader-section {
+  display: flex;
+  justify-content: center;
+  padding: 20px 0;
+  align-items: center;
+}
+.loader-section > div {
+  overflow: auto;
+  scrollbar-width: none;
+}
+
 @media (max-width: 426px) {
   .card-quests__list {
     grid-template-columns: 1fr;

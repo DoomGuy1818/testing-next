@@ -1,25 +1,16 @@
-import {
-  useDeleteOneSubquestMutation,
-  useDeleteOneTaskMutation,
-  useGetSubquestsQuery,
-  useGetTasksQuery,
-} from "@/service/api";
 import CardQuestItem from "./CardQuestItem/CardQuestItem";
 import "./Cardsquests.scss";
-import { quests } from "@/app/quests/moks/quests";
-import { useSelector } from "react-redux";
 import { selectorWithTypes } from "@/store/typedFunctions";
 import React from "react";
+import ReactLoading from "react-loading";
 type Props = {
   setState: Function;
   setId: Function;
 };
 const CardQuests = ({ setState, setId }: Props) => {
-  useGetSubquestsQuery(null);
-  useGetTasksQuery(null);
   const { subquests } = selectorWithTypes((state) => state.subquest);
   const { tasks } = selectorWithTypes((state) => state.task);
-  return (
+  return subquests.length ? (
     <ul className="card-quests__list">
       {subquests.map((item, index) => {
         const task = tasks.find((task) => task.id === item.task_id);
@@ -36,6 +27,10 @@ const CardQuests = ({ setState, setId }: Props) => {
         );
       })}
     </ul>
+  ) : (
+    <div className="loader-section">
+      <ReactLoading width={150} height={150} type={"spin"} color="#b8c7fb" />
+    </div>
   );
 };
 

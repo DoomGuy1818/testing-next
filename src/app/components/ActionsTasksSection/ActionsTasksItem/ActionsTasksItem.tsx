@@ -10,12 +10,14 @@ type Props = {
   taskText: string | undefined;
   src: string;
   setEditedTaskId: Function;
+  taskId: string;
 };
 const ActionsTasksItem = ({
   id,
   text,
   coins,
   taskText,
+  taskId,
   src,
   setEditedTaskId,
 }: Props) => {
@@ -29,7 +31,11 @@ const ActionsTasksItem = ({
         id={id}
         setId={() => {}}
       />
-      <ActionsTasksActions setEditedTaskId={setEditedTaskId} id={id} />
+      <ActionsTasksActions
+        setEditedTaskId={setEditedTaskId}
+        id={id}
+        taskId={taskId}
+      />
     </div>
   );
 };

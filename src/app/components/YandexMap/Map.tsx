@@ -37,6 +37,7 @@ const YandexMap = () => {
                     iconLayout: "default#image",
                     iconImageHref: "/images/geo.svg",
                     iconImageSize: [42, 42],
+                    balloonPanelMaxMapArea: 0,
                   }}
                   defaultGeometry={location}
                 />
