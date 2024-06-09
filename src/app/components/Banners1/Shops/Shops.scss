@@ -1,0 +1,39 @@
+.shops {
+  background: #ffffff;
+  width: 845px; /* Ширина */
+  height: 842px; /* Высота */
+  margin: auto;
+  border-radius: 35px 35px;
+  margin-bottom: 100px;
+  margin-top: -93px;
+  padding: 205px 15px 50px 15px;
+}
+
+.shops-page {
+  padding: 32px;
+  border-radius: 35px;
+  margin-top: 200px;
+  height: auto;
+}
+
+@media (min-width: 427px) and (max-width: 850px) {
+  .shops {
+    width: 100%;
+    padding-top: 165px;
+  }
+  .shops-page {
+    width: 90%;
+    padding-top: 40px;
+    padding: 20px;
+  }
+}
+
+@media (max-width: 426px) {
+  .shops-page {
+    width: 80%;
+    padding: 15px;
+  }
+  .shops {
+    width: 100%;
+  }
+}
