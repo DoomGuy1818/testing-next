@@ -17,6 +17,7 @@ const Page = () => {
         <TaskBanner
           isTaskBannerOpen={isTaskBannerOpen}
           setState={setIsTaskBannerOpen}
+          setId={setSubquestId}
           subquestId={subquestId}
         />
       ) : (

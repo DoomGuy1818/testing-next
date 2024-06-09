@@ -16,6 +16,7 @@ const CardQuestItem = ({ text, coins, src, setState, id, setId }: Props) => {
       onClick={() => {
         setState(true);
         setId(id);
+        console.log({ text, coins, id });
       }}
       className="card-quest__item"
     >

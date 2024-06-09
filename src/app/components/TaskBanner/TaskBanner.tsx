@@ -1,26 +1,51 @@
 import Image from "next/image";
 import "./TaskBanner.scss";
 import TitleItem from "../TitleItem";
-import { selectorWithTypes } from "@/store/typedFunctions";
+import { dispatchWithTypes, selectorWithTypes } from "@/store/typedFunctions";
 import {
   useGetOneSubquestQuery,
   useGetOneTaskQuery,
   useUpdateOneSubquestMutation,
 } from "@/service/api";
 import ReactLoading from "react-loading";
+import React, { useEffect } from "react";
+import { setTask } from "@/store/tasks/tasksSlice";
+import { setSubquest } from "@/store/subquest/subquestSlice";
 type Props = {
   isTaskBannerOpen: boolean;
   setState: Function;
   subquestId: string;
+  setId: Function;
 };
 
-const TaskBanner = ({ isTaskBannerOpen, setState, subquestId }: Props) => {
+const TaskBanner = ({
+  isTaskBannerOpen,
+  setState,
+  subquestId,
+  setId,
+}: Props) => {
+  const dispatch = dispatchWithTypes();
+  console.log({ subquestId });
   const imageSrc = "";
   const logoSrc = "";
-  useGetOneSubquestQuery(subquestId);
+  const { data: subquestData, refetch: refetchSubquest } =
+    useGetOneSubquestQuery(subquestId);
   const { subquest } = selectorWithTypes((state) => state.subquest);
-  useGetOneTaskQuery(subquest.task_id);
+  const { data: taskData, refetch: refetchTask } = useGetOneTaskQuery(
+    subquest.task_id
+  );
   const { task } = selectorWithTypes((state) => state.task);
+
+  useEffect(() => {
+    refetchSubquest();
+  }, [subquestId, refetchSubquest]);
+
+  useEffect(() => {
+    if (subquestData) {
+      refetchTask();
+    }
+  }, [subquestData, refetchTask, subquest]);
+
   const [updateOneSubquest] = useUpdateOneSubquestMutation();
   if (!isTaskBannerOpen) {
     return null;
@@ -34,12 +59,18 @@ const TaskBanner = ({ isTaskBannerOpen, setState, subquestId }: Props) => {
     });
     console.log(data);
     setState(false);
+    setId("");
+    dispatch(setTask({}));
+    dispatch(setSubquest({}));
   };
   return (
     <div
       className="task-banner__background"
       onClick={() => {
         setState(false);
+        setId("");
+        dispatch(setTask({}));
+        dispatch(setSubquest({}));
       }}
     >
       {!task.id ? (
@@ -112,4 +143,4 @@ const TaskBanner = ({ isTaskBannerOpen, setState, subquestId }: Props) => {
     </div>
   );
 };
-export default TaskBanner;
+export default React.memo(TaskBanner);

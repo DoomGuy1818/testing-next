@@ -18,7 +18,11 @@ const initialState: IState = {
 const taskSlice = createSlice({
   name: "task",
   initialState,
-  reducers: {},
+  reducers: {
+    setTask: (state, action) => {
+      state.task = action.payload;
+    },
+  },
   extraReducers: (builder) => {
     builder.addMatcher(
       wishlistApi.endpoints.getTasks.matchFulfilled,
@@ -44,5 +48,5 @@ const taskSlice = createSlice({
     );
   },
 });
-
+export const { setTask } = taskSlice.actions;
 export default taskSlice.reducer;

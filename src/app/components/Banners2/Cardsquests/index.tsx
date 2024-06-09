@@ -9,6 +9,7 @@ import "./Cardsquests.scss";
 import { quests } from "@/app/quests/moks/quests";
 import { useSelector } from "react-redux";
 import { selectorWithTypes } from "@/store/typedFunctions";
+import React from "react";
 type Props = {
   setState: Function;
   setId: Function;
@@ -26,7 +27,7 @@ const CardQuests = ({ setState, setId }: Props) => {
           <CardQuestItem
             setId={setId}
             setState={setState}
-            key={index}
+            key={item.id}
             text={task?.name}
             coins={item.reward}
             src={""}
@@ -38,4 +39,4 @@ const CardQuests = ({ setState, setId }: Props) => {
   );
 };
 
-export default CardQuests;
+export default React.memo(CardQuests);
