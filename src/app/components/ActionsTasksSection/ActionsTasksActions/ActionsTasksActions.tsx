@@ -20,7 +20,7 @@ const ActionsTasksActions = ({ id, setEditedTaskId }: Props) => {
   };
   const deleteQuest = () => {
     deleteOneSubquest(id);
-    deleteOneTask(subquest.id);
+    deleteOneTask(subquest.task_id);
   };
   return (
     <div className="actions">

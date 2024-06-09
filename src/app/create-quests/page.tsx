@@ -13,7 +13,10 @@ const Page = () => {
     <Provider store={store}>
       <Header />
       {editedTaskId.length ? (
-        <EditTaskBanner editedTaskId={editedTaskId} />
+        <EditTaskBanner
+          editedTaskId={editedTaskId}
+          setEditedTaskId={setEditedTaskId}
+        />
       ) : (
         <CreateTaskBanner />
       )}

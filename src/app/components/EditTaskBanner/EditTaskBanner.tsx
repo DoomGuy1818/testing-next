@@ -9,15 +9,25 @@ import {
   useState,
 } from "react";
 import { selectorWithTypes } from "@/store/typedFunctions";
-import { useGetOneSubquestQuery, useGetOneTaskQuery } from "@/service/api";
+import {
+  useGetOneSubquestQuery,
+  useGetOneTaskQuery,
+  useUpdateOneSubquestMutation,
+  useUpdateOneTaskMutation,
+} from "@/service/api";
+import { updateQuest } from "@/hooks/updateQuest";
 type Props = {
   editedTaskId: string;
+  setEditedTaskId: Function;
 };
-const EditTaskBanner = ({ editedTaskId }: Props) => {
+const EditTaskBanner = ({ editedTaskId, setEditedTaskId }: Props) => {
   useGetOneSubquestQuery(editedTaskId);
   const { subquest } = selectorWithTypes((state) => state.subquest);
   useGetOneTaskQuery(subquest.task_id);
   const { task } = selectorWithTypes((state) => state.task);
+
+  const [updateSubquest] = useUpdateOneSubquestMutation();
+  const [updateTask] = useUpdateOneTaskMutation();
 
   const [title, setTitle] = useState("");
   const [text, setText] = useState("");
@@ -80,7 +90,21 @@ const EditTaskBanner = ({ editedTaskId }: Props) => {
           <TitleItem
             text="Обновить квест"
             className="title-item task-banner__button"
-            funct={() => {}}
+            funct={() => {
+              updateQuest({
+                coins,
+                subquestId: subquest.id,
+                taskId: task.id,
+                text,
+                title,
+                updateSubquest,
+                updateTask,
+              });
+              setEditedTaskId("");
+              setTitle("");
+              setText("");
+              setCoins(0);
+            }}
           />
         </div>
       </div>

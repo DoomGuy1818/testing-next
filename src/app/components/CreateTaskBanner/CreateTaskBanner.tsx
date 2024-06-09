@@ -8,65 +8,29 @@ import {
   useEffect,
   useState,
 } from "react";
-import { usePostSubquestMutation, usePostTasksMutation } from "@/service/api";
+import {
+  useLoginUserMutation,
+  usePostSubquestMutation,
+  usePostTasksMutation,
+} from "@/service/api";
+import { createQuest } from "@/hooks/createQuest";
+import { handleLogin } from "@/hooks/loginFunc";
 
-// type Credentionals = {
-//   login: string;
-//   password: string;
-// };
 const CreateTaskBanner = () => {
   // const [loginUser, { isLoading, isError, error }] = useLoginUserMutation();
 
-  // const handleLogin = async (credentionals: Credentionals) => {
-  //   try {
-  //     const result = await loginUser(credentionals).unwrap();
-  //     const data = result;
-  //     console.log(data);
-  //     const sessionId = result.id.replace(/"/g, "");
-  //     localStorage.setItem("user", sessionId);
-  //     // Обработайте результат
-  //     console.log(result);
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // };
   // useEffect(() => {
   //   handleLogin({
   //     login: "zzzzassas@gmail.com",
   //     password: "DKgfhuhgrjkhj___2324",
+  //     loginUser,
   //   });
-  // }, []);
-
+  // }, [loginUser]);
+  const [postTasks] = usePostTasksMutation();
+  const [postSubquest] = usePostSubquestMutation();
   const [title, setTitle] = useState("");
   const [text, setText] = useState("");
   const [coins, setCoins] = useState(0);
-
-  const [postTasks] = usePostTasksMutation();
-  const [postSubquest] = usePostSubquestMutation();
-  const createTask = async () => {
-    if (title.length > 5 && text.length > 5 && coins !== 0) {
-      try {
-        const taskData = await postTasks({
-          name: title,
-          description: text,
-        });
-        console.log(taskData);
-        const subquestData = await postSubquest({
-          task_id: taskData.data!.id,
-          is_done: false,
-          reward: coins,
-        });
-        console.log(subquestData);
-      } catch (error) {
-        console.log(error);
-      }
-    } else {
-      console.log("incorrect data");
-    }
-    setTitle("");
-    setText("");
-    setCoins(0);
-  };
   return (
     <div className="task-banner__background">
       <div className="task-banner__content">
@@ -120,7 +84,18 @@ const CreateTaskBanner = () => {
           <TitleItem
             text="Создать квест"
             className="title-item task-banner__button"
-            funct={createTask}
+            funct={() => {
+              createQuest({
+                coins,
+                postSubquest,
+                postTasks,
+                text,
+                title,
+              });
+              setTitle("");
+              setText("");
+              setCoins(0);
+            }}
           />
         </div>
       </div>

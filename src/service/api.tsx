@@ -55,7 +55,7 @@ export const wishlistApi = createApi({
           },
         };
       },
-      invalidatesTags: (result, error, { id }) => [{ type: "Task", id }],
+      invalidatesTags: ["Subquest"],
       // transformResponse: (response: { data: Task }, meta, arg) => response.data,
     }),
     postTasks: builder.mutation<Task, CreateTask>({
@@ -142,7 +142,7 @@ export const wishlistApi = createApi({
           task_id,
         },
       }),
-      invalidatesTags: (result, error, { id }) => [{ type: "Subquest", id }],
+      invalidatesTags: ["Subquest"],
     }),
     getQuests: builder.query<Quest[], null>({
       query: () => ({
@@ -178,7 +178,7 @@ export const wishlistApi = createApi({
           },
         };
       },
-      invalidatesTags: (result, error, { id }) => [{ type: "Quest", id }],
+      invalidatesTags: ["Quest"],
     }),
     deleteOneQuest: builder.mutation<null, string>({
       query: (id) => ({
@@ -244,7 +244,7 @@ export const wishlistApi = createApi({
           name,
         },
       }),
-      invalidatesTags: (result, error, { id }) => [{ type: "OfflineShop", id }],
+      invalidatesTags: ["OfflineShop"],
     }),
     deleteOfflineShop: builder.mutation<null, string>({
       query: (id) => ({

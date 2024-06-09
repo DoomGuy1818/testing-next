@@ -5,9 +5,9 @@ import { QuestItem } from "@/types/QuestItem";
 
 type Props = {
   id: string;
-  text: string;
+  text: string | undefined;
   coins: number;
-  taskText: string;
+  taskText: string | undefined;
   src: string;
   setEditedTaskId: Function;
 };

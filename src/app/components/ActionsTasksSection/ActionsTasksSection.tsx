@@ -3,6 +3,7 @@ import "./ActionsTasksSection.scss";
 import ActionsTasksItem from "./ActionsTasksItem/ActionsTasksItem";
 import { selectorWithTypes } from "@/store/typedFunctions";
 import {
+  useDeleteOneTaskMutation,
   useGetOneSubquestQuery,
   useGetSubquestsQuery,
   useGetTasksQuery,
@@ -39,9 +40,9 @@ const ActionsTasksSection = ({ setEditedTaskId }: Props) => {
               <ActionsTasksItem
                 key={index}
                 id={subquest.id}
-                text={task!.name}
+                text={task?.name}
                 coins={subquest.reward}
-                taskText={task!.description}
+                taskText={task?.description}
                 src={""}
                 setEditedTaskId={setEditedTaskId}
               />
