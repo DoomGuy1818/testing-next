@@ -5,31 +5,19 @@ import { Provider } from "react-redux";
 import { store } from "../../store/store";
 import CreateTaskBanner from "../components/CreateTaskBanner/CreateTaskBanner";
 import ActionsTasksSection from "@/app/components/ActionsTasksSection/ActionsTasksSection";
-import { quests } from "../quests/moks/quests";
+import EditTaskBanner from "../components/EditTaskBanner/EditTaskBanner";
 
 const Page = () => {
-  const [editedTask, setEditedTask] = useState({
-    id: 0,
-    text: "",
-    coins: 0,
-    src: "",
-    taskText: "",
-  });
-  const [questsItems, setQuestsItems] = useState(quests);
+  const [editedTaskId, setEditedTaskId] = useState("");
   return (
     <Provider store={store}>
       <Header />
-      <CreateTaskBanner
-        editedTask={editedTask}
-        setEditedTask={setEditedTask}
-        questsItems={questsItems}
-        setQuestsItems={setQuestsItems}
-      />
-      <ActionsTasksSection
-        setEditedTask={setEditedTask}
-        questsItems={questsItems}
-        setQuestsItems={setQuestsItems}
-      />
+      {editedTaskId.length ? (
+        <EditTaskBanner editedTaskId={editedTaskId} />
+      ) : (
+        <CreateTaskBanner />
+      )}
+      <ActionsTasksSection setEditedTaskId={setEditedTaskId} />
     </Provider>
   );
 };

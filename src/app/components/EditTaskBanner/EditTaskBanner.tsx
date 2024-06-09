@@ -1,5 +1,5 @@
 import Image from "next/image";
-import "./CreateTaskBanner.scss";
+import "../CreateTaskBanner/CreateTaskBanner.scss";
 import TitleItem from "../TitleItem";
 import {
   ChangeEvent,
@@ -8,65 +8,25 @@ import {
   useEffect,
   useState,
 } from "react";
-import { usePostSubquestMutation, usePostTasksMutation } from "@/service/api";
-
-// type Credentionals = {
-//   login: string;
-//   password: string;
-// };
-const CreateTaskBanner = () => {
-  // const [loginUser, { isLoading, isError, error }] = useLoginUserMutation();
-
-  // const handleLogin = async (credentionals: Credentionals) => {
-  //   try {
-  //     const result = await loginUser(credentionals).unwrap();
-  //     const data = result;
-  //     console.log(data);
-  //     const sessionId = result.id.replace(/"/g, "");
-  //     localStorage.setItem("user", sessionId);
-  //     // Обработайте результат
-  //     console.log(result);
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // };
-  // useEffect(() => {
-  //   handleLogin({
-  //     login: "zzzzassas@gmail.com",
-  //     password: "DKgfhuhgrjkhj___2324",
-  //   });
-  // }, []);
+import { selectorWithTypes } from "@/store/typedFunctions";
+import { useGetOneSubquestQuery, useGetOneTaskQuery } from "@/service/api";
+type Props = {
+  editedTaskId: string;
+};
+const EditTaskBanner = ({ editedTaskId }: Props) => {
+  useGetOneSubquestQuery(editedTaskId);
+  const { subquest } = selectorWithTypes((state) => state.subquest);
+  useGetOneTaskQuery(subquest.task_id);
+  const { task } = selectorWithTypes((state) => state.task);
 
   const [title, setTitle] = useState("");
   const [text, setText] = useState("");
   const [coins, setCoins] = useState(0);
-
-  const [postTasks] = usePostTasksMutation();
-  const [postSubquest] = usePostSubquestMutation();
-  const createTask = async () => {
-    if (title.length > 5 && text.length > 5 && coins !== 0) {
-      try {
-        const taskData = await postTasks({
-          name: title,
-          description: text,
-        });
-        console.log(taskData);
-        const subquestData = await postSubquest({
-          task_id: taskData.data!.id,
-          is_done: false,
-          reward: coins,
-        });
-        console.log(subquestData);
-      } catch (error) {
-        console.log(error);
-      }
-    } else {
-      console.log("incorrect data");
-    }
-    setTitle("");
-    setText("");
-    setCoins(0);
-  };
+  useEffect(() => {
+    setTitle(task.name);
+    setText(task.description);
+    setCoins(subquest.reward);
+  }, [subquest, task]);
   return (
     <div className="task-banner__background">
       <div className="task-banner__content">
@@ -118,13 +78,14 @@ const CreateTaskBanner = () => {
         <div className="dashed-border"></div>
         <div className="task-banner__bottom">
           <TitleItem
-            text="Создать квест"
+            text="Обновить квест"
             className="title-item task-banner__button"
-            funct={createTask}
+            funct={() => {}}
           />
         </div>
       </div>
     </div>
   );
 };
-export default CreateTaskBanner;
+
+export default EditTaskBanner;

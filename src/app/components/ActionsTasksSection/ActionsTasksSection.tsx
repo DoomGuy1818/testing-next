@@ -1,20 +1,22 @@
-import { quests } from "@/app/quests/moks/quests";
 import TitleItem from "../TitleItem";
 import "./ActionsTasksSection.scss";
 import ActionsTasksItem from "./ActionsTasksItem/ActionsTasksItem";
-import { useEffect, useMemo, useState } from "react";
-import { QuestItem } from "@/types/QuestItem";
+import { selectorWithTypes } from "@/store/typedFunctions";
+import {
+  useGetOneSubquestQuery,
+  useGetSubquestsQuery,
+  useGetTasksQuery,
+} from "@/service/api";
+import ReactLoading from "react-loading";
 
 type Props = {
-  setEditedTask: Function;
-  questsItems: QuestItem[];
-  setQuestsItems: Function;
+  setEditedTaskId: Function;
 };
-const ActionsTasksSection = ({
-  setEditedTask,
-  questsItems,
-  setQuestsItems,
-}: Props) => {
+const ActionsTasksSection = ({ setEditedTaskId }: Props) => {
+  useGetSubquestsQuery(null);
+  useGetTasksQuery(null);
+  const { subquests } = selectorWithTypes((state) => state.subquest);
+  const { tasks } = selectorWithTypes((state) => state.task);
   return (
     <div className="section">
       <div className="section-header">
@@ -30,21 +32,29 @@ const ActionsTasksSection = ({
         />
       </div>
       <div className="section-body section-items__list">
-        {questsItems.map((quest, index) => {
-          return (
-            <ActionsTasksItem
-              key={index}
-              id={quest.id}
-              text={quest.text}
-              coins={quest.coins}
-              taskText={quest.taskText}
-              src={quest.src}
-              setQuests={setQuestsItems}
-              questsItems={questsItems}
-              setEditedTask={setEditedTask}
-            />
-          );
-        })}
+        {subquests.length ? (
+          subquests.map((subquest, index) => {
+            const task = tasks.find((task) => task.id === subquest.task_id);
+            return (
+              <ActionsTasksItem
+                key={index}
+                id={subquest.id}
+                text={task!.name}
+                coins={subquest.reward}
+                taskText={task!.description}
+                src={""}
+                setEditedTaskId={setEditedTaskId}
+              />
+            );
+          })
+        ) : (
+          <ReactLoading
+            width={150}
+            height={150}
+            type={"spin"}
+            color="#b8c7fb"
+          />
+        )}
       </div>
     </div>
   );

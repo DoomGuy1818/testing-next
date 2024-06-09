@@ -4,14 +4,12 @@ import "./ActionsTasksItem.scss";
 import { QuestItem } from "@/types/QuestItem";
 
 type Props = {
-  id: number;
+  id: string;
   text: string;
   coins: number;
   taskText: string;
   src: string;
-  setQuests: Function;
-  questsItems: QuestItem[];
-  setEditedTask: Function;
+  setEditedTaskId: Function;
 };
 const ActionsTasksItem = ({
   id,
@@ -19,26 +17,19 @@ const ActionsTasksItem = ({
   coins,
   taskText,
   src,
-  setQuests,
-  questsItems,
-  setEditedTask,
+  setEditedTaskId,
 }: Props) => {
   return (
     <div className="tasks-item">
       <CardQuestItem
         coins={coins}
-        setInfo={() => {}}
         setState={() => {}}
         src={src || ""}
-        taskText={taskText}
         text={text}
-      />
-      <ActionsTasksActions
-        setEditedTask={setEditedTask}
         id={id}
-        setQuests={setQuests}
-        questsItems={questsItems}
+        setId={() => {}}
       />
+      <ActionsTasksActions setEditedTaskId={setEditedTaskId} id={id} />
     </div>
   );
 };

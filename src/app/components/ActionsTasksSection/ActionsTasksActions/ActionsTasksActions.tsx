@@ -1,35 +1,26 @@
 import Image from "next/image";
 import "./ActionsTasksActions.scss";
-import { QuestItem } from "@/types/QuestItem";
-import { useDeleteOneSubquestMutation } from "@/service/api";
+import {
+  useDeleteOneSubquestMutation,
+  useDeleteOneTaskMutation,
+  useGetOneSubquestQuery,
+} from "@/service/api";
+import { selectorWithTypes } from "@/store/typedFunctions";
 type Props = {
-  id: number;
-  setQuests: Function;
-  questsItems: QuestItem[];
-  setEditedTask: Function;
+  id: string;
+  setEditedTaskId: Function;
 };
-const ActionsTasksActions = ({
-  id,
-  setQuests,
-  questsItems,
-  setEditedTask,
-}: Props) => {
-  const [deleteOneSubquestQuest, { isLoading: isDeliting }] =
+const ActionsTasksActions = ({ id, setEditedTaskId }: Props) => {
+  const [deleteOneSubquest, { isLoading: isDeliting }] =
     useDeleteOneSubquestMutation();
+  const { subquest } = selectorWithTypes((state) => state.subquest);
+  const [deleteOneTask] = useDeleteOneTaskMutation();
   const editQuest = () => {
-    const editedItem = questsItems.find((quest) => {
-      return quest.id === id;
-    });
-    setEditedTask(editedItem);
+    setEditedTaskId(id);
   };
   const deleteQuest = () => {
-    const itemIndex = questsItems.findIndex((quest) => {
-      return quest.id === id;
-    });
-    const quests = [...questsItems];
-    quests.splice(itemIndex, 1);
-    setQuests(quests);
-    deleteOneSubquestQuest(4);
+    deleteOneSubquest(id);
+    deleteOneTask(subquest.id);
   };
   return (
     <div className="actions">

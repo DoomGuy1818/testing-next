@@ -1,6 +1,9 @@
 .map-wrapper {
   padding: 32px;
   margin-top: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .yandex-map {
   margin: 0 auto;
