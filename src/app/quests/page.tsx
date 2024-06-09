@@ -2,6 +2,7 @@
 import Banner1 from "../components/Banners1/Banner1";
 import Banner2 from "../components/Banners2/Banner2";
 import { useEffect, useState } from "react";
+
 import TaskBanner from "../components/TaskBanner/TaskBanner";
 import Header from "../components/Header/Header";
 import { Provider } from "react-redux";
